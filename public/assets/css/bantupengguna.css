@@ -1,0 +1,72 @@
+@media (max-width: 767px) {
+    .ah-list--design5 > li > a {
+        display: inline-block;
+        font-size: 11px;
+        padding: 5px 5px; }
+}
+
+
+@media (max-width: 575px) {
+    .ah-list--design5 > li > a {
+        display: inline-block;
+        font-size: 11px;
+        padding: 5px 5px; }
+
+}
+
+.ah-list--design5 .active {
+   color: #01AA4F;
+}
+
+.syarat {
+    padding: 50px;
+}
+
+.syarat ol li {
+    padding-bottom: 20px;
+    text-align: justify;
+    font-family: poppins;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.syarat span {
+    color: #01AA4F;
+    padding-bottom: 8px;
+    font-weight: 600;
+    font-family: poppins;
+}
+
+.syarat p {
+    padding-bottom: 20px;
+    text-align: justify;
+    font-family: poppins;
+    line-height: 2;
+}
+
+.tentangkami {
+    padding: 50px;
+}
+
+.tentangkami img {
+    width: 40%;
+}
+
+.tentangkami h3{
+    color: #000;
+    font-family: poppins;
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+.tentangkami span {
+    color: #01AA4F;
+}
+
+.tentangkami p {
+    line-height: 2;
+    text-align: justify;
+}
+body {
+    font-family: "Poppins";
+}
