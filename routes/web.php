@@ -13,11 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::view('/sapi', 'layouts.main');
+Route::view('/', 'client.home.home');
 
 Auth::routes();
 

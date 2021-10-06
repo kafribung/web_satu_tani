@@ -1,6 +1,6 @@
-<div>
-     <!--====== Owl-Carousel ======-->
-     <div class="s-skeleton s-skeleton--h-600 s-skeleton--bg-grey">
+<x-main>
+    <!--====== Owl-Carousel ======-->
+    <div class="s-skeleton s-skeleton--h-600 s-skeleton--bg-grey">
         <div class="owl-carousel primary-style-1" id="hero-slider">
             <div class="hero-slide hero-slide--1">
                 <div class="container">
@@ -474,4 +474,4 @@
         </div>
     </div>
     <!--====== End - Modal Pembelian ======-->
-</div>
+</x-main>
