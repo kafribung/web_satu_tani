@@ -115,8 +115,7 @@
                                 <span class="js-menu-toggle"></span>
                                 <ul style="width:160px">
                                     <li>
-                                        <a href="dashboard.html">
-                                        <span>Dashboard</span></a>
+                                        <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }} ">Dashboard</a>
                                     </li>
 
                                     <li>

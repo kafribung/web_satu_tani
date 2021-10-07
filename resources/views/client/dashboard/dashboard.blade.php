@@ -3,13 +3,13 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bantupengguna.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/pesanan.css') }}">
     @endslot
-    <!--====== Syarat dan Ketentuan ======-->
+    <!--====== Dashboard ======-->
     <div class="u-s-p-b-60">
         <div class="section__content">
             <div class="dash">
                 <div class="container">
                     <div class="row">
-                        @include('client.instruction._sidebar-intruction')
+                        @include('client.dashboard._sidebar-dashboard')
                         <div class="col-lg-9 col-md-12">
                             <div
                                 class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white u-s-m-b-30">
@@ -20,7 +20,7 @@
                                         Dari Dasbor Akun Saya, Anda memiliki
                                         kemampuan untuk melihat cuplikan aktivitas akun terbaru dan memperbarui
                                         informasi akun Anda.
-                                        Pilih tautan di bawah untuk melihat atau mengedit informasi
+                                        Tautan di bawah berisi informasi data anda.
                                     </span>
                                     {{-- <div class="row">
                                         <div class="col-lg-4 u-s-m-b-30">
@@ -87,5 +87,5 @@
             </div>
         </div>
     </div>
-    <!--====== End - Syarat dan Ketentuan ======-->
+    <!--====== End - Dashboard ======-->
 </x-main>
