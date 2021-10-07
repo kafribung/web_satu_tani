@@ -13,7 +13,7 @@
                 <li>
                     <a href="{{ route('kebijakan-privasi') }}" class="{{ request()->routeIs('kebijakan-privasi') ? 'active' : '' }} ">Kebijakan Privasi</a>
                 <li>
-                    <a href="tanya.html">Tanya Jawab</a>
+                    <a href="{{ route('tanya-jawab') }}" class="{{ request()->routeIs('tanya-jawab') ? 'active' : '' }} ">Tanya Jawab</a>
                 </li>
                 <li>
                     <a href="panduan.html">Panduan</a>

@@ -19,6 +19,7 @@ Route::view('/', 'client.home.home');
 // Petunjuk
 Route::view('syarat-dan-ketentuan', 'client.instruction.syarat-dan-ketentuan')->name('syarat-dan-ketentuan');
 Route::view('kebijakan-privasi', 'client.instruction.kebijakan-privasi')->name('kebijakan-privasi');
+Route::view('tanya-jawab', 'client.instruction.tanya-jawab')->name('tanya-jawab');
 
 Auth::routes(['verify' => true]);
 
