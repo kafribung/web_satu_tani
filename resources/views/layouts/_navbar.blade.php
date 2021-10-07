@@ -71,9 +71,7 @@
 
                     <!--====== Menu ======-->
                     <div class="ah-lg-mode">
-
                         <span class="ah-close">✕ Close</span>
-
                         <!--====== List ======-->
                         <ul class="ah-list ah-list--design2 ah-list--link-color-secondary">
                             <li>
@@ -104,107 +102,105 @@
                         <!--====== List ======-->
                         <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
                             <li>
+                                <li class="has-dropdown" data-tooltip="tooltip" data-placement="left"
+                                    title="Account">
+                                    <a><i class="fas fa-cogs fa-lg"></i></a>
+                                    <!--====== Dropdown ======-->
+                                    <span class="js-menu-toggle"></span>
+                                    <ul style="width:160px">
+                                        <li>
+                                            <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }} ">Dashboard</a>
+                                        </li>
 
-                            <li class="has-dropdown" data-tooltip="tooltip" data-placement="left"
-                                title="Account">
+                                        <li>
+                                            <a href="{{ route('syarat-dan-ketentuan') }}" class="{{ request()->routeIs('syarat-dan-ketentuan') ? 'active' : '' }} ">
+                                            <span>Syarat & Ketentuan </span></a>
+                                        </li>
 
-                                <a><i class="fas fa-cogs fa-lg"></i></a>
+                                        <li>
+                                            <a href="{{ route('kebijakan-privasi') }}" class="{{ request()->routeIs('kebijakan-privasi') ? 'active' : '' }} ">Kebijakan Privasi</a>
+                                        </li>
 
-                                <!--====== Dropdown ======-->
+                                        <li>
+                                            <a href="{{ route('tanya-jawab') }}" class="{{ request()->routeIs('tanya-jawab') ? 'active' : '' }} ">Tanya Jawab</a>
+                                        </li>
 
-                                <span class="js-menu-toggle"></span>
-                                <ul style="width:160px">
-                                    <li>
-                                        <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }} ">Dashboard</a>
-                                    </li>
+                                        <li>
+                                            <a href="{{ route('panduan') }}" class="{{ request()->routeIs('panduan') ? 'active' : '' }} ">Panduan</a>
+                                        </li>
 
-                                    <li>
-                                        <a href="{{ route('syarat-dan-ketentuan') }}" class="{{ request()->routeIs('syarat-dan-ketentuan') ? 'active' : '' }} ">
-                                        <span>Syarat & Ketentuan </span></a>
-                                    </li>
+                                        <li>
+                                            <a href="{{ route('tentang-kami') }}" class="{{ request()->routeIs('tentang-kami') ? 'active' : '' }} ">Tentang Kami</a>
+                                        </li>
 
-                                    <li>
-                                        <a href="{{ route('kebijakan-privasi') }}" class="{{ request()->routeIs('kebijakan-privasi') ? 'active' : '' }} ">Kebijakan Privasi</a>
-                                    </li>
+                                        <li>
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                {{ __('Logout') }}
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </li>
 
-                                    <li>
-                                        <a href="{{ route('tanya-jawab') }}" class="{{ request()->routeIs('tanya-jawab') ? 'active' : '' }} ">Tanya Jawab</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="{{ route('panduan') }}" class="{{ request()->routeIs('panduan') ? 'active' : '' }} ">Panduan</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="{{ route('tentang-kami') }}" class="{{ request()->routeIs('tentang-kami') ? 'active' : '' }} ">Tentang Kami</a>
-                                    </li>
-
-                                    <li>
-                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                    </li>
-
-                                </ul>
-                                <!--====== End - Dropdown ======-->
-                            </li>
-
-                            <li class="has-dropdown">
-                                <a class="mini-cart-shop-link">
-                                    <i class="fas fa-shopping-cart fa-lg"></i>
-                                    <span class="total-item-round">2</span>
-                                </a>
-                                <!--====== Dropdown ======-->
-                                <span class="js-menu-toggle"></span>
-                                <div class="mini-cart">
-                                    <!--====== Mini Product Container ======-->
-                                    <div class="mini-product-container gl-scroll u-s-m-b-15">
-                                        <!--====== Card for mini cart ======-->
-                                        <div class="card-mini-product">
-                                            <div class="mini-product">
-                                                <div class="mini-product__image-wrapper">
-                                                    <a class="mini-product__link"
-                                                        href="bawang-eceran-detail.html">
-                                                        <img class="u-img-fluid"
-                                                            src="{{ asset('assets/images/product/electronic/product3.jpg') }}"
-                                                            alt="">
-                                                    </a>
+                                    </ul>
+                                    <!--====== End - Dropdown ======-->
+                                </li>
+                                @auth
+                                <li class="has-dropdown">
+                                    <a class="mini-cart-shop-link">
+                                        <i class="fas fa-shopping-cart fa-lg"></i>
+                                        <span class="total-item-round">2</span>
+                                    </a>
+                                    <!--====== Dropdown ======-->
+                                    <span class="js-menu-toggle"></span>
+                                    <div class="mini-cart">
+                                        <!--====== Mini Product Container ======-->
+                                        <div class="mini-product-container gl-scroll u-s-m-b-15">
+                                            <!--====== Card for mini cart ======-->
+                                            <div class="card-mini-product">
+                                                <div class="mini-product">
+                                                    <div class="mini-product__image-wrapper">
+                                                        <a class="mini-product__link"
+                                                            href="bawang-eceran-detail.html">
+                                                            <img class="u-img-fluid"
+                                                                src="{{ asset('assets/images/product/electronic/product3.jpg') }}"
+                                                                alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="mini-product__info-wrapper">
+                                                        <span class="mini-product__category">
+                                                            <a href="bawang-eceran.html">Electronics</a>
+                                                        </span>
+                                                        <span class="mini-product__name">
+                                                            <a href="bawang-eceran-detail.html">
+                                                                Yellow Wireless
+                                                                Headphone</a>
+                                                        </span>
+                                                        <span class="mini-product__quantity">1 x</span>
+                                                        <span class="mini-product__price">Rp.8.000</span></div>
                                                 </div>
-                                                <div class="mini-product__info-wrapper">
-                                                    <span class="mini-product__category">
-                                                        <a href="bawang-eceran.html">Electronics</a>
-                                                    </span>
-                                                    <span class="mini-product__name">
-                                                        <a href="bawang-eceran-detail.html">
-                                                            Yellow Wireless
-                                                            Headphone</a>
-                                                    </span>
-                                                    <span class="mini-product__quantity">1 x</span>
-                                                    <span class="mini-product__price">Rp.8.000</span></div>
+                                                <a class="mini-product__delete-link far fa-trash-alt"></a>
                                             </div>
-                                            <a class="mini-product__delete-link far fa-trash-alt"></a>
+                                            <!--====== End - Card for mini cart ======-->
                                         </div>
-                                        <!--====== End - Card for mini cart ======-->
-                                    </div>
-                                    <!--====== End - Mini Product Container ======-->
+                                        <!--====== End - Mini Product Container ======-->
 
-                                    <!--====== Mini Product Statistics ======-->
-                                    <div class="mini-product-stat">
-                                        <div class="mini-total">
-                                            <span class="subtotal-text">SUBTOTAL</span>
-                                            <span class="subtotal-value">Rp.16.000</span></div>
-                                        <div class="mini-action">
-                                            <a class="mini-link btn--e-brand-b-2"
-                                                href="checkout.html">CHECKOUT</a>
-                                            <a class="mini-link btn--e-transparent-secondary-b-2"
-                                                href="cart.html">LIHAT KERANJANG</a></div>
+                                        <!--====== Mini Product Statistics ======-->
+                                        <div class="mini-product-stat">
+                                            <div class="mini-total">
+                                                <span class="subtotal-text">SUBTOTAL</span>
+                                                <span class="subtotal-value">Rp.16.000</span></div>
+                                            <div class="mini-action">
+                                                <a class="mini-link btn--e-brand-b-2"
+                                                    href="checkout.html">CHECKOUT</a>
+                                                <a class="mini-link btn--e-transparent-secondary-b-2"
+                                                    href="cart.html">LIHAT KERANJANG</a></div>
+                                        </div>
+                                        <!--====== End - Mini Product Statistics ======-->
                                     </div>
-                                    <!--====== End - Mini Product Statistics ======-->
-                                </div>
-                                <!--====== End - Dropdown ======-->
+                                    <!--====== End - Dropdown ======-->
+                                </li>
+                                @endauth
                             </li>
                         </ul>
                         <!--====== End - List ======-->
