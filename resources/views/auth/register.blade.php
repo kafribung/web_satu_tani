@@ -46,8 +46,8 @@
                                                 class="select-box select-box--primary-style u-w-100"
                                                 id="gender">
                                                 <option value="">Pilih</option>
-                                                <option {{ old('date_birth') == 'pria' ? 'selected' : ''}} value="pria">Laki-laki</option>
-                                                <option {{ old('date_birth') == 'wanita' ? 'selected' : '' }} value="wanita">Perempuan</option>
+                                                <option {{ old('gender') == 'pria' ? 'selected' : ''}} value="pria">Laki-laki</option>
+                                                <option {{ old('gender') == 'wanita' ? 'selected' : '' }} value="wanita">Perempuan</option>
                                             </select>
                                             @error('gender')
                                             <p class="alert alert-danger">{{ $message }}</p>
