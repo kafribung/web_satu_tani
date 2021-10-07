@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'client.home.home');
 
+// User
+Route::view('syarat-dan-ketentuan', 'client.instruction.syarat-dan-ketentuan')->name('syarat-dan-ketentuan');
+
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

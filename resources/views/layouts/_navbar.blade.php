@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-                <a class="main-logo" style="padding-bottom: 0px;" href="index.html">
+                <a class="main-logo" style="padding-bottom: 0px;" href="/">
                     <img src="{{ asset('assets/images/logo/logo st1.png') }}" alt="">
                 </a>
 
@@ -120,7 +120,7 @@
                                     </li>
 
                                     <li>
-                                        <a href="bantuan-pengguna.html">
+                                        <a href="{{ route('syarat-dan-ketentuan') }}" class="{{ request()->routeIs('syarat-dan-ketentuan') ? 'active' : '' }} ">
                                         <span>Syarat & Ketentuan </span></a>
                                     </li>
 

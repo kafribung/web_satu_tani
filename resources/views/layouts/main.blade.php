@@ -21,6 +21,7 @@
 
     <!--====== App ======-->
     @stack('css_app')
+    {{ $cssTambahan }}
     <link rel="stylesheet" href="{{ asset('assets/css/app-home.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
 

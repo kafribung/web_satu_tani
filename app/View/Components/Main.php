@@ -11,9 +11,11 @@ class Main extends Component
      *
      * @return void
      */
-    public function __construct()
+    public $cssTambahan;
+
+    public function __construct($cssTambahan =null)
     {
-        //
+        $this->cssTambahan = $cssTambahan;
     }
 
     /**
