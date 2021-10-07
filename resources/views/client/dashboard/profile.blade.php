@@ -56,7 +56,7 @@
                                             <div class="u-s-m-b-16">
                                                 <a class="dash__custom-link btn--e-transparent-brand-b-2"
                                                     href="{{ route('profil.edit') }}">Ubah Profil</a>
-                                                <a class="dash__custom-link btn--e-brand-b-2" href="#">Ubah
+                                                <a class="dash__custom-link btn--e-brand-b-2" href="{{ route('reset.password') }}">Ubah
                                                     Kata Sandi</a>
                                             </div>
                                         </div>

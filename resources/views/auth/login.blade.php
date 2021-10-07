@@ -13,6 +13,11 @@
                     <div class="col-lg-6 col-md-8 u-s-m-b-30">
                         <div class="l-f-o">
                             <div class="l-f-o__pad-box">
+                                @if (session('message'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('message') }}
+                                </div>
+                                @endif
                                 <div class="col-lg-12">
                                     <div class="section__text-wrap">
                                         <img style="width: 50%;" src="{{ asset('assets/images/logo/logo st1.png') }}">

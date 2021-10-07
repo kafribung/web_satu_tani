@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Dashboard\ProfileController;
+use App\Http\Controllers\Dashboard\{ProfileController, ResetPasswordController};
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,11 +19,21 @@ Route::view('/', 'client.home.home');
 
 // ==========================User
 
-// Dashboard
-Route::view('dashboard', 'client.dashboard.dashboard')->name('dashboard');
-Route::get('profil', [ProfileController::class, 'index'])->name('profil');
-Route::get('profil/edit', [ProfileController::class, 'edit'])->name('profil.edit');
-Route::patch('profil/edit', [ProfileController::class, 'update'])->name('profil.edit');
+Route::middleware('auth')->group(function () {
+
+    // Dashboard
+    Route::view('dashboard', 'client.dashboard.dashboard')->name('dashboard');
+    Route::get('profil', [ProfileController::class, 'index'])->name('profil');
+    Route::get('profil/edit', [ProfileController::class, 'edit'])->name('profil.edit');
+    Route::patch('profil/edit', [ProfileController::class, 'update'])->name('profil.edit');
+
+    Route::prefix('reset-password')->name('reset.password')->group(function () {
+        Route::get('', [ResetPasswordController::class, 'edit']);
+        Route::patch('', [ResetPasswordController::class, 'update']);
+    });
+});
+
+
 
 // Petunjuk
 Route::view('syarat-dan-ketentuan', 'client.instruction.syarat-dan-ketentuan')->name('syarat-dan-ketentuan');
