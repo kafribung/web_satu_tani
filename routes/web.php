@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,7 @@ Route::view('/', 'client.home.home');
 
 // Dashboard
 Route::view('dashboard', 'client.dashboard.dashboard')->name('dashboard');
+Route::get('profil', [ProfileController::class, 'index'])->name('profil');
 // Petunjuk
 Route::view('syarat-dan-ketentuan', 'client.instruction.syarat-dan-ketentuan')->name('syarat-dan-ketentuan');
 Route::view('kebijakan-privasi', 'client.instruction.kebijakan-privasi')->name('kebijakan-privasi');

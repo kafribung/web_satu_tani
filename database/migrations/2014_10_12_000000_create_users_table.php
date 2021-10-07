@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->date('date_birth');
             $table->enum('gender', ['pria', 'wanita']);
-            $table->string('no_hp')->nullable();
+            $table->string('c')->nullable();
             $table->text('address')->nullable();
             $table->boolean('validation')->default(0);
             $table->rememberToken();
