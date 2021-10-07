@@ -24,7 +24,7 @@
                                         @csrf
                                         <div class="u-s-m-b-30">
                                             <label class="gl-label" for="reg-lname">NAMA LENGKAP *</label>
-                                            <input name="name" class="input-text input-text--primary-style" type="text"
+                                            <input name="name" value="{{ old('name') }}" class="input-text input-text--primary-style" type="text"
                                                 id="reg-lname" placeholder="Nama Lengkap">
                                             @error('name')
                                             <p class="alert alert-danger">{{ $message }}</p>
@@ -33,7 +33,7 @@
 
                                         <div class="u-s-m-b-30">
                                             <span class="gl-label" for="reg-birthday">TANGGAL LAHIR *</span>
-                                            <input name="date_birth" class="input-text input-text--primary-style" type="date"
+                                            <input name="date_birth" value="{{ old('date_birth') }}" max="2008-04-30" class="input-text input-text--primary-style" type="date"
                                                 id="reg-birthday">
                                             @error('date_birth')
                                             <p class="alert alert-danger">{{ $message }}</p>
@@ -45,9 +45,9 @@
                                             <select name="gender"
                                                 class="select-box select-box--primary-style u-w-100"
                                                 id="gender">
-                                                <option selected>Pilih</option>
-                                                <option value="pria">Laki-laki</option>
-                                                <option value="wanita">Perempuan</option>
+                                                <option value="">Pilih</option>
+                                                <option {{ old('date_birth') == 'pria' ? 'selected' : ''}} value="pria">Laki-laki</option>
+                                                <option {{ old('date_birth') == 'wanita' ? 'selected' : '' }} value="wanita">Perempuan</option>
                                             </select>
                                             @error('gender')
                                             <p class="alert alert-danger">{{ $message }}</p>
@@ -56,7 +56,7 @@
 
                                         <div class="u-s-m-b-30">
                                             <label class="gl-label" for="reg-email">E-MAIL *</label>
-                                            <input name="email" class="input-text input-text--primary-style" type="text"
+                                            <input name="email" value="{{ old('email') }}" class="input-text input-text--primary-style" type="text"
                                                 id="reg-email" placeholder="Contoh: mail@satutani.com">
                                             @error('gender')
                                             <p class="alert alert-danger">{{ $message }}</p>
