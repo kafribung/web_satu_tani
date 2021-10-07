@@ -18,7 +18,7 @@
                 <li>
                     <a href="{{ route('panduan') }}" class="{{ request()->routeIs('panduan') ? 'active' : '' }} ">Panduan</a>
                 <li>
-                    <a href="tentang-kami.html">Tentang Kami</a>
+                    <a href="{{ route('tentang-kami') }}" class="{{ request()->routeIs('tentang-kami') ? 'active' : '' }} ">Tentang Kami</a>
                 </li>
             </ul>
         </div>
