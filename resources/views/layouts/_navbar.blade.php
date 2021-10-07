@@ -125,23 +125,19 @@
                                     </li>
 
                                     <li>
-                                        <a href="kebijakan.html">
-                                        <span>Kebijakan Privasi</span></a>
+                                        <a href="{{ route('kebijakan-privasi') }}" class="{{ request()->routeIs('kebijakan-privasi') ? 'active' : '' }} ">Kebijakan Privasi</a>
                                     </li>
 
                                     <li>
-                                        <a href="tanya.html">
-                                        <span>Tanya Jawab</span></a>
+                                        <a href="{{ route('tanya-jawab') }}" class="{{ request()->routeIs('tanya-jawab') ? 'active' : '' }} ">Tanya Jawab</a>
                                     </li>
 
                                     <li>
-                                        <a href="panduan.html">
-                                        <span>Panduan</span></a>
+                                        <a href="{{ route('panduan') }}" class="{{ request()->routeIs('panduan') ? 'active' : '' }} ">Panduan</a>
                                     </li>
 
                                     <li>
-                                        <a href="tentang-kami.html">
-                                        <span>Tentang Kami</span></a>
+                                        <a href="{{ route('tentang-kami') }}" class="{{ request()->routeIs('tentang-kami') ? 'active' : '' }} ">Tentang Kami</a>
                                     </li>
 
                                     <li>
