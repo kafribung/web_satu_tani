@@ -108,9 +108,12 @@
                                     <!--====== Dropdown ======-->
                                     <span class="js-menu-toggle"></span>
                                     <ul style="width:160px">
+                                        @auth
                                         <li>
                                             <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }} ">Dashboard</a>
                                         </li>
+                                        @endauth
+
 
                                         <li>
                                             <a href="{{ route('syarat-dan-ketentuan') }}" class="{{ request()->routeIs('syarat-dan-ketentuan') ? 'active' : '' }} ">
@@ -133,6 +136,7 @@
                                             <a href="{{ route('tentang-kami') }}" class="{{ request()->routeIs('tentang-kami') ? 'active' : '' }} ">Tentang Kami</a>
                                         </li>
 
+                                        @auth
                                         <li>
                                             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                 {{ __('Logout') }}
@@ -141,6 +145,8 @@
                                                 @csrf
                                             </form>
                                         </li>
+                                        @endauth
+
 
                                     </ul>
                                     <!--====== End - Dropdown ======-->
