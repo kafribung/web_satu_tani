@@ -44,10 +44,13 @@
 
             <div class="col-md-3">
                 <div class="logres" style="padding-top: 10px">
-                    <a class="mini-link1 btn--e-brand-b-4" href="signup.html">REGISTER</a>
-                    <a class="mini-link1 btn--e-brand-b-3" href="signin.html">LOGIN</a>
+                    @guest
+                    <a class="mini-link1 btn--e-brand-b-4" href="{{ route('register') }}">REGISTER</a>
+                    <a class="mini-link1 btn--e-brand-b-3" href="{{ route('login') }}">LOGIN</a>
+                    @else
+                    <p class="mini-link1 btn--e-brand-b-4">Hi, {{ auth()->user()->name }}</p>
+                    @endguest
                 </div>
-
             </div>
         </div>
     </div>
@@ -139,6 +142,15 @@
                                     <li>
                                         <a href="tentang-kami.html">
                                         <span>Tentang Kami</span></a>
+                                    </li>
+
+                                    <li>
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
                                     </li>
 
                                 </ul>
