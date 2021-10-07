@@ -21,6 +21,9 @@ Route::view('/', 'client.home.home');
 // Dashboard
 Route::view('dashboard', 'client.dashboard.dashboard')->name('dashboard');
 Route::get('profil', [ProfileController::class, 'index'])->name('profil');
+Route::get('profil/edit', [ProfileController::class, 'edit'])->name('profil.edit');
+Route::patch('profil/edit', [ProfileController::class, 'update'])->name('profil.edit');
+
 // Petunjuk
 Route::view('syarat-dan-ketentuan', 'client.instruction.syarat-dan-ketentuan')->name('syarat-dan-ketentuan');
 Route::view('kebijakan-privasi', 'client.instruction.kebijakan-privasi')->name('kebijakan-privasi');

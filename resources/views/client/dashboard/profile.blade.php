@@ -23,18 +23,17 @@
                                     <div class="row">
                                         <div class="col-lg-4 u-s-m-b-30">
                                             <h2 class="dash__h2 u-s-m-b-8">Nama Lengkap</h2>
-
                                             <span class="dash__text">{{ $user->name }}</span>
                                         </div>
+
                                         <div class="col-lg-4 u-s-m-b-30">
                                             <h2 class="dash__h2 u-s-m-b-8">E-mail</h2>
-
                                             <span class="dash__text">{{ $user->email }}</span>
-
                                         </div>
+
                                         <div class="col-lg-4 u-s-m-b-30">
                                             <h2 class="dash__h2 u-s-m-b-8">No. Hp</h2>
-                                            <span class="dash__text">{{ $user->user }}</span>
+                                            <span class="dash__text">{{ $user->no_hp }}</span>
                                         </div>
 
                                         <div class="col-lg-4 u-s-m-b-30">
@@ -56,10 +55,9 @@
                                         <div class="col-lg-12">
                                             <div class="u-s-m-b-16">
                                                 <a class="dash__custom-link btn--e-transparent-brand-b-2"
-                                                    href="edit-profile.html">Ubah Profil</a>
-
-                                                    <a class="dash__custom-link btn--e-brand-b-2" href="#">Ubah
-                                                        Kata Sandi</a>
+                                                    href="{{ route('profil.edit') }}">Ubah Profil</a>
+                                                <a class="dash__custom-link btn--e-brand-b-2" href="#">Ubah
+                                                    Kata Sandi</a>
                                             </div>
                                         </div>
                                     </div>

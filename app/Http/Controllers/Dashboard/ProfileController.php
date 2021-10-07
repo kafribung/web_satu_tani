@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -56,9 +57,10 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $user = auth()->user();
+        return view('client.dashboard.profile-edit', compact('user'));
     }
 
     /**
@@ -68,9 +70,20 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name'        => ['required', 'string', 'max:255'],
+            'email'       => ['required', 'string', 'email', 'max:255', 'unique:users,email,' . auth()->user()->id],
+            'date_birth'  => ['required', 'date'],
+            'gender'      => ['required', 'string', 'min:4', 'max:6'],
+            'no_hp'       => ['required', 'string', 'min:10', 'max:13'],
+            'address'     => ['required', 'string'],
+        ]);
+
+        auth()->user()->update($data);
+
+        return back()->with('message', 'Data profil berhasil diubah');
     }
 
     /**

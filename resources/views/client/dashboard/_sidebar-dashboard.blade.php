@@ -11,7 +11,7 @@
                     <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }} ">Dashboard</a>
                 </li>
                 <li>
-                    <a href="{{ route('profil') }}" class="{{ request()->routeIs('profil') ? 'active' : '' }} ">Profil Saya</a>
+                    <a href="{{ route('profil') }}" class="{{ request()->routeIs('profil') ? 'active' : '' }} {{ request()->routeIs('profil.edit') ? 'active' : '' }} ">Profil Saya</a>
                 <li>
                     <a href="{{ route('tanya-jawab') }}" class="{{ request()->routeIs('tanya-jawab') ? 'active' : '' }} ">Tanya Jawab</a>
                 </li>
