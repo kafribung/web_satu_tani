@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/utility.css') }}">
 
     <!--====== App ======-->
+    @stack('css_app')
     <link rel="stylesheet" href="{{ asset('assets/css/app-home.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
 

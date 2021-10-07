@@ -1,4 +1,10 @@
 <x-main>
+    @once
+        @push('css_app')
+        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
+        @endpush
+    @endonce
+
     <!--====== Register ======-->
     <div class="u-s-p-b-60">
         <div class="section__content">
@@ -58,7 +64,7 @@
                                             <label class="gl-label" for="reg-email">E-MAIL *</label>
                                             <input name="email" value="{{ old('email') }}" class="input-text input-text--primary-style" type="text"
                                                 id="reg-email" placeholder="Contoh: mail@satutani.com">
-                                            @error('gender')
+                                            @error('email')
                                             <p class="alert alert-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
@@ -73,12 +79,9 @@
                                         </div>
 
                                         <div class="u-s-m-b-30">
-                                            <label class="gl-label" for="password_confirmation">KATA SANDI *</label>
+                                            <label class="gl-label" for="password_confirmation">KONFIRMASI KATA SANDI *</label>
                                             <input name="password_confirmation" class="input-text input-text--primary-style" type="password"
                                                 id="password_confirmation" placeholder="Konfirmasi Kata Sandi">
-                                            @error('password_confirmation')
-                                            <p class="alert alert-danger">{{ $message }}</p>
-                                            @enderror
 
                                             <br><br>
                                             <span>Klik</span>
