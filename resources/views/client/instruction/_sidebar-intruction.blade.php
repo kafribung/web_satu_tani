@@ -16,7 +16,7 @@
                     <a href="{{ route('tanya-jawab') }}" class="{{ request()->routeIs('tanya-jawab') ? 'active' : '' }} ">Tanya Jawab</a>
                 </li>
                 <li>
-                    <a href="panduan.html">Panduan</a>
+                    <a href="{{ route('panduan') }}" class="{{ request()->routeIs('panduan') ? 'active' : '' }} ">Panduan</a>
                 <li>
                     <a href="tentang-kami.html">Tentang Kami</a>
                 </li>
