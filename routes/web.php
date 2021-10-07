@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'client.home.home');
 
 // User
+// Petunjuk
 Route::view('syarat-dan-ketentuan', 'client.instruction.syarat-dan-ketentuan')->name('syarat-dan-ketentuan');
+Route::view('kebijakan-privasi', 'client.instruction.kebijakan-privasi')->name('kebijakan-privasi');
 
 Auth::routes(['verify' => true]);
 

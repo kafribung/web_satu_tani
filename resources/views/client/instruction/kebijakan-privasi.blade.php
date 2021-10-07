@@ -10,7 +10,7 @@
                 <div class="container">
                     <div class="row">
                         @include('client.instruction._sidebar-intruction')
-                        <div class="col-lg-9 col-md-12">
+                        <div class="col-lg-9 col-md 12">
                             <div class=" bgcard">
                                 <div class="syarat">
                                     <h5>PENDAHULUAN</h5>
@@ -90,6 +90,7 @@
                                         <li>SATUTANI berhak untuk menolak memberikan akses ke Situs atau Layanan
                                             kepada anda atau
                                             mengizinkan anda untuk membuka Akun dengan alasan apapun.</li>
+
                                     </ol>
                                 </div>
                             </div>
