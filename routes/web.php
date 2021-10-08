@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Dashboard\{ProfileController, ResetPasswordController};
+use App\Http\Controllers\Dashboard\{CreateMarketController, ProfileController, ResetPasswordController};
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
@@ -23,16 +23,23 @@ Route::middleware('auth')->group(function () {
 
     // Dashboard
     Route::view('dashboard', 'client.dashboard.dashboard')->name('dashboard');
-    Route::get('profil', [ProfileController::class, 'index'])->name('profil');
-    Route::get('profil/edit', [ProfileController::class, 'edit'])->name('profil.edit');
-    Route::patch('profil/edit', [ProfileController::class, 'update'])->name('profil.edit');
 
+    // Profil
+    Route::prefix('profil')->name('profil')->group(function () {
+        Route::get('', [ProfileController::class, 'index'])->name('');
+        Route::get('/edit', [ProfileController::class, 'edit'])->name('.edit');
+        Route::patch('/edit', [ProfileController::class, 'update'])->name('.edit');
+    });
+
+    // Reset Password
     Route::prefix('reset-password')->name('reset.password')->group(function () {
         Route::get('', [ResetPasswordController::class, 'edit']);
         Route::patch('', [ResetPasswordController::class, 'update']);
     });
-});
 
+    // Buat Toko
+    Route::get('buat-toko', [CreateMarketController::class, 'index'])->name('buat-toko');
+});
 
 
 // Petunjuk
