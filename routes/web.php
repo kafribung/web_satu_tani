@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Dashboard\{CreateMarketFarmerController, ProfileController, ResetPasswordController};
+use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, ProfileController, ResetPasswordController};
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
@@ -39,7 +39,11 @@ Route::middleware('auth')->group(function () {
 
     // Buat Toko
     Route::view('buat-toko', 'client.dashboard.create-market')->name('buat-toko');
-    Route::get('buat-toko/petani', [CreateMarketFarmerController::class, 'index'])->name('buat-toko-petani');
+    Route::get('buat-toko/petani', [CreateMarketFarmerController::class, 'index'])->name('buat-toko.petani');
+    Route::post('buat-toko/petani', [CreateMarketFarmerController::class, 'store_img'])->name('buat-toko.petani');
+    Route::get('buat-toko/petani/lengkapi-info', [CreateMarketFarmer2Controller::class, 'index'])->name('buat-toko.petani.lengkapi-info');
+    Route::patch('buat-toko/petani/lengkapi-info', [CreateMarketFarmer2Controller::class, 'update'])->name('buat-toko.petani.lengkapi-info');
+    Route::view('buat-toko/petani/selesai', 'client.dashboard.create-market-farmer-3')->name('buat-toko.petani.selesai');
 });
 
 

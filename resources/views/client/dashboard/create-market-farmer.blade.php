@@ -31,7 +31,8 @@
                                 <div class="col-lg-12 col-md-12">
                                     <div
                                         class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white u-s-m-b-30">
-                                        <div class="dash__pad-2">
+                                        <form class="dash__pad-2" action="{{ route('buat-toko.petani') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
                                             <center>
                                                 <h1 class="dash__h1 u-s-m-b-14" style="margin-bottom: 80px;">
                                                     Upload Foto KTP Anda
@@ -40,11 +41,17 @@
                                                     style="padding: 12px 15px; font-size: 16px;"> &nbsp; &nbsp;
                                                     Upload Foto
                                                 </a>
-                                                <input type="file" id="img-upload" style="display:none"/>
+                                                <input type="file" name="img" accept="image/jpeg" id="img-upload"  style="display:none"/>
                                                 <span class="dash__text u-s-m-b-30"
-                                                    style="margin-top: 10px;">Semua pesanan yang menunggu
-                                                    pembayaran.
+                                                    style="margin-top: 10px;">Foto KTP Max 2 Mb.
                                                 </span>
+
+                                                @error('img')
+                                                <span class="dash__text u-s-m-b-30"
+                                                    style="margin-top: 5px; color: red">{{ $message }}
+                                                </span>
+                                                @enderror
+
                                             </center>
 
                                             <h1 class="dash__h1 u-s-m-b-14"
@@ -56,14 +63,12 @@
                                                 <li>Tidak ada pantulan cahaya dan bayangan</li>
                                                 <li>Ukuran gambar maximal 1 MB</li>
                                             </ul>
-                                            <a class="btn2 btn-primary"
-                                                href="akun-bisnis-daftar-tani1.html">Lanjutkan</a>
-                                            <a class="btn1 btn-primary" href="akun-bisnis-daftar.html">Batal</a>
 
-                                        </div>
+                                            <button class="btn2 btn-primary" type="submit">Lanjutkan</button>
+                                            <a class="btn1 btn-primary" href="{{ route('dashboard') }}">Batal</a>
+                                        </form>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
