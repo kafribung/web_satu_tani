@@ -17,7 +17,7 @@
                                         <h3>Profil Akun Bisnis</h3>
                                         <p style="padding: 0 70px;">Lengkapi data kamu dan verifikasi berkas
                                             agar kamu dapat memasarkan hasil panenmu di Satutani</p>
-                                        <a class="btn btn-primary" href="akun-bisnis-daftar-tani.html"
+                                        <a class="btn btn-primary" href="{{ route('buat-toko-petani') }}"
                                             style="margin-top: 50px;">Petani</a>
                                         <a class="btn btn-primary" href="akun-bisnis-daftar-koperasi.html"
                                             style="margin-top: 50px;">Koperasi</a>

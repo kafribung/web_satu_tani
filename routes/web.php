@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Dashboard\{CreateMarketController, ProfileController, ResetPasswordController};
+use App\Http\Controllers\Dashboard\{CreateMarketFarmerController, ProfileController, ResetPasswordController};
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
@@ -38,7 +38,8 @@ Route::middleware('auth')->group(function () {
     });
 
     // Buat Toko
-    Route::get('buat-toko', [CreateMarketController::class, 'index'])->name('buat-toko');
+    Route::view('buat-toko', 'client.dashboard.create-market')->name('buat-toko');
+    Route::get('buat-toko/petani', [CreateMarketFarmerController::class, 'index'])->name('buat-toko-petani');
 });
 
 

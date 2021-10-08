@@ -15,11 +15,11 @@ class CreateValidationSellersTable extends Migration
     {
         Schema::create('validation_sellers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('img');
-            $table->string('bank');
-            $table->string('rekening_number');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('name')->nullable();
+            $table->string('img')->nullable();
+            $table->string('bank')->nullable();
+            $table->string('rekening_number')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

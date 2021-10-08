@@ -86,6 +86,9 @@
                 </div>
             </div>
         </noscript>
+
+    @stack('script')
+
 </body>
 
 </html>

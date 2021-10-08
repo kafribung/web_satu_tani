@@ -15,7 +15,7 @@
                         Profil Saya
                     </a>
                 <li>
-                    <a href="{{ route('buat-toko') }}" class="{{ request()->routeIs('buat-toko') ? 'active' : '' }} ">Buat Toko</a>
+                    <a href="{{ route('buat-toko') }}" class="{{ request()->routeIs('buat-toko') ? 'active' : '' }} {{ request()->is('buat-toko/*') ? 'active' : '' }} ">Buat Toko</a>
                 </li>
                 <li>
                     <a href="{{ route('panduan') }}" class="{{ request()->routeIs('panduan') ? 'active' : '' }} ">Panduan</a>
