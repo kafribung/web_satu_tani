@@ -12,7 +12,6 @@
                         @include('client.dashboard._sidebar-dashboard')
                         <div class="col-lg-9 col-md-12">
                             @if ( empty(auth()->user()->validation_sellers()->count()) )
-
                             <div class=" bgcard">
                                 <div class="posting">
                                     <center>
