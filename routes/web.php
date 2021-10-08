@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, ProfileController, ResetPasswordController};
-use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'client.home.home');
 
+
+Route::get('admin/dashboard', DashboardController::class)->name('admin.dashboard');
+
 // ==========================User
-
 Route::middleware('auth')->group(function () {
-
     // Dashboard
     Route::view('dashboard', 'client.dashboard.dashboard')->name('dashboard');
-
     // Profil
     Route::prefix('profil')->name('profil')->group(function () {
         Route::get('', [ProfileController::class, 'index'])->name('');
