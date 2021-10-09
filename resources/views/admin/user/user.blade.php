@@ -8,11 +8,6 @@
                         <h2 style="margin-bottom: 10px">
                             User Satu Tani
                         </h2>
-                        <a href="{{ route('admin.admin.create') }}" class="btn btn-success waves-effect mt-2">
-                            <i class="material-icons">add</i>
-                            <span>Tambah</span>
-                        </a>
-
                         @if (session('message'))
                         <div class="alert alert-success" style="margin-top: 10px">
                             <strong>Well done!</strong> {{ session('message') }} .
@@ -34,22 +29,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @forelse ($admins as $admin)
+                                @forelse ($users as $user)
                                 <tr>
-                                    <th scope="row">{{ (($admins->currentPage() - 1 ) * $admins->perPage() ) + $loop->iteration }}</th>
-                                    <td>{{ $admin->name }}</td>
-                                    <td>{{ $admin->email }}</td>
-                                    <td>{{ date('l, d-m-Y', strtotime($admin->date_birth) )  }}</td>
-                                    <td>{{ ($admin->gender == 'pria' ? 'Laki - laki' : 'Prempuan') }}</td>
+                                    <th scope="row">{{ (($users->currentPage() - 1 ) * $users->perPage() ) + $loop->iteration }}</th>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ date('l, d-m-Y', strtotime($user->date_birth) )  }}</td>
+                                    <td>{{ ($user->gender == 'pria' ? 'Laki - laki' : 'Prempuan') }}</td>
+                                    <td>{{ $user->no_hp }}</td>
+                                    <td>{{ $user->address }}</td>
                                     <td>
-                                        <a href="{{ route('admin.admin.edit', $admin) }}"  class="btn btn-warning waves-effect">
-                                            <i class="material-icons">edit</i>
-                                        </a>
-
-                                        <form style="display: inline"  action="{{ route('admin.admin.destroy', $admin) }}" method="POST">
+                                        <form style="display: inline"  action="{{ route('admin.user.delete', $user) }}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" onclick="return confirm('Data admin {{ $admin->name }} akan dihapus secara permanent')" class="btn btn-danger waves-effect">
+                                            <button type="submit" onclick="return confirm('Data user {{ $user->name }} akan dihapus secara permanent')" class="btn btn-danger waves-effect">
                                                 <i class="material-icons">delete</i>
                                             </button>
                                         </form>
@@ -59,11 +52,11 @@
                                 <tr>
                                     <th colspan="6">Data tidak ditemukan</th>
                                 </tr>
-                                @endforelse --}}
+                                @endforelse
                             </tbody>
                         </table>
                         <p class="footer">
-                            {{-- {{ $admins->links() }} --}}
+                            {{ $users->links() }}
                         </p>
                     </div>
                 </div>

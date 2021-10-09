@@ -43,6 +43,12 @@
                         <span>Admin</span>
                     </a>
                 </li>
+                <li class="{{ request()->routeIs('admin.user.index') ? 'active' : '' }} {{ request()->is('admin/user/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.user.index') }}">
+                        <i class="material-icons">widgets</i>
+                        <span>User</span>
+                    </a>
+                </li>
                 <li class="{{ request()->routeIs('admin.petani.index') ? 'active' : '' }} {{ request()->is('admin/petani/*') ? 'active' : '' }}">
                     <a href="{{ route('admin.petani.index') }}">
                         <i class="material-icons">layers</i>
