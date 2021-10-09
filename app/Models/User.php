@@ -69,6 +69,12 @@ class User extends Authenticatable implements MustVerifyEmail
             if ($this->role->name == 'admin' && !empty($this->role->name) ) return true;
             else return false;
         } else return false;
+    }
 
+    public function king()
+    {
+        if ($this->email == 'admin@admin.com') {
+            return false;
+        } else return true;
     }
 }

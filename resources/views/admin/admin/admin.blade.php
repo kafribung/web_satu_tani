@@ -44,6 +44,7 @@
                                             <i class="material-icons">edit</i>
                                         </a>
 
+                                        @if ($admin->king())
                                         <form style="display: inline"  action="{{ route('admin.admin.destroy', $admin) }}" method="POST">
                                             @csrf
                                             @method('delete')
@@ -51,6 +52,8 @@
                                                 <i class="material-icons">delete</i>
                                             </button>
                                         </form>
+                                        @endif
+
                                     </td>
                                 </tr>
                                 @empty
