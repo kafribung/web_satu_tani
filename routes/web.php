@@ -18,13 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'client.home.home');
 
 
+// ============================================================Admin
 Route::middleware('admin')->prefix('admin')->name('admin')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('.dashboard');
     Route::get('/admin', [AdminController::class, 'index'])->name('.admin');
 });
 
 
-// ==========================User
+// ============================================================User
 Route::middleware('auth')->group(function () {
     // Dashboard
     Route::view('dashboard', 'client.dashboard.dashboard')->name('dashboard');

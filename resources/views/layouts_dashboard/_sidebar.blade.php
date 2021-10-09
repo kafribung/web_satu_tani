@@ -29,13 +29,13 @@
         <div class="menu">
             <ul class="list">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="active">
-                    <a href="index.html">
+                <li class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+                    <a href="{{ route('admin.dashboard') }}">
                         <i class="material-icons">home</i>
-                        <span>Home</span>
+                        <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
+                <li  class="{{ request()->routeIs('admin.admin') ? 'active' : '' }}">
                     <a href="{{ route('admin.admin') }}">
                         <i class="material-icons">text_fields</i>
                         <span>Admin</span>

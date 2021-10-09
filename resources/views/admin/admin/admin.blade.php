@@ -11,19 +11,10 @@
                         <h2>
                             Admin Satu Tani
                         </h2>
-                        <ul class="header-dropdown m-r--5">
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
-                                    role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="material-icons">more_vert</i>
-                                </a>
-                                <ul class="dropdown-menu pull-right">
-                                    <li><a href="javascript:void(0);">Action</a></li>
-                                    <li><a href="javascript:void(0);">Another action</a></li>
-                                    <li><a href="javascript:void(0);">Something else here</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                        <button type="button" class="btn btn-success waves-effect mt-2">
+                            <i class="material-icons">add</i>
+                            <span>Tambah</span>
+                        </button>
                     </div>
                     <div class="body table-responsive">
                         <table class="table table-hover">
@@ -45,6 +36,15 @@
                                     <td>{{ $admin->email }}</td>
                                     <td>{{ date('l, d-m-Y', strtotime($admin->date_birth) )  }}</td>
                                     <td>{{ ($admin->gender == 'pria' ? 'Laki - laki' : 'Prempuan') }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning waves-effect">
+                                            <i class="material-icons">edit</i>
+                                        </button>
+
+                                        <button type="button" class="btn btn-danger waves-effect">
+                                            <i class="material-icons">delete</i>
+                                        </button>
+                                    </td>
                                 </tr>
                                 @empty
                                 <tr>
