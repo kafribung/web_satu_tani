@@ -68,4 +68,4 @@
     </div>
 
 </div>
-<button type="submit" class="btn {{ !empty($admin) ? 'btn-warning' : 'btn-primary' }}  waves-effect header-dropdown m-r--5">Simpan</button>
+<button type="submit" class="btn {{ !isset($create) ? 'btn-warning' : 'btn-primary' }}  waves-effect header-dropdown m-r--5">{{ !isset($create) ? 'Update' : 'Simpan' }}</button>

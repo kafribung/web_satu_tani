@@ -16,7 +16,8 @@
                             <div class="col-sm-12">
                                 <form action="{{ route('admin.admin.store') }}" method="POST" novalidate>
                                     @csrf
-                                    <label for="name">Nama</label>
+                                    @include('admin.admin.form', ['admin' => new App\Models\User(), 'create' => 'create'])
+                                    {{-- <label for="name">Nama</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" name="name" value="{{ old('name') }}" id="name"
@@ -87,7 +88,7 @@
                                         </div>
 
                                     </div>
-                                    <button type="submit" class="btn btn-primary waves-effect header-dropdown m-r--5">Simpan</button>
+                                    <button type="submit" class="btn btn-primary waves-effect header-dropdown m-r--5">Simpan</button> --}}
                                 </form>
                             </div>
                         </div>
