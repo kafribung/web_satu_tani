@@ -5,7 +5,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h2>
+                        <h2 style="margin-bottom: 10px">
                             Admin Satu Tani
                         </h2>
                         <a href="{{ route('admin.admin.create') }}" class="btn btn-success waves-effect mt-2">
@@ -34,19 +34,23 @@
                             <tbody>
                                 @forelse ($admins as $admin)
                                 <tr>
-                                    <th scope="row"></th>
+                                    <th scope="row">{{ (($admins->currentPage() - 1 ) * $admins->perPage() ) + $loop->iteration }}</th>
                                     <td>{{ $admin->name }}</td>
                                     <td>{{ $admin->email }}</td>
                                     <td>{{ date('l, d-m-Y', strtotime($admin->date_birth) )  }}</td>
                                     <td>{{ ($admin->gender == 'pria' ? 'Laki - laki' : 'Prempuan') }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-warning waves-effect">
+                                        <a href="{{ route('admin.admin.edit', $admin) }}"  class="btn btn-warning waves-effect">
                                             <i class="material-icons">edit</i>
-                                        </button>
+                                        </a>
 
-                                        <button type="button" class="btn btn-danger waves-effect">
-                                            <i class="material-icons">delete</i>
-                                        </button>
+                                        <form style="display: inline"  action="{{ route('admin.admin.destroy', $admin) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" onclick="return confirm('Data admin {{ $admin->name }} akan dihapus secara permanent')" class="btn btn-danger waves-effect">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @empty
@@ -56,6 +60,9 @@
                                 @endforelse
                             </tbody>
                         </table>
+                        <p class="footer">
+                            {{ $admins->links() }}
+                        </p>
                     </div>
                 </div>
             </div>

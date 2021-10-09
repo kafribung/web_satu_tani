@@ -25,7 +25,7 @@ class AdminRequest extends FormRequest
     {
         return [
             'name'        => ['required', 'string', 'max:255'],
-            'email'       => ['required', 'string', 'email', 'max:255', 'unique:users,email', optional($this->user)->id],
+            'email'       => ['required', 'string', 'email', 'max:255', 'unique:users,email,'. optional($this->admin)->id],
             'password'    => ['required', 'string', 'min:8', 'confirmed'],
             'date_birth'  => ['required', 'date'],
             'gender'      => ['required', 'string', 'min:4', 'max:6'],
