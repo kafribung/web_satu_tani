@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use function PHPUnit\Framework\returnSelf;
+
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable;
@@ -54,5 +56,19 @@ class User extends Authenticatable implements MustVerifyEmail
     public function carts()
     {
         return $this->hasMany(Cart::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function hasAdmin()
+    {
+        if (!empty($this->role->name)) {
+            if ($this->role->name == 'admin' && !empty($this->role->name) ) return true;
+            else return false;
+        } else return false;
+
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\{AdminController, DashboardController};
 use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, ProfileController, ResetPasswordController};
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'client.home.home');
 
 
-Route::get('admin/dashboard', DashboardController::class)->name('admin.dashboard');
+Route::middleware('admin')->prefix('admin')->name('admin')->group(function () {
+    Route::get('/dashboard', DashboardController::class)->name('.dashboard');
+    Route::get('/admin', [AdminController::class, 'index'])->name('.admin');
+});
+
 
 // ==========================User
 Route::middleware('auth')->group(function () {

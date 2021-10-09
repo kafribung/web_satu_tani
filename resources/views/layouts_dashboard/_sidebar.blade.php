@@ -36,9 +36,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="pages/typography.html">
+                    <a href="{{ route('admin.admin') }}">
                         <i class="material-icons">text_fields</i>
-                        <span>Typography</span>
+                        <span>Admin</span>
                     </a>
                 </li>
                 <li>
