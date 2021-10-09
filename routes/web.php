@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\{AdminController, DashboardController};
+use App\Http\Controllers\Admin\{AdminController, DashboardController, FarmerController};
 use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, ProfileController, ResetPasswordController};
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +20,13 @@ Route::view('/', 'client.home.home');
 
 // ============================================================Admin
 Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
+    // Dashboard
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    // Admin
     Route::resource('/admin', AdminController::class);
+    // Petani
+    Route::get('/petani', [FarmerController::class, 'index'])->name('petani.index');
+    Route::patch('/petani/{user:id}', [FarmerController::class, 'update'])->name('petani.update');
 });
 
 

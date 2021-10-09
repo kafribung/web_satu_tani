@@ -43,10 +43,10 @@
                         <span>Admin</span>
                     </a>
                 </li>
-                <li>
-                    <a href="pages/helper-classes.html">
+                <li class="{{ request()->routeIs('admin.petani.index') ? 'active' : '' }} {{ request()->is('admin/petani/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.petani.index') }}">
                         <i class="material-icons">layers</i>
-                        <span>Helper Classes</span>
+                        <span>Petani</span>
                     </a>
                 </li>
                 <li>
