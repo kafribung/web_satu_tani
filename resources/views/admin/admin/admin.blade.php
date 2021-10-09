@@ -1,8 +1,5 @@
 <x-master>
     <div class="container-fluid">
-        <div class="block-header">
-            <h2>Berisi informasi data admin</h2>
-        </div>
         <!-- Hover Rows -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -11,10 +8,16 @@
                         <h2>
                             Admin Satu Tani
                         </h2>
-                        <button type="button" class="btn btn-success waves-effect mt-2">
+                        <a href="{{ route('admin.admin.create') }}" class="btn btn-success waves-effect mt-2">
                             <i class="material-icons">add</i>
                             <span>Tambah</span>
-                        </button>
+                        </a>
+
+                        @if (session('message'))
+                        <div class="alert alert-success" style="margin-top: 10px">
+                            <strong>Well done!</strong> {{ session('message') }} .
+                        </div>
+                        @endif
                     </div>
                     <div class="body table-responsive">
                         <table class="table table-hover">

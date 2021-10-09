@@ -56,6 +56,7 @@
     <!-- Waves Effect Plugin Js -->
     <script src="{{ asset('dashboard_assets/plugins/node-waves/waves.js') }}"></script>
 
+
     <!-- Jquery CountTo Plugin Js -->
     <script src="{{ asset('dashboard_assets/plugins/jquery-countto/jquery.countTo.js') }}"></script>
 
@@ -71,7 +72,7 @@
     <script src="{{ asset('dashboard_assets/plugins/flot-charts/jquery.flot.resize.js') }}"></script>
     <script src="{{ asset('dashboard_assets/plugins/flot-charts/jquery.flot.pie.js') }}"></script>
     <script src="{{ asset('dashboard_assets/plugins/flot-charts/jquery.flot.categories.js') }}"></script>
-    <script src="{{ asset('plugins/flot-charts/jquery.flot.time.js') }}"></script>
+    <script src="{{ asset('dashboard_assets/plugins/flot-charts/jquery.flot.time.js') }}"></script>
 
     <!-- Sparkline Chart Plugin Js -->
     <script src="{{ asset('dashboard_assets/plugins/jquery-sparkline/jquery.sparkline.js') }}"></script>
@@ -82,6 +83,8 @@
 
     <!-- Demo Js -->
     <script src="{{ asset('dashboard_assets/js/demo.js') }}"></script>
+
+    @stack('jQuery_ajax')
 </body>
 
 </html>

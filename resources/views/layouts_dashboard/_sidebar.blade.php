@@ -35,8 +35,8 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li  class="{{ request()->routeIs('admin.admin') ? 'active' : '' }}">
-                    <a href="{{ route('admin.admin') }}">
+                <li  class="{{ request()->routeIs('admin.admin.index') ? 'active' : '' }} {{ request()->is('admin/admin/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.admin.index') }}">
                         <i class="material-icons">text_fields</i>
                         <span>Admin</span>
                     </a>

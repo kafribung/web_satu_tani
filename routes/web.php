@@ -19,9 +19,9 @@ Route::view('/', 'client.home.home');
 
 
 // ============================================================Admin
-Route::middleware('admin')->prefix('admin')->name('admin')->group(function () {
-    Route::get('/dashboard', DashboardController::class)->name('.dashboard');
-    Route::get('/admin', [AdminController::class, 'index'])->name('.admin');
+Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    Route::resource('/admin', AdminController::class);
 });
 
 
