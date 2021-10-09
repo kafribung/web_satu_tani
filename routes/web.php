@@ -52,12 +52,12 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// Petunjuk
-Route::view('syarat-dan-ketentuan', 'client.instruction.syarat-dan-ketentuan')->name('syarat-dan-ketentuan');
-Route::view('kebijakan-privasi', 'client.instruction.kebijakan-privasi')->name('kebijakan-privasi');
-Route::view('tanya-jawab', 'client.instruction.tanya-jawab')->name('tanya-jawab');
-Route::view('panduan', 'client.instruction.panduan')->name('panduan');
-Route::view('tentang-kami', 'client.instruction.tentang-kami')->name('tentang-kami');
+    // Petunjuk
+    Route::view('syarat-dan-ketentuan', 'client.instruction.syarat-dan-ketentuan')->name('syarat-dan-ketentuan');
+    Route::view('kebijakan-privasi', 'client.instruction.kebijakan-privasi')->name('kebijakan-privasi');
+    Route::view('tanya-jawab', 'client.instruction.tanya-jawab')->name('tanya-jawab');
+    Route::view('panduan', 'client.instruction.panduan')->name('panduan');
+    Route::view('tentang-kami', 'client.instruction.tentang-kami')->name('tentang-kami');
 
 Auth::routes(['verify' => true]);
 

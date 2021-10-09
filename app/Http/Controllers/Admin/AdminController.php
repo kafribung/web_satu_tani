@@ -47,6 +47,7 @@ class AdminController extends Controller
     public function update(AdminRequest $request, User $admin)
     {
         $data = $request->validated();
+        $data['password'] = bcrypt($data['password']);
 
         $admin->update($data);
 
