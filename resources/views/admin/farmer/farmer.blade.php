@@ -60,7 +60,7 @@
                                 </tr>
                                 @empty
                                 <tr>
-                                    <th colspan="6">Data tidak ditemukan</th>
+                                    <th colspan="20">Data tidak ditemukan</th>
                                 </tr>
                                 @endforelse
                             </tbody>

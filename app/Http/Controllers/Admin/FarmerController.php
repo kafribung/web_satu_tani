@@ -13,6 +13,7 @@ class FarmerController extends Controller
         $farmers = User::with('role')->whereHas('role', function($query){
             $query->where('name', 'petani');
         })
+        ->where('validation', 1)
         ->latest()
         ->paginate(20);
         return view('admin.farmer.farmer', compact('farmers'));
