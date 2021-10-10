@@ -43,13 +43,36 @@
                         <span>Admin</span>
                     </a>
                 </li>
+                <li class="{{ request()->routeIs('admin.user.index') ? 'active' : '' }} {{ request()->is('admin/user/*') ? 'active' : '' }} {{ request()->routeIs('admin.petani.index') ? 'active' : '' }} {{ request()->is('admin/petani/*') ? 'active' : '' }} {{ request()->routeIs('admin.koperai.index') ? 'active' : '' }} {{ request()->is('admin/koperai/*') ? 'active' : '' }}">
+                    <a class="menu-toggle">
+                        <i class="material-icons">widgets</i>
+                        <span>Pengguna</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{ request()->routeIs('admin.user.index') ? 'active' : '' }} {{ request()->is('admin/user/*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.user.index') }}">
+                                <span>User</span>
+                            </a>
+                        </li>
+                        <li class="{{ request()->routeIs('admin.petani.index') ? 'active' : '' }} {{ request()->is('admin/petani/*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.petani.index') }}">
+                                <span>Petani</span>
+                            </a>
+                        </li>
+                        <li class="{{ request()->routeIs('admin.koperai.index') ? 'active' : '' }} {{ request()->is('admin/koperai/*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.koperai.index') }}">
+                                <span>Koperasi</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="{{ request()->routeIs('admin.user.index') ? 'active' : '' }} {{ request()->is('admin/user/*') ? 'active' : '' }}">
                     <a href="{{ route('admin.user.index') }}">
-                        <i class="material-icons">widgets</i>
-                        <span>User</span>
+                        <i class="material-icons">layers</i>
+                        <span>Validasi</span>
                     </a>
                 </li>
-                <li class="{{ request()->routeIs('admin.petani.index') ? 'active' : '' }} {{ request()->is('admin/petani/*') ? 'active' : '' }}">
+                {{--<li class="{{ request()->routeIs('admin.petani.index') ? 'active' : '' }} {{ request()->is('admin/petani/*') ? 'active' : '' }}">
                     <a href="{{ route('admin.petani.index') }}">
                         <i class="material-icons">layers</i>
                         <span>Petani</span>
@@ -60,53 +83,7 @@
                         <i class="material-icons">swap_calls</i>
                         <span>Koperasi</span>
                     </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">widgets</i>
-                        <span>Widgets</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="javascript:void(0);" class="menu-toggle">
-                                <span>Cards</span>
-                            </a>
-                            <ul class="ml-menu">
-                                <li>
-                                    <a href="pages/widgets/cards/basic.html">Basic</a>
-                                </li>
-                                <li>
-                                    <a href="pages/widgets/cards/colored.html">Colored</a>
-                                </li>
-                                <li>
-                                    <a href="pages/widgets/cards/no-header.html">No Header</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0);" class="menu-toggle">
-                                <span>Infobox</span>
-                            </a>
-                            <ul class="ml-menu">
-                                <li>
-                                    <a href="pages/widgets/infobox/infobox-1.html">Infobox-1</a>
-                                </li>
-                                <li>
-                                    <a href="pages/widgets/infobox/infobox-2.html">Infobox-2</a>
-                                </li>
-                                <li>
-                                    <a href="pages/widgets/infobox/infobox-3.html">Infobox-3</a>
-                                </li>
-                                <li>
-                                    <a href="pages/widgets/infobox/infobox-4.html">Infobox-4</a>
-                                </li>
-                                <li>
-                                    <a href="pages/widgets/infobox/infobox-5.html">Infobox-5</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                </li> --}}
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">swap_calls</i>
