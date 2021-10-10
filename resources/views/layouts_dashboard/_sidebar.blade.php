@@ -55,6 +55,12 @@
                         <span>Petani</span>
                     </a>
                 </li>
+                <li class="{{ request()->routeIs('admin.koperai.index') ? 'active' : '' }} {{ request()->is('admin/koperai/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.koperai.index') }}">
+                        <i class="material-icons">swap_calls</i>
+                        <span>Koperasi</span>
+                    </a>
+                </li>
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">widgets</i>
