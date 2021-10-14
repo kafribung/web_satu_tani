@@ -10,7 +10,7 @@
                 <div class="container">
                     <div class="row">
                         @include('client.dashboard._sidebar-dashboard')
-                        <div class="col-lg-9 col-md-12">
+                        {{-- <div class="col-lg-9 col-md-12">
                             <div class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white">
                                 <div class="dash__pad-2">
                                     @if (session('message'))
@@ -94,7 +94,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <!--====== End - Section Content ======-->
                 </div>

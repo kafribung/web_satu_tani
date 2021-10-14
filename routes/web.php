@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController};
-use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, ProfileController, ResetPasswordController};
+use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,13 +55,17 @@ Route::middleware('auth', 'user')->group(function () {
     });
 
     // Buat Toko
-    Route::middleware('validation_toko')->prefix('buat-toko')->name('buat-toko')->group(function () {
+    Route::middleware('validation_nonactive')->prefix('buat-toko')->name('buat-toko')->group(function () {
         Route::view('', 'client.dashboard.create-market');
         Route::get('/petani', [CreateMarketFarmerController::class, 'index'])->name('.petani');
         Route::post('/petani', [CreateMarketFarmerController::class, 'store_img'])->name('.petani');
         Route::get('/petani/lengkapi-info', [CreateMarketFarmer2Controller::class, 'index'])->name('.petani.lengkapi-info');
         Route::patch('/petani/lengkapi-info', [CreateMarketFarmer2Controller::class, 'update'])->name('.petani.lengkapi-info');
         Route::view('/petani/selesai', 'client.dashboard.create-market-farmer-3')->name('.petani.selesai');
+    });
+
+    Route::middleware('validation_active')->prefix('posting')->name('posting')->group(function () {
+        Route::get('/posting', [PostingController::class, 'index'])->name('.index');
     });
 
 });

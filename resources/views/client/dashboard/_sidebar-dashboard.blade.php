@@ -20,6 +20,14 @@
                     <a href="{{ route('buat-toko') }}" class="{{ request()->routeIs('buat-toko') ? 'active' : '' }} {{ request()->is('buat-toko/*') ? 'active' : '' }} ">Buat Toko</a>
                 </li>
                 @endif
+                @if (!auth()->user()->verification())
+                <li>
+                    <a href="{{ route('posting.index') }}" class="{{ request()->routeIs('posting.index') ? 'active' : '' }}">
+                        Posting
+                    </a>
+                </li>
+                @endif
+
 
                 {{-- <li>
                     <a href="{{ route('panduan') }}" class="{{ request()->routeIs('panduan') ? 'active' : '' }} ">Panduan</a>
