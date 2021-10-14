@@ -109,9 +109,15 @@
                                     <span class="js-menu-toggle"></span>
                                     <ul style="width:160px">
                                         @auth
-                                        <li>
-                                            <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }} ">Dashboard</a>
-                                        </li>
+                                            @if (auth()->user()->hasAdmin())
+                                            <li>
+                                                <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }} ">Dashboard</a>
+                                            </li>
+                                            @else
+                                            <li>
+                                                <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }} ">Dashboard</a>
+                                            </li>
+                                            @endif
                                         @endauth
 
 
