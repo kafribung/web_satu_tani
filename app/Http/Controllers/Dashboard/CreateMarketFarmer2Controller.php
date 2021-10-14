@@ -15,15 +15,13 @@ class CreateMarketFarmer2Controller extends Controller
 
     public function update(Request $request)
     {
-        $request->validate([
+        $data =  $request->validate([
             'bank'            => 'required|string|min:3|max:7',
             'rekening_number' => 'required|numeric|min:10',
+            'rekening_name'   => 'required|string',
         ]);
 
-        auth()->user()->validation_sellers()->update([
-            'bank'            => $request->bank,
-            'rekening_number' => $request->rekening_number,
-        ]);
+        auth()->user()->validation_sellers()->update($data);
 
         return redirect('buat-toko/petani/selesai');
     }

@@ -31,15 +31,21 @@
                                 @forelse ($validations as $validation)
                                 <tr>
                                     <th scope="row">{{ (($validations->currentPage() - 1 ) * $validations->perPage() ) + $loop->iteration }}</th>
-                                    <td>{{ $validation->user->name }}</td>
+                                    <td>
+                                        <a href="" data-toggle="modal" data-target="#defaultModal">{{ $validation->user->name }}</a>
+                                    </td>
                                     <td>{{ $validation->name }}</td>
-                                    <td>{{ $validation->img }}</td>
+                                    <td>
+                                        <a target="_blank" href="{{ $validation->takeImg }}">
+                                            <img src="{{ $validation->takeImg }}" class="img-responsive thumbnail" width="100px" alt="Gambar gagal diload">
+                                        </a>
+                                    </td>
                                     <td>{{ $validation->bank }} / {{ $validation->rekening_number }} </td>
                                     <td>
-                                        <form style="display: inline"  action="{{ route('admin.admin.destroy', $admin) }}" method="POST">
+                                        <form style="display: inline"  action="{{ route('admin.admin.destroy', $validation) }}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" onclick="return confirm('Data admin {{ $admin->name }} akan dihapus secara permanent')" class="btn btn-danger waves-effect">
+                                            <button type="submit" onclick="return confirm('Data admin {{ $validation->name }} akan dihapus secara permanent')" class="btn btn-danger waves-effect">
                                                 <i class="material-icons">delete</i>
                                             </button>
                                         </form>
@@ -61,5 +67,22 @@
             </div>
         </div>
         <!-- #END# Hover Rows -->
+    </div>
+
+    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link waves-effect">SAVE CHANGES</button>
+                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
     </div>
 </x-master>

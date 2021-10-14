@@ -66,8 +66,8 @@
                         </li>
                     </ul>
                 </li>
-                <li class="{{ request()->routeIs('admin.user.index') ? 'active' : '' }} {{ request()->is('admin/user/*') ? 'active' : '' }}">
-                    <a href="{{ route('admin.user.index') }}">
+                <li class="{{ request()->routeIs('admin.validasi.index') ? 'active' : '' }} {{ request()->is('admin/validasi/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.validasi.index') }}">
                         <i class="material-icons">layers</i>
                         <span>Validasi</span>
                     </a>

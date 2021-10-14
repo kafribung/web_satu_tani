@@ -19,4 +19,11 @@ class ValidationSeller extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getTakeImgAttribute()
+    {
+        return url('storage', $this->img);
+    }
+
+
 }

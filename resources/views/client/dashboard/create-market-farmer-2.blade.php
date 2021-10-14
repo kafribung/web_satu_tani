@@ -84,10 +84,10 @@
                                                     <div class="form-floating">
                                                         <select name="bank" class="form-control" id="floatingSelectGrid">
                                                             <option selected>Pilih Bank</option>
-                                                            <option value="BRI">BRI</option>
-                                                            <option value="BNI">BNI</option>
-                                                            <option value="Mandiri">Mandiri</option>
-                                                            <option value="BCA">BCA</option>
+                                                            <option {{ old('BRI') == 'BRI' ? 'selected' : '' }} value="BRI">BRI</option>
+                                                            <option {{ old('BNI') == 'BNI' ? 'selected' : '' }} value="BNI">BNI</option>
+                                                            <option {{ old('Mandiri') == 'Mandiri' ? 'selected' : '' }} value="Mandiri">Mandiri</option>
+                                                            <option {{ old('BCA') == 'BCA' ? 'selected' : '' }} value="BCA">BCA</option>
                                                         </select>
                                                         @error('bank')
                                                         <p class="alert alert-danger">{{ $message }}</p>
@@ -96,7 +96,15 @@
                                                 </div>
 
                                                 <div class="col-sm">
-                                                    <input type="number" name="rekening_number" class="form-control"
+                                                    <input type="text" name="rekening_name" value="{{ old('rekening_name') }}" class="form-control"
+                                                        placeholder="Nama Rekening" aria-label="State">
+                                                    @error('rekening_name')
+                                                    <p class="alert alert-danger">{{ $message }}</p>
+                                                    @enderror
+                                                </div>
+
+                                                <div class="col-sm">
+                                                    <input type="number" name="rekening_number" value="{{ old('rekening_number') }}" class="form-control"
                                                         placeholder="Nomor Rekening" aria-label="State">
                                                     @error('rekening_number')
                                                     <p class="alert alert-danger">{{ $message }}</p>

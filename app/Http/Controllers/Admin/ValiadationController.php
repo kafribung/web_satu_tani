@@ -10,7 +10,7 @@ class ValiadationController extends Controller
 {
     public function index()
     {
-        $validations = ValidationSeller::with('users')->latest()->get();
+        $validations = ValidationSeller::with('user')->latest()->paginate(30);
         return view('admin.validation.validation', compact('validations'));
     }
 }
