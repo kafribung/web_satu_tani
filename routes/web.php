@@ -34,6 +34,7 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/koperasi', [CooperativeController::class, 'index'])->name('koperai.index');
     // Validasi
     Route::get('/validasi', [ValiadationController::class, 'index'])->name('validasi.index');
+    Route::patch('/validasi/{user:id}', [ValiadationController::class, 'update'])->name('validasi.update');
 });
 
 // ============================================================User

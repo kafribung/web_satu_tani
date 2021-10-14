@@ -23,7 +23,7 @@
                                     <th>PEMILIK</th>
                                     <th>KATEGORI</th>
                                     <th>BERKAS</th>
-                                    <th>NO REKENING</th>
+                                    <th>INFO REKENING</th>
                                     <th>AKSI</th>
                                 </tr>
                             </thead>
@@ -40,13 +40,13 @@
                                             <img src="{{ $validation->takeImg }}" class="img-responsive thumbnail" width="100px" alt="Gambar gagal diload">
                                         </a>
                                     </td>
-                                    <td>{{ $validation->bank }} / {{ $validation->rekening_number }} </td>
+                                    <td>{{ $validation->bank }} / {{ $validation->rekening_name }} / {{ $validation->rekening_number }} </td>
                                     <td>
-                                        <form style="display: inline"  action="{{ route('admin.admin.destroy', $validation) }}" method="POST">
+                                        <form style="display: inline"  action="{{ route('admin.validasi.update', $validation->user) }}" method="POST">
                                             @csrf
-                                            @method('delete')
-                                            <button type="submit" onclick="return confirm('Data admin {{ $validation->name }} akan dihapus secara permanent')" class="btn btn-danger waves-effect">
-                                                <i class="material-icons">delete</i>
+                                            @method('patch')
+                                            <button type="submit" class="btn btn-success waves-effect">
+                                                <i class="material-icons">check</i>
                                             </button>
                                         </form>
 

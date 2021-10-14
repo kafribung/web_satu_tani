@@ -19,7 +19,7 @@ class FarmerController extends Controller
         return view('admin.farmer.farmer', compact('farmers'));
     }
 
-    public function update(User $petani)
+    public function update(User $validation)
     {
 
     }
