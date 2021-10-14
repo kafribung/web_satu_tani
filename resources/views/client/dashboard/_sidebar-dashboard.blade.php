@@ -14,9 +14,13 @@
                     <a href="{{ route('profil') }}" class="{{ request()->routeIs('profil') ? 'active' : '' }} {{ request()->routeIs('profil.edit') ? 'active' : '' }} {{ request()->routeIs('reset.password') ? 'active' : '' }}">
                         Profil Saya
                     </a>
+                </li>
+                @if (auth()->user()->verification())
                 <li>
                     <a href="{{ route('buat-toko') }}" class="{{ request()->routeIs('buat-toko') ? 'active' : '' }} {{ request()->is('buat-toko/*') ? 'active' : '' }} ">Buat Toko</a>
                 </li>
+                @endif
+
                 {{-- <li>
                     <a href="{{ route('panduan') }}" class="{{ request()->routeIs('panduan') ? 'active' : '' }} ">Panduan</a>
                 <li>

@@ -21,6 +21,7 @@ class ValiadationController extends Controller
     {
         $user->update([
             'validation' => 1,
+            'role_id'    => 2,
         ]);
 
         return redirect()->route('admin.validasi.index')->with('message', 'Data ' . $user->name .' berhasil diverifikasi menjadi '. $user->validation_sellers->name);

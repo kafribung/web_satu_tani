@@ -77,4 +77,9 @@ class User extends Authenticatable implements MustVerifyEmail
             return false;
         } else return true;
     }
+
+    public function verification()
+    {
+        $this->validation == 0 ? true : false;
+    }
 }
