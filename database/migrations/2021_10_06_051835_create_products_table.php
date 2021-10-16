@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->date('harvest_time');
             $table->text('description');
-            $table->tinyInteger('discount');
+            $table->tinyInteger('discount')->nullable();
             $table->bigInteger('product_group_id')->unsigned();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
