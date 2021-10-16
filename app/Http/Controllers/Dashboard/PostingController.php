@@ -19,6 +19,19 @@ class PostingController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'img_1' => ['required', 'mimes:jpg,jpeg', 'max:2048'],
+            'img_2' => ['required', 'mimes:jpg,jpeg', 'max:2048'],
+            'img_3' => ['required', 'mimes:jpg,jpeg', 'max:2048'],
+            'img_4' => ['required', 'mimes:jpg,jpeg', 'max:2048'],
+            'img_5' => ['required', 'mimes:jpg,jpeg', 'max:2048'],
 
+            'name'          => ['required', 'string', 'min:5', 'max:20'],
+            'description'   => ['required'],
+            'harvest_time'  => ['required','date'],
+            'price'         => ['required','numeric'],
+            'stock'         => ['required','numeric'],
+            'discount'      => ['numeric'],
+        ]);
     }
 }
