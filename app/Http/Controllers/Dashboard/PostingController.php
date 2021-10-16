@@ -12,6 +12,11 @@ class PostingController extends Controller
         return view('client.dashboard.posting');
     }
 
+    public function create()
+    {
+        return view('client.dashboard.posting');
+    }
+
     public function store(Request $request)
     {
 

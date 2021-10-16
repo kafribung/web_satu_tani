@@ -22,7 +22,7 @@
                 @endif
                 @if (!auth()->user()->verification())
                 <li>
-                    <a href="{{ route('posting.index') }}" class="{{ request()->routeIs('posting.index') ? 'active' : '' }}">
+                    <a href="{{ route('posting.create') }}" class="{{ request()->routeIs('posting.create') ? 'active' : '' }}">
                         Posting
                     </a>
                 </li>

@@ -11,10 +11,10 @@
                     <div class="row">
                         @include('client.dashboard._sidebar-dashboard')
                         <div class="col-lg-9 col-md-12">
+                            <form>
                             <div class=" bgcard">
                                 <h3>Informasi Produk</h3>
                                 <div class="bings">
-                                    <form>
                                         {{-- Foto Produk --}}
                                         <div class="row mb-3">
                                             <label for="img_1" class="col-sm-3 col-form-label">*Foto Produk</label>
@@ -96,17 +96,18 @@
                                         </div>
 
                                         <div class="row mb-3">
-                                            <label for="stock" class="col-sm-3 col-form-label">*Diskon</label>
+                                            <label for="discount" class="col-sm-3 col-form-label">*Diskon</label>
                                             <div class="col-sm-6">
-                                                <input type="number" name="stock" value="{{ old('stock') }}" maxlength="2" class="form-control" id="stock" placeholder="0">
+                                                <input type="number" name="discount" value="{{ old('discount') }}" maxlength="2" class="form-control" id="discount" placeholder="0">
                                             </div>
                                         </div>
-                                    </form>
                                 </div>
                             </div>
                             <center>
                                 <a class="mini-link3 btn--e-brand-b-3" href="#">POSTING</a>
                             </center>
+                            </form>
+
                         </div>
                     </div>
                     <!--====== End - Section Content ======-->
