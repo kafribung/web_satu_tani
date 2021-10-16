@@ -9,7 +9,6 @@ class PostingController extends Controller
 {
     public function index()
     {
-        dd('hard');
         return view('client.dashboard.posting');
     }
 

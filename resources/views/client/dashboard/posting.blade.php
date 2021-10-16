@@ -10,91 +10,158 @@
                 <div class="container">
                     <div class="row">
                         @include('client.dashboard._sidebar-dashboard')
-                        {{-- <div class="col-lg-9 col-md-12">
-                            <div class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white">
-                                <div class="dash__pad-2">
-                                    @if (session('message'))
-                                    <p class="alert alert-danger">{{ session('message') }}</p>
-                                    @endif
+                        <div class="col-lg-9 col-md-12">
+                            <div class=" bgcard">
+                                <h3>Informasi Produk</h3>
+                                <div class="bings">
 
-                                    <h1 class="dash__h1 u-s-m-b-14">Edit Profile</h1>
-                                    <span class="dash__text u-s-m-b-30">Sepertinya Anda belum memperbarui profil Anda</span>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <form class="dash-edit-p" action="{{ route('profil.edit') }}" method="POST">
-                                                @csrf
-                                                @method('PATCH')
-                                                <div class="gl-inline">
-                                                    <div class="u-s-m-b-30">
-                                                        <label class="gl-label" for="reg-lname">NAMA LENGKAP</label>
-                                                        <input name="name" value="{{ old('name') ?? $user->name }}" class="input-text input-text--primary-style" type="text"
-                                                            id="reg-lname" placeholder="Nama Lengkap">
-                                                        @error('name')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
-                                                        @enderror
-                                                    </div>
+                                    <form>
 
-                                                    <div class="u-s-m-b-30">
-                                                        <label class="gl-label" for="reg-email">E-MAIL</label>
-                                                        <input name="email" value="{{ old('email') ?? $user->email }}" class="input-text input-text--primary-style" type="text"
-                                                            id="reg-email" placeholder="Contoh: mail@satutani.com">
-                                                        @error('email')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
-                                                        @enderror
-                                                    </div>
+                                        <div class="row mb-3">
+                                            <label for="inputEmail3" class="col-sm-3 col-form-label">*Foto
+                                                Produk</label>
+                                            <div class="col-sm-9">
+                                                <div class="bingkai">
+                                                    <a class="mini-link2 btn--e-brand-b-4"
+                                                        href="checkout.html">+</a>
+                                                    <p>Tambah Gambar</p>
                                                 </div>
 
-                                                <div class="gl-inline">
-                                                    <div class="u-s-m-b-30">
-                                                        <span class="gl-label" for="reg-birthday">TANGGAL LAHIR</span>
-                                                        <input name="date_birth" value="{{ old('date_birth')?? $user->date_birth }}" max="2008-04-30" class="input-text input-text--primary-style" type="date"
-                                                            id="reg-birthday">
-                                                        @error('date_birth')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
-                                                        @enderror
-                                                    </div>
-
-                                                    <div class="u-s-m-b-30">
-                                                        <label class="gl-label" for="gender">JENIS KELAMIN</label>
-                                                        <select name="gender"
-                                                            class="select-box select-box--primary-style u-w-100"
-                                                            id="gender">
-                                                            <option value="">Pilih</option>
-                                                            <option {{ $user->gender == 'pria' ? 'selected' : ''}} value="pria">Laki-laki</option>
-                                                            <option {{ $user->gender == 'wanita' ? 'selected' : '' }} value="wanita">Perempuan</option>
-                                                        </select>
-                                                        @error('gender')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
-                                                        @enderror
-                                                    </div>
-
-                                                    <div class="u-s-m-b-30">
-                                                        <label class="gl-label" for="no_hp">NOMOR TELPON</label>
-                                                        <input name="no_hp" value="{{ old('no_hp') ?? $user->no_hp }}" class="input-text input-text--primary-style" type="number"
-                                                            id="no_hp" placeholder="Nama Lengkap">
-                                                        @error('no_hp')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
-                                                        @enderror
-                                                    </div>
+                                                <div class="bingkai">
+                                                    <a class="mini-link2 btn--e-brand-b-4"
+                                                        href="checkout.html">+</a>
+                                                    <p>Foto 1</p>
                                                 </div>
 
-                                                <div class="gl-inline">
-                                                    <div class="u-s-m-b-30">
-                                                        <label class="gl-label" for="address">ALAMAT</label>
-                                                        <textarea class="input-text input-text--primary-style" name="address" id="address">{{ old('address') ?? $user->address }}</textarea>
-                                                        @error('address')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
-                                                        @enderror
-                                                    </div>
+                                                <div class="bingkai">
+                                                    <a class="mini-link2 btn--e-brand-b-4"
+                                                        href="checkout.html">+</a>
+                                                    <p>Foto 2</p>
                                                 </div>
 
-                                                <button class="btn btn--e-brand-b-2" type="submit">SIMPAN</button>
-                                            </form>
+                                                <div class="bingkai">
+                                                    <a class="mini-link2 btn--e-brand-b-4"
+                                                        href="checkout.html">+</a>
+                                                    <p>Foto 3</p>
+                                                </div>
+
+                                                <div class="bingkai">
+                                                    <a class="mini-link2 btn--e-brand-b-4"
+                                                        href="checkout.html">+</a>
+                                                    <p>Foto 4</p>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                    </div>
+
+                                        <div class="row mb-3">
+                                            <label for="inputEmail3" class="col-sm-3 col-form-label">*Nama
+                                                Produk</label>
+                                            <div class="col-sm-9">
+                                                <input type="name" class="form-control" id="inputEmail3"
+                                                    placeholder="Masukkan Nama Produk">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="inputEmail3" class="col-sm-3 col-form-label">*Deskripsi
+                                                Produk</label>
+                                            <div class="col-sm-9">
+                                                <textarea type="comment" class="form-control" id="inputEmail3"
+                                                    placeholder="Masukkan Deskripsi Produk"> </textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="inputPassword3"
+                                                class="col-sm-3 col-form-label">*Kategori</label>
+
+                                            <div class="col-sm-3">
+                                                <select class="form-control"
+                                                    aria-label="Default select example">
+                                                    <option selected>Sudah DIbersihkan</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <label for="inputEmail3" class="col-sm-3 col-form-label">*Waktu
+                                                Panen</label>
+                                            <div class="col-sm-9">
+                                                <input type="date" class="form-control" id="inputEmail3"
+                                                    placeholder="Masukkan Tanggal Panen">
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                        </div> --}}
+
+
+
+
+
+                            <div class=" bgcard">
+                                <h3>Informasi Penjualan</h3>
+                                <div class="bings">
+                                    <form>
+                                        <div class="row mb-3">
+                                            <label for="inputEmail3" class="col-sm-3 col-form-label">*Harga
+                                                Produk</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control" id="inputEmail3"
+                                                    placeholder="Rp. 0">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row mb-3">
+                                            <label for="inputPassword3" class="col-sm-3 col-form-label">*Stok
+                                                Produk</label>
+                                            <div class="col-sm-6">
+                                                <input type="number" class="form-control" id="inputPassword3"
+                                                    placeholder="0">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <select class="form-control"
+                                                    aria-label="Default select example">
+                                                    <option selected>Kilogram</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row mb-3">
+                                            <label for="inputPassword3" class="col-sm-3 col-form-label">*Minimal
+                                                Pembelian</label>
+                                            <div class="col-sm-6">
+                                                <input type="number" class="form-control" id="inputPassword3"
+                                                    placeholder="0">
+                                            </div>
+
+                                            <div class="col-sm-3">
+                                                <select class="form-control"
+                                                    aria-label="Default select example">
+                                                    <option selected>Kilogram</option>
+                                                    <option value="1">One</option>
+                                                    <option value="2">Two</option>
+                                                    <option value="3">Three</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <center>
+                                <a class="mini-link3 btn--e-brand-b-3" href="#">POSTING</a>
+                            </center>
+                        </div>
                     </div>
                     <!--====== End - Section Content ======-->
                 </div>

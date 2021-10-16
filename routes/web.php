@@ -65,7 +65,7 @@ Route::middleware('auth', 'user')->group(function () {
     });
 
     Route::middleware('validation_active')->prefix('posting')->name('posting')->group(function () {
-        Route::get('/posting', [PostingController::class, 'index'])->name('.index');
+        Route::get('', [PostingController::class, 'index'])->name('.index');
     });
 
 });
