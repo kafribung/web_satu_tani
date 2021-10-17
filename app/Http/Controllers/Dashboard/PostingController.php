@@ -10,27 +10,22 @@ class PostingController extends Controller
 {
     public function index()
     {
-        return view('client.dashboard.posting');
+        return view('client.dashboard.posting-index');
     }
 
     public function create()
     {
-        return view('client.dashboard.posting');
+        return view('client.dashboard.posting-create');
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
-            // 'max:2048'
-            // 'max:2048'
-            // 'max:2048'
-            // 'max:2048'
-            // 'max:2048'
-                'img_1' => ['required', 'image',],
-                'img_2' => ['required', 'image',],
-                'img_3' => ['required', 'image',],
-                'img_4' => ['required', 'image',],
-                'img_5' => ['required', 'image',],
+                'img_1' => ['required', 'image', 'max:2048'],
+                'img_2' => ['required', 'image', 'max:2048'],
+                'img_3' => ['required', 'image', 'max:2048'],
+                'img_4' => ['required', 'image', 'max:2048'],
+                'img_5' => ['required', 'image', 'max:2048'],
 
                 'name'          => ['required', 'string', 'min:5', 'max:20'],
                 'description'   => ['required'],
