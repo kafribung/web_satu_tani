@@ -14,7 +14,7 @@
                             <div class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white">
                                 <div class="dash__pad-2">
                                     @if (session('message'))
-                                    <p class="alert alert-danger">{{ session('message') }}</p>
+                                    <p style="color: #28A745">{{ session('message') }}</p>
                                     @endif
 
                                     <h1 class="dash__h1 u-s-m-b-14">Edit Profile</h1>
@@ -30,7 +30,7 @@
                                                         <input name="name" value="{{ old('name') ?? $user->name }}" class="input-text input-text--primary-style" type="text"
                                                             id="reg-lname" placeholder="Nama Lengkap">
                                                         @error('name')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
+                                                        <p style="color: #bb2124">{{ $message }}</p>
                                                         @enderror
                                                     </div>
 
@@ -39,7 +39,7 @@
                                                         <input name="email" value="{{ old('email') ?? $user->email }}" class="input-text input-text--primary-style" type="text"
                                                             id="reg-email" placeholder="Contoh: mail@satutani.com">
                                                         @error('email')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
+                                                        <p style="color: #bb2124">{{ $message }}</p>
                                                         @enderror
                                                     </div>
                                                 </div>
@@ -50,7 +50,7 @@
                                                         <input name="date_birth" value="{{ old('date_birth')?? $user->date_birth }}" max="2008-04-30" class="input-text input-text--primary-style" type="date"
                                                             id="reg-birthday">
                                                         @error('date_birth')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
+                                                        <p style="color: #bb2124">{{ $message }}</p>
                                                         @enderror
                                                     </div>
 
@@ -64,7 +64,7 @@
                                                             <option {{ $user->gender == 'wanita' ? 'selected' : '' }} value="wanita">Perempuan</option>
                                                         </select>
                                                         @error('gender')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
+                                                        <p style="color: #bb2124">{{ $message }}</p>
                                                         @enderror
                                                     </div>
 
@@ -73,7 +73,7 @@
                                                         <input name="no_hp" value="{{ old('no_hp') ?? $user->no_hp }}" class="input-text input-text--primary-style" type="number"
                                                             id="no_hp" placeholder="Nama Lengkap">
                                                         @error('no_hp')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
+                                                        <p style="color: #bb2124">{{ $message }}</p>
                                                         @enderror
                                                     </div>
                                                 </div>
@@ -83,7 +83,7 @@
                                                         <label class="gl-label" for="address">ALAMAT</label>
                                                         <textarea class="input-text input-text--primary-style" name="address" id="address">{{ old('address') ?? $user->address }}</textarea>
                                                         @error('address')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
+                                                        <p style="color: #bb2124">{{ $message }}</p>
                                                         @enderror
                                                     </div>
                                                 </div>

@@ -11,11 +11,15 @@
                     <div class="row">
                         @include('client.dashboard._sidebar-dashboard')
                         <div class="col-lg-9 col-md-12">
-                            <form action="{{ route('posting.create') }}" method="POST">
+                            <form action="{{ route('posting.create') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class=" bgcard">
                                     <h3>Informasi Produk</h3>
                                     <div class="bings">
+                                            @if (session('message'))
+                                            <p style="color: #28A745">{{ session('message') }}</p>
+                                            @endif
+
                                             {{-- Foto Produk --}}
                                             <div class="row mb-3">
                                                 <label for="img_1" class="col-sm-3 col-form-label">*Foto Produk</label>
@@ -104,7 +108,7 @@
                                             <div class="row mb-3">
                                                 <label for="price" class="col-sm-3 col-form-label">*Harga Produk</label>
                                                 <div class="col-sm-9">
-                                                    <input type="number" name="price" value="{{ old('price') }}" class="form-control" id="price" placeholder="Rp. 0">
+                                                    <input type="number" name="price" value="{{ old('price') }}" class="form-control" id="price" placeholder="Harga / Kg (Cnt. 30000)">
                                                     @error('price')
                                                         <p style="color: #bb2124">{{ $message }}</p>
                                                     @enderror
@@ -115,7 +119,7 @@
                                             <div class="row mb-3">
                                                 <label for="stock" class="col-sm-3 col-form-label">*Stok Produk(Kg)</label>
                                                 <div class="col-sm-6">
-                                                    <input type="number" name="stock" value="{{ old('stock') }}" maxlength="2" class="form-control" id="stock" placeholder="0">
+                                                    <input type="number" name="stock" value="{{ old('stock') }}" maxlength="2" class="form-control" id="stock" placeholder="Jumlah stok dalam KG">
                                                     @error('stock')
                                                         <p style="color: #bb2124">{{ $message }}</p>
                                                     @enderror
@@ -123,9 +127,9 @@
                                             </div>
 
                                             <div class="row mb-3">
-                                                <label for="discount" class="col-sm-3 col-form-label">*Diskon</label>
+                                                <label for="discount" class="col-sm-3 col-form-label">*Diskon(Jika tidak memiliki diskont isi dengna 0)</label>
                                                 <div class="col-sm-6">
-                                                    <input type="number" name="discount" value="{{ old('discount') }}" maxlength="2" class="form-control" id="discount" placeholder="0">
+                                                    <input type="number" name="discount" value="0" maxlength="2" class="form-control" id="discount">
                                                     @error('discount')
                                                         <p style="color: #bb2124">{{ $message }}</p>
                                                     @enderror

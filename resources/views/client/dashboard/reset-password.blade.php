@@ -14,7 +14,7 @@
                             <div class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white">
                                 <div class="dash__pad-2">
                                     @if (session('message'))
-                                    <p class="alert alert-danger">{{ session('message') }}</p>
+                                    <p style="color: #28A745">{{ session('message') }}</p>
                                     @endif
 
                                     <h1 class="dash__h1 u-s-m-b-14">Ubah Password</h1>
@@ -30,7 +30,7 @@
                                                         <input name="password" class="input-text input-text--primary-style" type="password"
                                                             id="password" placeholder="Masukkan Kata Sandi Lama">
                                                         @error('password')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
+                                                        <p style="color: #bb2124">{{ $message }}</p>
                                                         @enderror
                                                     </div>
                                                 </div>
@@ -41,7 +41,7 @@
                                                         <input name="password_new" class="input-text input-text--primary-style" type="password"
                                                             id="password_new" placeholder="Masukkan Kata Sandi Baru">
                                                         @error('password_new')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
+                                                        <p style="color: #bb2124">{{ $message }}</p>
                                                         @enderror
                                                     </div>
                                                 </div>
