@@ -26,6 +26,11 @@
                         Posting
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('posting.index') }}" class="{{ request()->routeIs('posting.index') ? 'active' : '' }}">
+                        Barang
+                    </a>
+                </li>
                 @endif
 
 

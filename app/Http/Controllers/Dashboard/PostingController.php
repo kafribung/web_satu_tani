@@ -10,7 +10,8 @@ class PostingController extends Controller
 {
     public function index()
     {
-        return view('client.dashboard.posting-index');
+        $products = Product::with('product_group')->where('user_id', auth()->id())->paginate(20);
+        return view('client.dashboard.posting-index', compact('products'));
     }
 
     public function create()
@@ -27,11 +28,11 @@ class PostingController extends Controller
                 'img_4' => ['required', 'image', 'max:2048'],
                 'img_5' => ['required', 'image', 'max:2048'],
 
-                'name'          => ['required', 'string', 'min:5', 'max:20'],
+                'name'          => ['required', 'string', 'min:5', 'max:30'],
                 'description'   => ['required'],
                 'harvest_time'  => ['required','date'],
                 'price'         => ['required','numeric'],
-                'stock'         => ['required','integer', 'size:200'],
+                'stock'         => ['required','integer'],
                 'discount'      => ['numeric'],
             ]);
         $data['product_group_id'] = 1;
@@ -53,7 +54,7 @@ class PostingController extends Controller
 
         $request->user()->products()->create($data);
 
-        return back()->with('message', 'Product berhasil ditambahkan');
+        return redirectk('posting')->with('message', 'Product berhasil ditambahkan');
     }
 
 

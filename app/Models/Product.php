@@ -30,9 +30,9 @@ class Product extends Model
         return $this->hasMany(Cart::class);
     }
 
-    public function product_imgs()
+    public function take_img($img)
     {
-        return $this->hasMany(ProductImg::class);
+        return url('storage', $img);
     }
 
 }
