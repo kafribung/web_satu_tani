@@ -261,7 +261,7 @@
     </div>
     <!--====== End - Bawang Koperasi ======-->
 
-    <!--====== Artikel ======-->
+    {{-- <!--====== Artikel ======-->
     <div class="u-s-p-b-60">
         <!--====== Section Intro ======-->
         <div class="bg2" style="margin-top: 50px;">
@@ -431,7 +431,7 @@
         </div>
         <!--====== End - Section Content ======-->
     </div>
-    <!--====== End - Manfaat ======-->
+    <!--====== End - Manfaat ======--> --}}
 
     <!--====== End - Modal Pembelian ======-->
     <div class="modal fade" id="add-to-cart">
