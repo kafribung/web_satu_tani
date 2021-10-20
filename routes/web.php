@@ -38,7 +38,7 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
 });
 
 // ============================================================User
-Route::middleware('auth', 'user')->group(function () {
+Route::middleware('auth', 'user', 'verified')->group(function () {
     // Dashboard
     Route::view('dashboard', 'client.dashboard.dashboard')->name('dashboard');
     // Profil
