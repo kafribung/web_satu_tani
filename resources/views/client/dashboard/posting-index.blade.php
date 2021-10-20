@@ -40,7 +40,7 @@
                                                 <td>{{ (($products->currentPage() - 1 ) * $products->perPage() ) + $loop->iteration }}</td>
                                                 <td>{{ $product->name }}</td>
                                                 <td>{{ $product->stock }}</td>
-                                                <td>{{ $product->price }}</td>
+                                                <td>{{ number_format($product->price, 2) }}</td>
                                                 <td>{{  date('d-m-y', strtotime($product->harvest_time)) }}</td>
                                                 <td>{{ $product->discount }} %</td>
                                                 <td>{{ Str::limit($product->description, 20, '...') }}</td>
