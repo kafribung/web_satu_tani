@@ -11,7 +11,11 @@ class PostingController extends Controller
 {
     public function index()
     {
-        $products = Product::with('product_group')->where('user_id', auth()->id())->latest()->paginate(20);
+        $products = Product::with('product_group')
+                    ->where('user_id', auth()->id())
+                    ->where('product_group_id', 1)
+                    ->latest()
+                    ->paginate(20);
         return view('client.dashboard.posting-index', compact('products'));
     }
 

@@ -134,41 +134,42 @@
         </div>
         <!--====== End - Section Intro ======-->
 
-        <!--====== Section Content ======-->
+        <!--====== Bawang Petani ======-->
         <div class="section__content">
             <div class="container">
                 <div class="slider-fouc">
                     <div class="owl-carousel product-slider" data-item="4">
+                        @forelse ($bawangPetanis as $bawangPetani)
                         <div class="u-s-m-b-30">
                             <div class="product-o product-o--hover-on">
                                 <div class="product-o__wrap">
                                     <a class="aspect aspect--bg-grey aspect--square u-d-block"
                                         href="bawang-eceran-detail.html">
-                                        <img class="aspect__img" src="{{ asset('assets/images/product/electronic/product13.jpg') }}"
-                                            alt="">
+                                        <img class="aspect__img" src="{{ $bawangPetani->take_img($bawangPetani->img_1) }}" alt="">
                                     </a>
                                 </div>
 
                                 <span class="product-o__category">
-                                    <a href="bawang-eceran-detail.html">Stok: 200 Kg</a><br>
-                                    <a href="bawang-eceran-detail.html">Panen: 30 Juli 2021</a>
+                                    <a href="bawang-eceran-detail.html">Stok: {{ $bawangPetani->stock }} Kg</a><br>
+                                    <a href="bawang-eceran-detail.html">Panen: {{  date('d-m-y', strtotime($bawangPetani->harvest_time))  }}</a>
                                 </span>
 
                                 <span class="product-o__name">
-                                    <a href="bawang-eceran-detail.html">Nikon DSLR 2K Camera</a>
+                                    <a style="font-size: 16px;">{{ $bawangPetani->name }}</a>
                                 </span>
 
                                 <span class="product-o__price">
-                                    Rp.125.00
-                                    <span style="color: #999; font-size: 12px;">/ Kg</span>
+                                    <span style="color: #999; font-size: 12px;">Rp. {{ number_format($bawangPetani->price, 2) }} / Kg</span>
                                 </span>
-                                <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip"
+                                {{-- <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip"
                                     data-placement="top">
-                                    <button class="btn btn--e-brand" type="button"
-                                        style="width: 100%; padding: 8px; margin-top: 10px; border-radius: 4px;">BELI</button>
-                                </a>
+                                    <button class="btn btn--e-brand" type="button" style="width: 100%; padding: 8px; margin-top: 10px; border-radius: 4px;">BELI</button>
+                                </a> --}}
                             </div>
                         </div>
+                        @empty
+
+                        @endforelse
                     </div>
 
                 </div>
@@ -184,7 +185,7 @@
                 </div>
             </div>
         </div>
-        <!--====== End - Section Content ======-->
+        <!--====== End - Bawang Petani ======-->
     </div>
     <!--====== End - Bawang Enceran ======-->
 
@@ -433,7 +434,7 @@
     </div>
     <!--====== End - Manfaat ======--> --}}
 
-    <!--====== End - Modal Pembelian ======-->
+    {{-- <!--====== End - Modal Pembelian ======-->
     <div class="modal fade" id="add-to-cart">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modal-radius modal-shadow">
@@ -473,5 +474,5 @@
             </div>
         </div>
     </div>
-    <!--====== End - Modal Pembelian ======-->
+    <!--====== End - Modal Pembelian ======--> --}}
 </x-main>
