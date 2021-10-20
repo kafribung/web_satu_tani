@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController};
 use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController};
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\{BawangPetaniController ,HomeController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,13 +75,18 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     });
 });
 
-
     // Petunjuk
     Route::view('syarat-dan-ketentuan', 'client.instruction.syarat-dan-ketentuan')->name('syarat-dan-ketentuan');
     Route::view('kebijakan-privasi', 'client.instruction.kebijakan-privasi')->name('kebijakan-privasi');
     Route::view('tanya-jawab', 'client.instruction.tanya-jawab')->name('tanya-jawab');
     Route::view('panduan', 'client.instruction.panduan')->name('panduan');
     Route::view('tentang-kami', 'client.instruction.tentang-kami')->name('tentang-kami');
+
+    // Produk
+    Route::middleware('auth', 'user', 'verified', 'validation_active')->prefix('bawang-petani')->name('bawang-petani')->group(function () {
+        Route::get('/{product:slug}', [BawangPetaniController::class, 'show'])->name('.show');
+    });
+
 
 Auth::routes(['verify' => true]);
 

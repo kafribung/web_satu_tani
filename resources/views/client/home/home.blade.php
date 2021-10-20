@@ -155,7 +155,7 @@
                                 </span>
 
                                 <span class="product-o__name">
-                                    <a style="font-size: 16px;">{{ $bawangPetani->name }}</a>
+                                    <a href="{{ route('bawang-petani.show', $bawangPetani->slug) }}" style="font-size: 16px;">{{ $bawangPetani->name }}</a>
                                 </span>
 
                                 <span class="product-o__price">
