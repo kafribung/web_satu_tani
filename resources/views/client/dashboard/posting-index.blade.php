@@ -26,11 +26,11 @@
                                                 <th>Tanggal Panen</th>
                                                 <th>Diskon</th>
                                                 <th>Deskripsi</th>
-                                                <th>Gambar Utama</th>
-                                                <th>Gambar 1</th>
-                                                <th>Gambar 2</th>
-                                                <th>Gambar 3</th>
-                                                <th>Gambar 4</th>
+                                                <th>Foto Utama</th>
+                                                <th>Foto 1</th>
+                                                <th>Foto 2</th>
+                                                <th>Foto 3</th>
+                                                <th>Foto 4</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -42,7 +42,7 @@
                                                 <td>{{ $product->stock }}</td>
                                                 <td>{{ $product->price }}</td>
                                                 <td>{{  date('d-m-y', strtotime($product->harvest_time)) }}</td>
-                                                <td>{{ $product->discount }}</td>
+                                                <td>{{ $product->discount }} %</td>
                                                 <td>{{ Str::limit($product->description, 20, '...') }}</td>
                                                 <td>
                                                     <a href="{{ $product->take_img($product->img_1) }}" class="dash__table-img-wrap">
@@ -73,9 +73,15 @@
                                                     <a href="{{ route('posting.edit', $product) }}" class="btn" style="color: #FFC107">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <button class="btn" style="color: #DC3545">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
+                                                    <form style="display: inline"  action="{{ route('posting.delete', $product) }}" method="POST">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" onclick="return confirm('Data product {{ $product->name }} akan dihapus secara permanent')" class="btn" style="color: #DC3545">
+                                                            <i class="fas fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+
                                                 </td>
                                             </tr>
 

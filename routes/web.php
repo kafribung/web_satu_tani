@@ -70,6 +70,7 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
         Route::post('/create', [PostingController::class, 'store'])->name('.create');
         Route::get('/edit/{product}', [PostingController::class, 'edit'])->name('.edit');
         Route::patch('/edit/{product}', [PostingController::class, 'update'])->name('.edit');
+        Route::delete('/delete/{product}', [PostingController::class, 'destroy'])->name('.delete');
     });
 });
 

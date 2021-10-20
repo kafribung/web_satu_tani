@@ -38,7 +38,7 @@
 
                                                         <a class="mini-link2 btn--e-brand-b-4">+</a>
                                                         <input type="file" name="img_1" accept="image/jpeg" id="img_1"/>
-                                                        <p>Gambar Utama</p>
+                                                        <p>Foto Utama</p>
                                                         @error('img_1')
                                                             <p style="color: #bb2124">{{ $message }}</p>
                                                         @enderror

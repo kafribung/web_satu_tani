@@ -28,7 +28,7 @@
                 </li>
                 <li>
                     <a href="{{ route('posting.index') }}" class="{{ request()->routeIs('posting.index') ? 'active' : '' }}">
-                        Barang
+                        Produk
                     </a>
                 </li>
                 @endif
