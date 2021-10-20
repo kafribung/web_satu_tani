@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Dashboard\PostingRequest;
 use App\Models\Product;
+use Illuminate\Support\Str;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\Dashboard\PostingRequest;
 
 class PostingController extends Controller
 {
@@ -44,6 +45,11 @@ class PostingController extends Controller
 
         $img_5 = $request->file('img_5');
         $data['img_5'] = $img_5->storeAs('product_images', mt_rand(). '.' .$img_5->extension());
+
+        $data['slug'] = Str::slug($request->name);
+        if (Product::where('slug', $data['slug'])->first() != null) {
+            $data['slug'] .= '-'.mt_rand();
+        }
 
         $request->user()->products()->create($data);
 
