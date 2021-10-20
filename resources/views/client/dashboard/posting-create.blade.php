@@ -11,8 +11,13 @@
                     <div class="row">
                         @include('client.dashboard._sidebar-dashboard')
                         <div class="col-lg-9 col-md-12">
-                            <form action="{{ route('posting.create') }}" method="POST" enctype="multipart/form-data">
+                            <form  action="{{ !empty($product->name) ? route('posting.edit', $product) : route('posting.create') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
+
+                                @if (!empty($product->name))
+                                    @method('PATCH')
+                                @endif
+
                                 <div class=" bgcard">
                                     <h3>Informasi Produk</h3>
                                     <div class="bings">
@@ -25,6 +30,12 @@
                                                 <label for="img_1" class="col-sm-3 col-form-label">*Foto Produk</label>
                                                 <div class="col-sm-9">
                                                     <div class="bingkai">
+                                                        @if (!empty($product->name))
+                                                        <a target="_blank" href="{{ $product->take_img($product->img_1) }}" class="dash__table-img-wrap">
+                                                            <img class="u-img-fluid" src="{{ $product->take_img($product->img_1) }}" alt="Gambar Error">
+                                                        </a>
+                                                        @endif
+
                                                         <a class="mini-link2 btn--e-brand-b-4">+</a>
                                                         <input type="file" name="img_1" accept="image/jpeg" id="img_1"/>
                                                         <p>Gambar Utama</p>
@@ -34,6 +45,12 @@
                                                     </div>
 
                                                     <div class="bingkai">
+                                                        @if (!empty($product->name))
+                                                        <a target="_blank" href="{{ $product->take_img($product->img_2) }}" class="dash__table-img-wrap">
+                                                            <img class="u-img-fluid" src="{{ $product->take_img($product->img_2) }}" alt="Gambar Error">
+                                                        </a>
+                                                        @endif
+
                                                         <a class="mini-link2 btn--e-brand-b-4">+</a>
                                                         <input type="file" name="img_2" accept="image/jpeg" id="img_2"/>
                                                         <p>Foto 1</p>
@@ -43,6 +60,12 @@
                                                     </div>
 
                                                     <div class="bingkai">
+                                                        @if (!empty($product->name))
+                                                        <a target="_blank" href="{{ $product->take_img($product->img_3) }}" class="dash__table-img-wrap">
+                                                            <img class="u-img-fluid" src="{{ $product->take_img($product->img_3) }}" alt="Gambar Error">
+                                                        </a>
+                                                        @endif
+
                                                         <a class="mini-link2 btn--e-brand-b-4">+</a>
                                                         <input type="file" name="img_3" accept="image/jpeg" id="img_3"/>
                                                         <p>Foto 2</p>
@@ -52,6 +75,12 @@
                                                     </div>
 
                                                     <div class="bingkai">
+                                                        @if (!empty($product->name))
+                                                        <a target="_blank" href="{{ $product->take_img($product->img_4) }}" class="dash__table-img-wrap">
+                                                            <img class="u-img-fluid" src="{{ $product->take_img($product->img_4) }}" alt="Gambar Error">
+                                                        </a>
+                                                        @endif
+
                                                         <a class="mini-link2 btn--e-brand-b-4">+</a>
                                                         <input type="file" name="img_4" accept="image/jpeg" id="img_4"/>
                                                         <p>Foto 3</p>
@@ -61,6 +90,12 @@
                                                     </div>
 
                                                     <div class="bingkai">
+                                                        @if (!empty($product->name))
+                                                        <a target="_blank" href="{{ $product->take_img($product->img_5) }}" class="dash__table-img-wrap">
+                                                            <img class="u-img-fluid" src="{{ $product->take_img($product->img_5) }}" alt="Gambar Error">
+                                                        </a>
+                                                        @endif
+
                                                         <a class="mini-link2 btn--e-brand-b-4">+</a>
                                                         <input type="file" name="img_5" accept="image/jpeg" id="img_5"/>
                                                         <p>Foto 4</p>
@@ -75,7 +110,7 @@
                                             <div class="row mb-3">
                                                 <label for="name" class="col-sm-3 col-form-label">*Nama Produk</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="name" placeholder="Masukkan Nama Produk">
+                                                    <input type="text" name="name" value="{{ old('name') ?? $product->name }}" class="form-control" id="name" placeholder="Masukkan Nama Produk">
                                                     @error('name')
                                                         <p style="color: #bb2124">{{ $message }}</p>
                                                     @enderror
@@ -87,7 +122,7 @@
                                             <div class="row mb-3">
                                                 <label for="description" class="col-sm-3 col-form-label">*Deskripsi Produk</label>
                                                 <div class="col-sm-9">
-                                                    <textarea type="comment" name="description" class="form-control" id="description" placeholder="Masukkan Deskripsi Produk">{{ old('description') }}</textarea>
+                                                    <textarea type="comment" name="description" class="form-control" id="description" placeholder="Masukkan Deskripsi Produk">{{ old('description') ?? $product->description }}</textarea>
                                                     @error('description')
                                                         <p style="color: #bb2124">{{ $message }}</p>
                                                     @enderror
@@ -98,7 +133,7 @@
                                             <div class="row mb-3">
                                                 <label for="harvest_time" class="col-sm-3 col-form-label">*Waktu Panen</label>
                                                 <div class="col-sm-9">
-                                                    <input type="date" name="harvest_time" value="{{ old('harvest_time') }}" class="form-control" id="harvest_time" placeholder="Masukkan Tanggal Panen">
+                                                    <input type="date" name="harvest_time" value="{{ old('harvest_time') ?? $product->harvest_time }}" class="form-control" id="harvest_time" placeholder="Masukkan Tanggal Panen">
                                                     @error('date')
                                                         <p style="color: #bb2124">{{ $message }}</p>
                                                     @enderror
@@ -108,18 +143,17 @@
                                             <div class="row mb-3">
                                                 <label for="price" class="col-sm-3 col-form-label">*Harga Produk</label>
                                                 <div class="col-sm-9">
-                                                    <input type="number" name="price" value="{{ old('price') }}" class="form-control" id="price" placeholder="Harga / Kg (Cnt. 30000)">
+                                                    <input type="number" name="price" value="{{ old('price') ?? $product->price }}" class="form-control" id="price" placeholder="Harga / Kg (Cnt. 30000)">
                                                     @error('price')
                                                         <p style="color: #bb2124">{{ $message }}</p>
                                                     @enderror
                                                 </div>
                                             </div>
 
-
                                             <div class="row mb-3">
                                                 <label for="stock" class="col-sm-3 col-form-label">*Stok Produk(Kg)</label>
                                                 <div class="col-sm-6">
-                                                    <input type="number" name="stock" value="{{ old('stock') }}" maxlength="2" class="form-control" id="stock" placeholder="Jumlah stok dalam KG">
+                                                    <input type="number" name="stock" value="{{ old('stock') ?? $product->stock }}" maxlength="2" class="form-control" id="stock" placeholder="Jumlah stok dalam KG">
                                                     @error('stock')
                                                         <p style="color: #bb2124">{{ $message }}</p>
                                                     @enderror
@@ -129,7 +163,7 @@
                                             <div class="row mb-3">
                                                 <label for="discount" class="col-sm-3 col-form-label">*Diskon(Jika tidak memiliki diskont isi dengna 0)</label>
                                                 <div class="col-sm-6">
-                                                    <input type="number" name="discount" value="0" maxlength="2" class="form-control" id="discount">
+                                                    <input type="number" name="discount" value="{{ old('discount')?? $product->discount }}" maxlength="2" class="form-control" id="discount">
                                                     @error('discount')
                                                         <p style="color: #bb2124">{{ $message }}</p>
                                                     @enderror
@@ -138,7 +172,7 @@
                                     </div>
                                 </div>
                                 <center>
-                                    <button type="submit" class="mini-link3 btn--e-brand-b-3" href="#">POSTING</button>
+                                    <button type="submit" class="mini-link3 btn--e-brand-b-3" href="#">{{ !empty($product->name) ? 'POSTING EDIT' : 'POSTING' }}</button>
                                 </center>
                             </form>
                         </div>

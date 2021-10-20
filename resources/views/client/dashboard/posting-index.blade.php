@@ -70,9 +70,9 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <button class="btn" style="color: #FFC107">
+                                                    <a href="{{ route('posting.edit', $product) }}" class="btn" style="color: #FFC107">
                                                         <i class="fas fa-edit"></i>
-                                                    </button>
+                                                    </a>
                                                     <button class="btn" style="color: #DC3545">
                                                         <i class="fas fa-trash"></i>
                                                     </button>

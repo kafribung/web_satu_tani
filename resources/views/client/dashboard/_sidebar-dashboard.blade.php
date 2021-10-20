@@ -22,7 +22,7 @@
                 @endif
                 @if (!auth()->user()->verification())
                 <li>
-                    <a href="{{ route('posting.create') }}" class="{{ request()->routeIs('posting.create') ? 'active' : '' }}">
+                    <a href="{{ route('posting.create') }}" class="{{ request()->is('posting/*') ? 'active' : '' }}">
                         Posting
                     </a>
                 </li>
@@ -32,7 +32,6 @@
                     </a>
                 </li>
                 @endif
-
 
                 {{-- <li>
                     <a href="{{ route('panduan') }}" class="{{ request()->routeIs('panduan') ? 'active' : '' }} ">Panduan</a>

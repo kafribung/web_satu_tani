@@ -17,7 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'client.home.home');
 
-
 // ============================================================Admin
 Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     // Dashboard
@@ -64,12 +63,14 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
         Route::view('/petani/selesai', 'client.dashboard.create-market-farmer-3')->name('.petani.selesai');
     });
 
+    // Barang
     Route::middleware('validation_active')->prefix('posting')->name('posting')->group(function () {
         Route::get('', [PostingController::class, 'index'])->name('.index');
         Route::get('/create', [PostingController::class, 'create'])->name('.create');
         Route::post('/create', [PostingController::class, 'store'])->name('.create');
+        Route::get('/edit/{product}', [PostingController::class, 'edit'])->name('.edit');
+        Route::patch('/edit/{product}', [PostingController::class, 'update'])->name('.edit');
     });
-
 });
 
 

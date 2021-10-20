@@ -16,7 +16,8 @@ class PostingController extends Controller
 
     public function create()
     {
-        return view('client.dashboard.posting-create');
+        $product = new Product();
+        return view('client.dashboard.posting-create', compact('product'));
     }
 
     public function store(Request $request)
@@ -57,5 +58,13 @@ class PostingController extends Controller
         return redirectk('posting')->with('message', 'Product berhasil ditambahkan');
     }
 
+    public function edit(Product $product)
+    {
+        return view('client.dashboard.posting-create', compact('product'));
+    }
 
+    public function update(Request $request, Product $product)
+    {
+        dd($request);
+    }
 }
