@@ -83,7 +83,7 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     Route::view('tentang-kami', 'client.instruction.tentang-kami')->name('tentang-kami');
 
     // Produk
-    Route::middleware('auth', 'user', 'verified', 'validation_active')->prefix('bawang-petani')->name('bawang-petani')->group(function () {
+    Route::prefix('bawang-petani')->name('bawang-petani')->group(function () {
         Route::get('/{product:slug}', [BawangPetaniController::class, 'show'])->name('.show');
     });
 
