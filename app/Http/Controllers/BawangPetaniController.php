@@ -53,7 +53,17 @@ class BawangPetaniController extends Controller
     public function show(Product $product)
     {
         $bawangPetani = $product;
-        return view('client.bawang-petani.show', compact('bawangPetani'));
+
+        $bawangPetanis = Product::with(['product_group', 'user'])
+        ->whereHas('product_group', function($query){
+            $query->where('name', 'Eceran');
+        })
+        ->where('id', '!=', $product->id)
+        ->inRandomOrder()
+        ->limit(4)
+        ->get();
+
+        return view('client.bawang-petani.show', compact('bawangPetani', 'bawangPetanis'));
     }
 
     /**

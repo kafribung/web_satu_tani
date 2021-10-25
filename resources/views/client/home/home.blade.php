@@ -157,9 +157,14 @@
                                 <span class="product-o__name">
                                     <a href="{{ route('bawang-petani.show', $bawangPetani->slug) }}" style="font-size: 16px;">{{ $bawangPetani->name }}</a>
                                 </span>
-
+                                @php
+                                    $discount = number_format((($bawangPetani->price * $bawangPetani->discount) / 100))
+                                @endphp
                                 <span class="product-o__price">
-                                    <span style="color: #999; font-size: 12px;">Rp. {{ number_format($bawangPetani->price, 2) }} / Kg</span>
+                                    <span style="color: #999; font-size: 12px;">Rp. {{ $harga = number_format($bawangPetani->price - $discount, 2) }} / Kg</span>
+                                    @if ($bawangPetani->discount != 0 || $bawangPetani->discount != null)
+                                    <span class="product-o__discount">{{ number_format($bawangPetani->price, 2) }}</span>
+                                    @endif
                                 </span>
                             </div>
                         </div>
@@ -167,13 +172,12 @@
                         <div class="u-s-m-b-30">
                             <div class="product-o product-o--hover-on">
                                 <span class="product-o__category">
-                                    <a>Bawang Petani Belul ditambahkan</a>
+                                    <a>Bawang Petani belum ditambahkan</a>
                                 </span>
                             </div>
                         </div>
                         @endforelse
                     </div>
-
                 </div>
 
                 <div class="col-lg-12">

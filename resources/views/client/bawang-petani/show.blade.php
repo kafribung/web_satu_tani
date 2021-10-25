@@ -167,24 +167,20 @@
 
 
         <div class="u-s-p-b-90">
-
             <!--====== Section Intro ======-->
             <div class="section__intro u-s-m-b-46">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="section__text-wrap">
-                                <h1 class="section__heading u-c-secondary u-s-m-b-12">Rekomendasi Produk Untuk
-                                    Kamu</h1>
-
-                                <span class="section__span u-c-grey">Produk terbaik yang kita punya</span>
+                                <h1 class="section__heading u-c-secondary u-s-m-b-12">Rekomendasi Produk Untuk Anda</h1>
+                                <span class="section__span u-c-grey">Produk terbaik yang kami punya</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!--====== End - Section Intro ======-->
-
 
             <!--====== Section Content ======-->
             <div class="container">
@@ -193,161 +189,44 @@
                         <div class="shop-p">
                             <div class="shop-p__collection">
                                 <div class="row is-grid-active">
+                                    @forelse ($bawangPetanis as $bawangPetani)
                                     <div class="col-lg-3 col-md-4 col-sm-6 u-s-m-b-30">
                                         <div class="product-o product-o--hover-on">
                                             <div class="product-o__wrap">
-
                                                 <a class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="bawang-eceran-detail.html">
-
-                                                    <img class="aspect__img"
-                                                        src="images/product/electronic/product14.jpg"
-                                                        alt=""></a>
+                                                    href="{{ route('bawang-petani.show', $bawangPetani->slug) }}">
+                                                    <img class="aspect__img" src="{{ $bawangPetani->take_img($bawangPetani->img_1) }}" alt="">
+                                                </a>
                                             </div>
-                                            <div class="product-m__content ">
-                                                <div class="product-m__name">
-                                                    <a href="bawang-eceran-detail.html">Varietas A</a>
-                                                </div>
-                                                <div class="product-m__category">
-                                                    <a>Stock: 200 Kg</a>
-                                                </div>
-                                                <div class="product-m__category">
-                                                    <a>Panen: 30 Agustus 2021</a>
-                                                </div>
-                                                <br>
-                                                <div class="product-m__price">Rp 20.000 <span
-                                                        class="small-title">/ kg</span></div>
-                                                <div class="product-m__hover">
-                                                    <div class="product-m__wishlist">
 
-                                                        <a class="far fa-heart" href="#" data-tooltip="tooltip"
-                                                            data-placement="top" title="Add to Wishlist"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <a data-modal="modal" data-modal-id="#add-to-cart"
-                                                data-tooltip="tooltip" data-placement="top"><button
-                                                    class="btn btn--e-brand" type="button"
-                                                    style="width: 100%; padding: 8px; margin-top: 10px; border-radius: 4px;">BELI</button></a>
+                                            <span class="product-o__category">
+                                                <a href="{{ route('bawang-petani.show', $bawangPetani->slug) }}">Stok: {{ $bawangPetani->stock }} Kg</a><br>
+                                                <a href="{{ route('bawang-petani.show', $bawangPetani->slug) }}">Panen: {{  date('d-m-Y', strtotime($bawangPetani->harvest_time))  }}</a>
+                                            </span>
+
+                                            <span class="product-o__name">
+                                                <a href="{{ route('bawang-petani.show', $bawangPetani->slug) }}" style="font-size: 16px;">{{ $bawangPetani->name }}</a>
+                                            </span>
+                                            @php
+                                                $discount = number_format((($bawangPetani->price * $bawangPetani->discount) / 100))
+                                            @endphp
+                                            <span class="product-o__price">
+                                                <span style="color: #999; font-size: 12px;">Rp. {{ $harga = number_format($bawangPetani->price - $discount, 2) }} / Kg</span>
+                                                @if ($bawangPetani->discount != 0 || $bawangPetani->discount != null)
+                                                <span class="product-o__discount">{{ number_format($bawangPetani->price, 2) }}</span>
+                                                @endif
+                                            </span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-4 col-sm-6 u-s-m-b-30">
+                                    @empty
+                                    <div class="u-s-m-b-30">
                                         <div class="product-o product-o--hover-on">
-                                            <div class="product-o__wrap">
-
-                                                <a class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="bawang-eceran-detail.html">
-
-                                                    <img class="aspect__img"
-                                                        src="images/product/electronic/product14.jpg"
-                                                        alt=""></a>
-
-                                            </div>
-                                            <div class="product-m__content ">
-                                                <div class="product-m__name">
-                                                    <a href="bawang-eceran-detail.html">Varietas A</a>
-                                                </div>
-                                                <div class="product-m__category">
-                                                    <a>Stock: 200 Kg</a>
-                                                </div>
-                                                <div class="product-m__category">
-                                                    <a>Panen: 30 Agustus 2021</a>
-                                                </div>
-                                                <br>
-                                                <div class="product-m__price">Rp 20.000 <span
-                                                        class="small-title">/ kg</span></div>
-                                                <div class="product-m__hover">
-                                                    <div class="product-m__wishlist">
-
-                                                        <a class="far fa-heart" href="#" data-tooltip="tooltip"
-                                                            data-placement="top" title="Add to Wishlist"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <a data-modal="modal" data-modal-id="#add-to-cart"
-                                                data-tooltip="tooltip" data-placement="top"><button
-                                                    class="btn btn--e-brand" type="button"
-                                                    style="width: 100%; padding: 8px; margin-top: 10px; border-radius: 4px;">BELI</button></a>
+                                            <span class="product-o__category">
+                                                <a>Bawang Petani belum ditambahkan</a>
+                                            </span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-4 col-sm-6 u-s-m-b-30">
-                                        <div class="product-o product-o--hover-on">
-                                            <div class="product-o__wrap">
-
-                                                <a class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="bawang-eceran-detail.html">
-
-                                                    <img class="aspect__img"
-                                                        src="images/product/electronic/product14.jpg"
-                                                        alt=""></a>
-
-                                            </div>
-                                            <div class="product-m__content ">
-                                                <div class="product-m__name">
-                                                    <a href="bawang-eceran-detail.html">Varietas A</a>
-                                                </div>
-                                                <div class="product-m__category">
-                                                    <a>Stock: 200 Kg</a>
-                                                </div>
-                                                <div class="product-m__category">
-                                                    <a>Panen: 30 Agustus 2021</a>
-                                                </div>
-                                                <br>
-                                                <div class="product-m__price">Rp 20.000 <span
-                                                        class="small-title">/ kg</span></div>
-                                                <div class="product-m__hover">
-                                                    <div class="product-m__wishlist">
-
-                                                        <a class="far fa-heart" href="#" data-tooltip="tooltip"
-                                                            data-placement="top" title="Add to Wishlist"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <a data-modal="modal" data-modal-id="#add-to-cart"
-                                                data-tooltip="tooltip" data-placement="top"><button
-                                                    class="btn btn--e-brand" type="button"
-                                                    style="width: 100%; padding: 8px; margin-top: 10px; border-radius: 4px;">BELI</button></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-4 col-sm-6 u-s-m-b-30">
-                                        <div class="product-o product-o--hover-on">
-                                            <div class="product-o__wrap">
-
-                                                <a class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="bawang-eceran-detail.html">
-
-                                                    <img class="aspect__img"
-                                                        src="images/product/electronic/product14.jpg"
-                                                        alt=""></a>
-
-                                            </div>
-                                            <div class="product-m__content ">
-                                                <div class="product-m__name">
-                                                    <a href="bawang-eceran-detail.html">Varietas A</a>
-                                                </div>
-                                                <div class="product-m__category">
-                                                    <a>Stock: 200 Kg</a>
-                                                </div>
-                                                <div class="product-m__category">
-                                                    <a>Panen: 30 Agustus 2021</a>
-                                                </div>
-                                                <br>
-                                                <div class="product-m__price">Rp 20.000 <span
-                                                        class="small-title">/ kg</span></div>
-                                                <div class="product-m__hover">
-                                                    <div class="product-m__wishlist">
-
-                                                        <a class="far fa-heart" href="#" data-tooltip="tooltip"
-                                                            data-placement="top" title="Add to Wishlist"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <a data-modal="modal" data-modal-id="#add-to-cart"
-                                                data-tooltip="tooltip" data-placement="top"><button
-                                                    class="btn btn--e-brand" type="button"
-                                                    style="width: 100%; padding: 8px; margin-top: 10px; border-radius: 4px;">BELI</button></a>
-                                        </div>
-                                    </div>
+                                    @endforelse
                                 </div>
                             </div>
                         </div>
