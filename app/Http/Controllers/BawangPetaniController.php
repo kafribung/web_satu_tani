@@ -14,7 +14,13 @@ class BawangPetaniController extends Controller
      */
     public function index()
     {
-        //
+        $bawangPetanis = Product::with(['product_group', 'user'])
+        ->whereHas('product_group', function($query){
+            $query->where('name', 'Eceran');
+        })
+        ->inRandomOrder()
+        ->paginate(4);
+        return view('client.bawang-petani.index', compact('bawangPetanis'));
     }
 
     /**

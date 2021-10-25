@@ -161,14 +161,16 @@
                                 <span class="product-o__price">
                                     <span style="color: #999; font-size: 12px;">Rp. {{ number_format($bawangPetani->price, 2) }} / Kg</span>
                                 </span>
-                                {{-- <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip"
-                                    data-placement="top">
-                                    <button class="btn btn--e-brand" type="button" style="width: 100%; padding: 8px; margin-top: 10px; border-radius: 4px;">BELI</button>
-                                </a> --}}
                             </div>
                         </div>
                         @empty
-
+                        <div class="u-s-m-b-30">
+                            <div class="product-o product-o--hover-on">
+                                <span class="product-o__category">
+                                    <a>Bawang Petani Belul ditambahkan</a>
+                                </span>
+                            </div>
+                        </div>
                         @endforelse
                     </div>
 
@@ -176,7 +178,7 @@
 
                 <div class="col-lg-12">
                     <div class="load-more">
-                        <a href="bawang-eceran.html">
+                        <a href="{{ route('bawang-petani.index') }}">
                             <button class="btn btn--e-brand" type="button" style="padding: 20px 60px;">
                                 Selengkapnya
                             </button>
@@ -433,46 +435,4 @@
         <!--====== End - Section Content ======-->
     </div>
     <!--====== End - Manfaat ======--> --}}
-
-    {{-- <!--====== End - Modal Pembelian ======-->
-    <div class="modal fade" id="add-to-cart">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content modal-radius modal-shadow">
-                <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-12">
-                            <div class="success u-s-m-b-30">
-                                <div class="success__text-wrap"><i class="fas fa-check"></i>
-                                    <span>Item is added successfully!</span></div>
-                                <div class="success__img-wrap">
-                                    <img class="u-img-fluid" src="{{ asset('assets/images/product/electronic/product1.jpg') }}"
-                                        alt="">
-                                </div>
-                                <div class="success__info-wrap">
-                                    <span class="success__name">Beats Bomb Wireless Headphone</span>
-                                    <span class="success__quantity">Quantity: 1</span>
-                                    <span class="success__price">Rp.170.00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12">
-                            <div class="s-option">
-                                <span class="s-option__text">1 item (s) in your cart</span>
-                                <div class="s-option__link-box">
-                                    <a class="s-option__link btn--e-white-brand-shadow"
-                                        data-dismiss="modal">CONTINUE SHOPPING</a>
-                                    <a class="s-option__link btn--e-white-brand-shadow" href="cart.html">VIEW
-                                        CART</a>
-                                    <a class="s-option__link btn--e-brand-shadow" href="checkout.html">PROCEED
-                                        TO CHECKOUT</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--====== End - Modal Pembelian ======--> --}}
 </x-main>

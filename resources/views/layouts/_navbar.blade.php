@@ -75,7 +75,7 @@
                         <!--====== List ======-->
                         <ul class="ah-list ah-list--design2 ah-list--link-color-secondary">
                             <li>
-                                <a href="bawang-eceran.html">BAWANG ECERAN</a>
+                                <a class="{{ request()->routeIs('bawang-petani.index') ? 'active' : '' }}" href="{{ route('bawang-petani.index') }}">BAWANG ECERAN</a>
                             </li>
                             <li>
                                 <a href="bawang-koperasi.html">BAWANG KOPERASI</a>
@@ -111,11 +111,11 @@
                                         @auth
                                             @if (auth()->user()->hasAdmin())
                                             <li>
-                                                <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }} ">Dashboard</a>
+                                                <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">Dashboard</a>
                                             </li>
                                             @else
                                             <li>
-                                                <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }} ">Dashboard</a>
+                                                <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">Dashboard</a>
                                             </li>
                                             @endif
                                         @endauth

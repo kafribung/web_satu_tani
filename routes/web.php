@@ -84,6 +84,7 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
 
     // Produk
     Route::prefix('bawang-petani')->name('bawang-petani')->group(function () {
+        Route::get('', [BawangPetaniController::class, 'index'])->name('.index');
         Route::get('/{product:slug}', [BawangPetaniController::class, 'show'])->name('.show');
     });
 

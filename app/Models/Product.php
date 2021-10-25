@@ -15,6 +15,8 @@ class Product extends Model
         'updated_at',
     ];
 
+    protected $with = ['product_group', 'user'];
+
     public function product_group()
     {
         return $this->belongsTo(ProductGroup::class);
