@@ -75,7 +75,7 @@
                         <!--====== List ======-->
                         <ul class="ah-list ah-list--design2 ah-list--link-color-secondary">
                             <li>
-                                <a class="{{ request()->routeIs('bawang-eceran.index') ? 'active' : '' }}" href="{{ route('bawang-eceran.index') }}">BAWANG ECERAN</a>
+                                <a class="{{ request()->routeIs('bawang-eceran.index') || request()->is('bawang-eceran/*') ? 'active' : '' }}" href="{{ route('bawang-eceran.index') }}">BAWANG ECERAN</a>
                             </li>
                             <li>
                                 <a href="bawang-koperasi.html">BAWANG KOPERASI</a>

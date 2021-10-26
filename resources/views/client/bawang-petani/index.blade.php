@@ -19,6 +19,13 @@
                                 @foreach ($bawangPetanis as $bawangPetani)
                                 <div class="col-lg-3 col-md-4 col-sm-6 u-s-m-b-30">
                                     <div class="product-o product-o--hover-on">
+                                        <div class="bp-mini__stat">
+                                            <span class="bp-mini__preposition">Oleh</span>
+                                            <span class="bp-mini__author">
+                                                <a href="">{{ $bawangPetani->user->name }}</a>
+                                            </span>
+                                        </div>
+
                                         <div class="product-o__wrap">
                                             <a class="aspect aspect--bg-grey aspect--square u-d-block"
                                                 href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}">

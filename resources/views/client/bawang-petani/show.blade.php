@@ -61,6 +61,9 @@
                     <!--====== Product Right Side Details ======-->
                     <div class="pd-detail">
                         <div>
+                            <span class="pd-detail__review u-s-m-l-4">
+                                <a href="">By {{ $bawangPetani->user->name }}</a>
+                            </span>
                             <span class="pd-detail__name">{{ $bawangPetani->name }}</span>
                         </div>
 

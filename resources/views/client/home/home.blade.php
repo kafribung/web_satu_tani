@@ -142,28 +142,41 @@
                         @forelse ($bawangPetanis as $bawangPetani)
                         <div class="u-s-m-b-30">
                             <div class="product-o product-o--hover-on">
+                                <div class="bp-mini__stat">
+                                    <span class="bp-mini__preposition">Oleh</span>
+                                    <span class="bp-mini__author">
+                                        <a href="">{{ $bawangPetani->user->name }}</a>
+                                    </span>
+                                </div>
+
                                 <div class="product-o__wrap">
                                     <a class="aspect aspect--bg-grey aspect--square u-d-block"
                                         href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}">
-                                        <img class="aspect__img" src="{{ $bawangPetani->take_img($bawangPetani->img_1) }}" alt="">
+                                        <img class="aspect__img"
+                                            src="{{ $bawangPetani->take_img($bawangPetani->img_1) }}" alt="">
                                     </a>
                                 </div>
 
                                 <span class="product-o__category">
-                                    <a href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}">Stok: {{ $bawangPetani->stock }} Kg</a><br>
-                                    <a href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}">Panen: {{  date('d-m-Y', strtotime($bawangPetani->harvest_time))  }}</a>
+                                    <a href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}">Stok: {{
+                                        $bawangPetani->stock }} Kg</a><br>
+                                    <a href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}">Panen: {{
+                                        date('d-m-Y', strtotime($bawangPetani->harvest_time)) }}</a>
                                 </span>
 
                                 <span class="product-o__name">
-                                    <a href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}" style="font-size: 16px;">{{ $bawangPetani->name }}</a>
+                                    <a href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}"
+                                        style="font-size: 16px;">{{ $bawangPetani->name }}</a>
                                 </span>
                                 @php
-                                    $discount = number_format((($bawangPetani->price * $bawangPetani->discount) / 100))
+                                $discount = number_format((($bawangPetani->price * $bawangPetani->discount) / 100))
                                 @endphp
                                 <span class="product-o__price">
-                                    <span style="color: #999; font-size: 12px;">Rp. {{ $harga = number_format($bawangPetani->price - $discount, 2) }} / Kg</span>
+                                    <span style="color: #999; font-size: 12px;">Rp. {{ $harga =
+                                        number_format($bawangPetani->price - $discount, 2) }} / Kg</span>
                                     @if ($bawangPetani->discount != 0 || $bawangPetani->discount != null)
-                                    <span class="product-o__discount">{{ number_format($bawangPetani->price, 2) }}</span>
+                                    <span class="product-o__discount">{{ number_format($bawangPetani->price, 2)
+                                        }}</span>
                                     @endif
                                 </span>
                             </div>
@@ -226,8 +239,8 @@
                                     <a class="aspect aspect--bg-grey aspect--square u-d-block"
                                         href="bawang-koperasi-detail.html">
 
-                                        <img class="aspect__img" src="{{ asset('assets/images/product/electronic/product14.jpg') }}"
-                                            alt="">
+                                        <img class="aspect__img"
+                                            src="{{ asset('assets/images/product/electronic/product14.jpg') }}" alt="">
                                     </a>
                                 </div>
 
@@ -257,7 +270,8 @@
                 <div class="col-lg-12">
                     <div class="load-more">
                         <a href="bawang-koperasi.html">
-                            <button class="btn btn--e-brand" type="button" style="padding: 20px 60px;">Selanjutnya</button>
+                            <button class="btn btn--e-brand" type="button"
+                                style="padding: 20px 60px;">Selanjutnya</button>
                         </a>
                     </div>
                 </div>
@@ -268,7 +282,8 @@
     </div>
     <!--====== End - Bawang Koperasi ======-->
 
-    {{-- <!--====== Artikel ======-->
+    {{--
+    <!--====== Artikel ======-->
     <div class="u-s-p-b-60">
         <!--====== Section Intro ======-->
         <div class="bg2" style="margin-top: 50px;">
@@ -296,9 +311,9 @@
                         <div class="bp-mini bp-mini--img u-h-100">
                             <div class="bp-mini__thumbnail">
                                 <!--====== Image Code ======-->
-                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block"
-                                    href="article-detail.html">
-                                    <img class="aspect__img" src="{{ asset('assets/images/blog/post-2.jpg') }}" alt=""></a>
+                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="article-detail.html">
+                                    <img class="aspect__img" src="{{ asset('assets/images/blog/post-2.jpg') }}"
+                                        alt=""></a>
                                 <!--====== End - Image Code ======-->
                             </div>
                             <div class="bp-mini__content">
@@ -338,7 +353,8 @@
                 <div class="col-lg-12">
                     <div class="load-more">
                         <a href="article.html">
-                            <button class="btn btn--e-brand" type="button" style="padding:20px 60px">Selanjutnya</button>
+                            <button class="btn btn--e-brand" type="button"
+                                style="padding:20px 60px">Selanjutnya</button>
                         </a>
                     </div>
                 </div>
@@ -360,8 +376,7 @@
                             <div class="bp-mini__thumbnail">
 
                                 <!--====== Image Code ======-->
-                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block"
-                                    href="blog-detail.html">
+                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="blog-detail.html">
 
                                     <img class="aspect__img" style="padding: 20px 60px;"
                                         src="{{ asset('assets/images/ilustrasi/illust1.png') }}" alt="">
@@ -387,8 +402,7 @@
 
                                 <!--====== Image Code ======-->
 
-                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block"
-                                    href="blog-detail.html">
+                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="blog-detail.html">
 
                                     <img class="aspect__img" style="padding: 20px 60px;"
                                         src="{{ asset('assets/images/ilustrasi/Illust2.png') }}" alt=""></a>
@@ -413,8 +427,7 @@
 
                                 <!--====== Image Code ======-->
 
-                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block"
-                                    href="blog-detail.html">
+                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="blog-detail.html">
 
                                     <img class="aspect__img" style="padding: 20px 60px;"
                                         src="{{ asset('assets/images/ilustrasi/illust3 (1).png') }}" alt="">
