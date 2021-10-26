@@ -76,7 +76,7 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
 
     //Kerangjang
     Route::prefix('keranjang')->name('keranjang')->group(function () {
-        Route::post('', [CartController::class, 'store'])->name('.keranjang');
+        Route::post('/{productid}', [CartController::class, 'store'])->name('.keranjang');
     });
 });
 

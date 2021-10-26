@@ -3,6 +3,12 @@
     <div class="u-s-p-t-60">
         <div class="container u-s-p-b-60">
             <div class="row">
+                @if (session('message'))
+                <div class="col-lg-12">
+                    <span class="pd-detail__left mb-5">{{ session('message') }}</span>
+                </div>
+                @endif
+
                 <div class="col-lg-5">
                     <!--====== Product Detail Zoom ======-->
                     <div class="pd u-s-m-b-30">
@@ -98,7 +104,7 @@
                             </div>
 
                             <div class="u-s-m-b-15">
-                                <form action="{{ route('keranjang.keranjang') }}" method="POST" class="pd-detail__form">
+                                <form action="{{ route('keranjang.keranjang', $bawangPetani->id) }}" method="POST" class="pd-detail__form">
                                     @csrf
                                     <div class="pd-detail-inline-2">
                                         <div class="u-s-m-b-15">
@@ -112,6 +118,8 @@
                                                 <input name="price" style="display: none" value="{{ $harga }}" type="number">
                                                 {{-- Harga Barang sebelum diskon --}}
                                                 <input name="discount" style="display: none" value="{{ $bawangPetani->price }}" type="number">
+                                                {{-- Pemilik --}}
+                                                <input name="user" style="display: none" value="{{ $bawangPetani->user->name }}" type="text">
 
                                                 <span class="input-counter__plus fas fa-plus"></span></div>
                                             <!--====== End - Input Counter ======-->
