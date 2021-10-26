@@ -16,6 +16,7 @@ class AddColumnStockAndPriceToCartsTable extends Migration
         Schema::table('carts', function (Blueprint $table) {
             $table->integer('stock')->unsigned()->after('product_id');
             $table->unsignedInteger('price')->after('stock');
+            $table->unsignedInteger('discount')->after('price');
         });
     }
 
@@ -29,6 +30,7 @@ class AddColumnStockAndPriceToCartsTable extends Migration
         Schema::table('carts', function (Blueprint $table) {
             $table->dropColumn('stock');
             $table->dropColumn('price');
+            $table->dropColumn('discount');
         });
     }
 }

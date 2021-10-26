@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController};
 use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController};
-use App\Http\Controllers\{BawangPetaniController ,HomeController};
+use App\Http\Controllers\{BawangPetaniController , CartController, HomeController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -73,6 +73,11 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
         Route::patch('/edit/{product}', [PostingController::class, 'update'])->name('.edit');
         Route::delete('/delete/{product}', [PostingController::class, 'destroy'])->name('.delete');
     });
+
+    //Kerangjang
+    Route::prefix('keranjang')->name('keranjang')->group(function () {
+        Route::post('', [CartController::class, 'store'])->name('.keranjang');
+    });
 });
 
     // Petunjuk
@@ -83,10 +88,9 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     Route::view('tentang-kami', 'client.instruction.tentang-kami')->name('tentang-kami');
 
     // Produk
-    Route::prefix('bawang-petani')->name('bawang-petani')->group(function () {
+    Route::prefix('bawang-eceran')->name('bawang-eceran')->group(function () {
         Route::get('', [BawangPetaniController::class, 'index'])->name('.index');
         Route::get('/{product:slug}', [BawangPetaniController::class, 'show'])->name('.show');
     });
-
 
 Auth::routes(['verify' => true]);

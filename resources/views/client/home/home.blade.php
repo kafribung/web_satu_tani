@@ -144,18 +144,18 @@
                             <div class="product-o product-o--hover-on">
                                 <div class="product-o__wrap">
                                     <a class="aspect aspect--bg-grey aspect--square u-d-block"
-                                        href="{{ route('bawang-petani.show', $bawangPetani->slug) }}">
+                                        href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}">
                                         <img class="aspect__img" src="{{ $bawangPetani->take_img($bawangPetani->img_1) }}" alt="">
                                     </a>
                                 </div>
 
                                 <span class="product-o__category">
-                                    <a href="{{ route('bawang-petani.show', $bawangPetani->slug) }}">Stok: {{ $bawangPetani->stock }} Kg</a><br>
-                                    <a href="{{ route('bawang-petani.show', $bawangPetani->slug) }}">Panen: {{  date('d-m-Y', strtotime($bawangPetani->harvest_time))  }}</a>
+                                    <a href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}">Stok: {{ $bawangPetani->stock }} Kg</a><br>
+                                    <a href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}">Panen: {{  date('d-m-Y', strtotime($bawangPetani->harvest_time))  }}</a>
                                 </span>
 
                                 <span class="product-o__name">
-                                    <a href="{{ route('bawang-petani.show', $bawangPetani->slug) }}" style="font-size: 16px;">{{ $bawangPetani->name }}</a>
+                                    <a href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}" style="font-size: 16px;">{{ $bawangPetani->name }}</a>
                                 </span>
                                 @php
                                     $discount = number_format((($bawangPetani->price * $bawangPetani->discount) / 100))
@@ -182,7 +182,7 @@
 
                 <div class="col-lg-12">
                     <div class="load-more">
-                        <a href="{{ route('bawang-petani.index') }}">
+                        <a href="{{ route('bawang-eceran.index') }}">
                             <button class="btn btn--e-brand" type="button" style="padding: 20px 60px;">
                                 Selengkapnya
                             </button>

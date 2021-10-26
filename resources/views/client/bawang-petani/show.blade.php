@@ -76,9 +76,10 @@
                             <div>
                                 <div class="pd-detail__inline u-s-m-t-15">
                                     @php
-                                        $discount = number_format((($bawangPetani->price * $bawangPetani->discount) / 100))
+                                        $discount = number_format((($bawangPetani->price * $bawangPetani->discount) / 100));
+                                        $harga    = $bawangPetani->price - $discount;
                                     @endphp
-                                    <span class="pd-detail__price">Rp {{ $harga = number_format($bawangPetani->price - $discount, 2) }}</span>
+                                    <span class="pd-detail__price">Rp {{ number_format($harga, 2) }}</span>
                                     <span class="small-title">/kg</span>
 
                                     <span class="pd-detail__discount">(Diskon {{ $bawangPetani->discount }} %)</span>
@@ -94,14 +95,21 @@
                             </div>
 
                             <div class="u-s-m-b-15">
-                                <form class="pd-detail__form">
+                                <form action="{{ route('keranjang.keranjang') }}" method="POST" class="pd-detail__form">
+                                    @csrf
                                     <div class="pd-detail-inline-2">
                                         <div class="u-s-m-b-15">
                                             <!--====== Input Counter ======-->
                                             <div class="input-counter">
                                                 <span class="input-counter__minus fas fa-minus"></span>
-                                                <input class="input-counter__text input-counter--text-primary-style"
+                                                <input name="stock" class="input-counter__text input-counter--text-primary-style"
                                                     type="text" value="1" data-min="1" data-max="20">
+
+                                                {{-- Harga Barang sesudah diskon --}}
+                                                <input name="price" style="display: none" value="{{ $harga }}" type="number">
+                                                {{-- Harga Barang sebelum diskon --}}
+                                                <input name="discount" style="display: none" value="{{ $bawangPetani->price }}" type="number">
+
                                                 <span class="input-counter__plus fas fa-plus"></span></div>
                                             <!--====== End - Input Counter ======-->
                                         </div>
@@ -194,18 +202,18 @@
                                         <div class="product-o product-o--hover-on">
                                             <div class="product-o__wrap">
                                                 <a class="aspect aspect--bg-grey aspect--square u-d-block"
-                                                    href="{{ route('bawang-petani.show', $bawangPetani->slug) }}">
+                                                    href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}">
                                                     <img class="aspect__img" src="{{ $bawangPetani->take_img($bawangPetani->img_1) }}" alt="">
                                                 </a>
                                             </div>
 
                                             <span class="product-o__category">
-                                                <a href="{{ route('bawang-petani.show', $bawangPetani->slug) }}">Stok: {{ $bawangPetani->stock }} Kg</a><br>
-                                                <a href="{{ route('bawang-petani.show', $bawangPetani->slug) }}">Panen: {{  date('d-m-Y', strtotime($bawangPetani->harvest_time))  }}</a>
+                                                <a href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}">Stok: {{ $bawangPetani->stock }} Kg</a><br>
+                                                <a href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}">Panen: {{  date('d-m-Y', strtotime($bawangPetani->harvest_time))  }}</a>
                                             </span>
 
                                             <span class="product-o__name">
-                                                <a href="{{ route('bawang-petani.show', $bawangPetani->slug) }}" style="font-size: 16px;">{{ $bawangPetani->name }}</a>
+                                                <a href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}" style="font-size: 16px;">{{ $bawangPetani->name }}</a>
                                             </span>
                                             @php
                                                 $discount = number_format((($bawangPetani->price * $bawangPetani->discount) / 100))
