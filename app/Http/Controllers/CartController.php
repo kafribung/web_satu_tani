@@ -15,13 +15,14 @@ class CartController extends Controller
         }
 
         $data = $request->validate([
-            'stock'   => 'required|numeric',
+            'stock'   => 'required|string',
             'price'   => 'required|numeric',
             'discount'=> 'required|numeric',
         ]);
 
         $data['user_id']    = auth()->id();
         $data['product_id'] = $productId;
+        $data['price']      = $request->stock * $request->price;
 
         Cart::create($data);
         return back()->with('message', 'Produk ditambhakan dikeranjang');

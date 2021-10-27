@@ -104,7 +104,9 @@
                             <li>
                                 <li class="has-dropdown" data-tooltip="tooltip" data-placement="left"
                                     title="Account">
-                                    <a><i class="fas fa-cogs fa-lg"></i></a>
+                                    <a>
+                                        <i class="fas fa-cogs fa-lg"></i>
+                                    </a>
                                     <!--====== Dropdown ======-->
                                     <span class="js-menu-toggle"></span>
                                     <ul style="width:160px">
@@ -153,7 +155,6 @@
                                         </li>
                                         @endauth
 
-
                                     </ul>
                                     <!--====== End - Dropdown ======-->
                                 </li>
@@ -161,7 +162,7 @@
                                 <li class="has-dropdown">
                                     <a class="mini-cart-shop-link">
                                         <i class="fas fa-shopping-cart fa-lg"></i>
-                                        <span class="total-item-round">2</span>
+                                        <span class="total-item-round">{{ auth()->user()->carts()->count() }}</span>
                                     </a>
                                     <!--====== Dropdown ======-->
                                     <span class="js-menu-toggle"></span>
@@ -169,30 +170,31 @@
                                         <!--====== Mini Product Container ======-->
                                         <div class="mini-product-container gl-scroll u-s-m-b-15">
                                             <!--====== Card for mini cart ======-->
+                                            @foreach (auth()->user()->carts()->latest()->get() as $cart)
                                             <div class="card-mini-product">
                                                 <div class="mini-product">
                                                     <div class="mini-product__image-wrapper">
                                                         <a class="mini-product__link"
-                                                            href="bawang-eceran-detail.html">
-                                                            <img class="u-img-fluid"
-                                                                src="{{ asset('assets/images/product/electronic/product3.jpg') }}"
-                                                                alt="">
+                                                            href="{{ route('bawang-eceran.show', $cart->product) }}">
+                                                            <img class="u-img-fluid" src="{{ $cart->product->take_img($cart->product->img_1) }}" alt="">
                                                         </a>
                                                     </div>
                                                     <div class="mini-product__info-wrapper">
                                                         <span class="mini-product__category">
-                                                            <a href="bawang-eceran.html">Electronics</a>
+                                                            <a href="{{ route('bawang-eceran.index') }}">{{ $cart->product->product_group->name == 'Eceran'  ? 'Eceran' : 'Koperasi'}}</a>
                                                         </span>
                                                         <span class="mini-product__name">
-                                                            <a href="bawang-eceran-detail.html">
-                                                                Yellow Wireless
-                                                                Headphone</a>
+                                                            <a href="{{ route('bawang-eceran.show', $cart->product) }}"> {{ $cart->product->name }}</a>
                                                         </span>
-                                                        <span class="mini-product__quantity">1 x</span>
-                                                        <span class="mini-product__price">Rp.8.000</span></div>
+                                                        <span class="mini-product__quantity">{{ $cart->stock  }} X</span>
+                                                        <span class="mini-product__price">Rp.{{ $total= number_format($cart->price) }}</span>
+                                                        <span class="product-o__discount">Rp.{{ number_format($cart->discount) }}</span>
+                                                    </div>
+
                                                 </div>
                                                 <a class="mini-product__delete-link far fa-trash-alt"></a>
                                             </div>
+                                            @endforeach
                                             <!--====== End - Card for mini cart ======-->
                                         </div>
                                         <!--====== End - Mini Product Container ======-->
@@ -200,13 +202,12 @@
                                         <!--====== Mini Product Statistics ======-->
                                         <div class="mini-product-stat">
                                             <div class="mini-total">
-                                                <span class="subtotal-text">SUBTOTAL</span>
-                                                <span class="subtotal-value">Rp.16.000</span></div>
+                                                <span class="subtotal-text">Total Harga</span>
+                                                <span class="subtotal-value">Rp.{{ number_format(auth()->user()->carts()->sum('price')) }}</span>
+                                            </div>
                                             <div class="mini-action">
-                                                <a class="mini-link btn--e-brand-b-2"
-                                                    href="checkout.html">CHECKOUT</a>
-                                                <a class="mini-link btn--e-transparent-secondary-b-2"
-                                                    href="cart.html">LIHAT KERANJANG</a></div>
+                                                <a class="mini-link btn--e-brand-b-2" href="checkout.html">CHECKOUT</a>
+                                            </div>
                                         </div>
                                         <!--====== End - Mini Product Statistics ======-->
                                     </div>

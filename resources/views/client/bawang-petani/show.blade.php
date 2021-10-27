@@ -113,6 +113,7 @@
                                                 <span class="input-counter__minus fas fa-minus"></span>
                                                 <input name="stock" class="input-counter__text input-counter--text-primary-style"
                                                     type="text" value="1" data-min="1" data-max="20">
+                                                <span class="input-counter__plus fas fa-plus"></span></div>
 
                                                 {{-- Harga Barang sesudah diskon --}}
                                                 <input name="price" style="display: none" value="{{ $harga }}" type="number">
@@ -121,7 +122,6 @@
                                                 {{-- Pemilik --}}
                                                 <input name="user" style="display: none" value="{{ $bawangPetani->user->name }}" type="text">
 
-                                                <span class="input-counter__plus fas fa-plus"></span></div>
                                             <!--====== End - Input Counter ======-->
                                         </div>
                                         <div class="u-s-m-b-15">
