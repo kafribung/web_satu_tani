@@ -172,11 +172,9 @@
                                 $discount = number_format((($bawangPetani->price * $bawangPetani->discount) / 100))
                                 @endphp
                                 <span class="product-o__price">
-                                    <span style="color: #999; font-size: 12px;">Rp. {{ $harga =
-                                        number_format($bawangPetani->price - $discount, 2) }} / Kg</span>
+                                    <span style="color: #999; font-size: 12px;">Rp.{{ $harga = number_format($bawangPetani->price - $discount, 2) }} / Kg</span>
                                     @if ($bawangPetani->discount != 0 || $bawangPetani->discount != null)
-                                    <span class="product-o__discount">{{ number_format($bawangPetani->price, 2)
-                                        }}</span>
+                                    <span class="product-o__discount">{{ number_format($bawangPetani->price, 2) }}</span>
                                     @endif
                                 </span>
                             </div>

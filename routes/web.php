@@ -77,6 +77,7 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     //Kerangjang
     Route::prefix('keranjang')->name('keranjang')->group(function () {
         Route::post('/{productid}', [CartController::class, 'store'])->name('.keranjang');
+        Route::delete('/{cart}', [CartController::class, 'destroy'])->name('.delete');
     });
 });
 

@@ -170,7 +170,7 @@
                                         <!--====== Mini Product Container ======-->
                                         <div class="mini-product-container gl-scroll u-s-m-b-15">
                                             <!--====== Card for mini cart ======-->
-                                            @foreach (auth()->user()->carts()->latest()->get() as $cart)
+                                            @foreach (auth()->user()->carts()->latest()->get() as $index => $cart)
                                             <div class="card-mini-product">
                                                 <div class="mini-product">
                                                     <div class="mini-product__image-wrapper">
@@ -192,7 +192,12 @@
                                                     </div>
 
                                                 </div>
-                                                <a class="mini-product__delete-link far fa-trash-alt"></a>
+                                                <a href="{{ route('keranjang.delete', $cart) }}" class="mini-product__delete-link far fa-trash-alt" onclick="event.preventDefault(); document.getElementById('delete_cart{{ $index }}').submit();"></a>
+                                                <form id="delete_cart{{ $index }}" action="{{ route('keranjang.delete', $cart) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+
                                             </div>
                                             @endforeach
                                             <!--====== End - Card for mini cart ======-->

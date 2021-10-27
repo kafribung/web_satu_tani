@@ -27,4 +27,10 @@ class CartController extends Controller
         Cart::create($data);
         return back()->with('message', 'Produk ditambhakan dikeranjang');
     }
+
+    public function destroy(Cart $cart)
+    {
+        $cart->delete();
+        return back()->with('message', 'Produk dihapus dari dikeranjang');
+    }
 }
