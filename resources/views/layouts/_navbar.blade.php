@@ -211,7 +211,7 @@
                                                 <span class="subtotal-value">Rp.{{ number_format(auth()->user()->carts()->sum('price')) }}</span>
                                             </div>
                                             <div class="mini-action">
-                                                <a class="mini-link btn--e-brand-b-2" href="checkout.html">CHECKOUT</a>
+                                                <a class="mini-link btn--e-brand-b-2" href="checkout.html">Pembayaran</a>
                                             </div>
                                         </div>
                                         <!--====== End - Mini Product Statistics ======-->
