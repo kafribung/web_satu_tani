@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController};
 use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController};
-use App\Http\Controllers\{BawangPetaniController , CartController, HomeController};
+use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, HomeController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -78,6 +78,11 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     Route::prefix('keranjang')->name('keranjang')->group(function () {
         Route::post('/{productid}', [CartController::class, 'store'])->name('.keranjang');
         Route::delete('/{cart}', [CartController::class, 'destroy'])->name('.delete');
+    });
+
+    // Pembayaran
+    Route::prefix('pembayaran')->name('pembayaran')->group(function () {
+        Route::get('', [CheckoutController::class, 'index'])->name('.index');
     });
 });
 
