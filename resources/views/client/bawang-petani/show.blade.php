@@ -95,6 +95,7 @@
                                     <del class="pd-detail__del">{{ number_format($bawangPetani->price, 2) }}</del>
                                 </div>
                             </div>
+
                             <div class="u-s-m-b-15">
                                 <div class="pd-detail__inline">
                                     <span class="pd-detail__click-wrap">
@@ -114,14 +115,10 @@
                                                 <input name="stock" class="input-counter__text input-counter--text-primary-style"
                                                     type="text" value="1" data-min="1" data-max="20">
                                                 <span class="input-counter__plus fas fa-plus"></span></div>
-
                                                 {{-- Harga Barang sesudah diskon --}}
                                                 <input name="price" style="display: none" value="{{ $harga }}" type="number">
-                                                {{-- Harga Barang sebelum diskon --}}
-                                                <input name="discount" style="display: none" value="{{ $bawangPetani->price }}" type="number">
                                                 {{-- Pemilik --}}
                                                 <input name="user" style="display: none" value="{{ $bawangPetani->user->name }}" type="text">
-
                                             <!--====== End - Input Counter ======-->
                                         </div>
                                         <div class="u-s-m-b-15">

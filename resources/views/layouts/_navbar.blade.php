@@ -170,7 +170,7 @@
                                         <!--====== Mini Product Container ======-->
                                         <div class="mini-product-container gl-scroll u-s-m-b-15">
                                             <!--====== Card for mini cart ======-->
-                                            @foreach (auth()->user()->carts()->latest()->get() as $index => $cart)
+                                            @forelse (auth()->user()->carts()->latest()->get() as $index => $cart)
                                             <div class="card-mini-product">
                                                 <div class="mini-product">
                                                     <div class="mini-product__image-wrapper">
@@ -186,9 +186,8 @@
                                                         <span class="mini-product__name">
                                                             <a href="{{ route('bawang-eceran.show', $cart->product) }}"> {{ $cart->product->name }}</a>
                                                         </span>
-                                                        <span class="mini-product__quantity">{{ $cart->stock  }} X</span>
-                                                        <span class="mini-product__price">Rp.{{ $total= number_format($cart->price) }}</span>
-                                                        <span class="product-o__discount">Rp.{{ number_format($cart->discount) }}</span>
+                                                        <span class="mini-product__quantity">Jumlah {{ $cart->stock  }}</span>
+                                                        <span class="mini-product__price">Rp.{{ number_format($cart->price) }}</span>
                                                     </div>
 
                                                 </div>
@@ -199,7 +198,17 @@
                                                 </form>
 
                                             </div>
-                                            @endforeach
+                                            @empty
+                                            <div class="card-mini-product">
+                                                <div class="mini-product">
+                                                    <div class="mini-product__info-wrapper">
+                                                        <span class="mini-product__category">
+                                                            <p>Belum ada produk yang ditambhakan</p>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforelse
                                             <!--====== End - Card for mini cart ======-->
                                         </div>
                                         <!--====== End - Mini Product Container ======-->
