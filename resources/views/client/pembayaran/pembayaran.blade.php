@@ -22,6 +22,7 @@
 
 <!--====== Section 2 ======-->
 <div class="u-s-p-b-60">
+
     <!--====== Section Content ======-->
     <div class="section__content">
         <div class="container">
@@ -31,6 +32,15 @@
                         <div class="has-separator">
                             <a href="{{ route('home.index') }}" class="fas fa-arrow-left" style="font-size: 18px;"></a>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        @if (session('message'))
+                        <div class="col-lg-12">
+                            <span class="pd-detail__left mb-5">{{ session('message') }}</span>
+                        </div>
+                        @endif
                     </div>
                 </div>
                 <div class="row">
@@ -98,7 +108,11 @@
                                                 <span class="o-card__price">Rp.{{ $total= number_format($cart->price) }}</span>
                                             </div>
                                         </div>
-                                        <a class="o-card__del far fa-trash-alt"></a>
+                                        <a href="{{ route('keranjang.delete', $cart) }}" class="mini-product__delete-link far fa-trash-alt" onclick="event.preventDefault(); document.getElementById('delete_cart{{ $index }}').submit();"></a>
+                                        <form id="delete_cart{{ $index }}" action="{{ route('keranjang.delete', $cart) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
                                     </div>
                                     @endforeach
                                 </div>
@@ -112,20 +126,10 @@
                             <div class="o-summary__box">
                                 <h1 class="checkout-f__h1">DETAIL ORDERAN</h1>
                                 <div class="ship-b">
-                                    <span class="ship-b__text">Ship to:</span>
+                                    <span class="ship-b__text">Informasi Pengiriman:</span>
                                     <div class="ship-b__box u-s-m-b-10">
-                                        <p class="ship-b__p">4247 Ashford Drive Virginia VA-20006 USA (+0)
-                                            900901904</p>
-
-                                        <a class="ship-b__edit btn--e-transparent-platinum-b-2"
-                                            data-modal="modal" data-modal-id="#edit-ship-address">Edit</a>
-                                    </div>
-                                    <div class="ship-b__box">
-
-                                        <span class="ship-b__text">Bill to default billing address</span>
-
-                                        <a class="ship-b__edit btn--e-transparent-platinum-b-2"
-                                            data-modal="modal" data-modal-id="#edit-ship-address">Edit</a>
+                                        <p class="ship-b__p">{{ auth()->user()->address }}, ({{ auth()->user()->name }},  Hp:{{ auth()->user()->no_hp }})</p>
+                                        <a href="{{ route('profil.edit') }}" class="ship-b__edit btn--e-transparent-platinum-b-2">Edit</a>
                                     </div>
                                 </div>
                             </div>
@@ -136,28 +140,11 @@
                                     <tbody style="width: 100%;">
                                         <tr>
                                             <td>Sub Total</td>
-                                            <td>Rp. 400.000.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>PPN (10%)</td>
-                                            <td>Rp. 20.000.00</td>
+                                            <td>Rp.{{ number_format(auth()->user()->carts()->sum('price')) }}</td>
                                         </tr>
                                         <tr>
                                             <td>Ongkos Kirim</td>
-                                            <td>Rp. 75.000.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kode Diskon/Voucher</td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-
-                                                <input class="input-text input-text--primary-style"
-                                                    type="text" id="address-fname"
-                                                    placeholder="Kode Diskon"></td>
-                                            <td>
-                                                <a class="ship-b__edit btn--e-transparent-platinum-b-2"
-                                                    data-modal="modal" href="#">Gunakan</a></td>
+                                            <td>Rp.0</td>
                                         </tr>
                                         <tr>
                                             <td>Total </td>
@@ -172,15 +159,11 @@
                                 <h1 class="checkout-f__h1"> INFORMASI PEMBAYARAN</h1>
                                 <form class="checkout-f__payment">
                                     <div class="u-s-m-b-10">
-
                                         <!--====== Radio Box ======-->
                                         <div class="radio-box">
-
                                             <input type="radio" id="cash-on-delivery" name="payment">
                                             <div class="radio-box__state radio-box__state--primary">
-
-                                                <label class="radio-box__label" for="cash-on-delivery">Bayar
-                                                    Di tempat</label></div>
+                                            <label class="radio-box__label" for="cash-on-delivery">Bayar Di tempat</label></div>
                                         </div>
                                         <!--====== End - Radio Box ======-->
 
