@@ -9,7 +9,7 @@
                     <ul class="breadcrumb__list">
                         <center>
                             <li>
-                                <h1 class="section__heading u-c-secondary">CHECKOUT</h1>
+                                <h1 class="section__heading u-c-secondary">PEMBAYARAN</h1>
                             </li>
                         </center>
                     </ul>
@@ -53,7 +53,7 @@
                                 <div class="col-lg-12">
                                     <div class="ongkir">
                                         <div class="radio-box" style="margin-top: 20px; margin-left: 20px;">
-                                            <input type="radio" id="cash-on-delivery" name="payment">
+                                            <input type="radio" id="standar" value="10000" name="pembayaran">
                                             <div class="radio-box__state radio-box__state--primary">
                                                 <label class="radio-box__label" style="color: green; font-size: 16px;" for="cash-on-delivery">RP. 10.000.00</label>
                                             </div>
@@ -68,7 +68,7 @@
 
                                     <div class="ongkir">
                                         <div class="radio-box" style="margin-top: 20px; margin-left: 20px;">
-                                            <input type="radio" id="cash-on-delivery" name="payment">
+                                            <input type="radio" id="reguler" value="30000" name="pembayaran">
                                             <div class="radio-box__state radio-box__state--primary">
                                                 <label class="radio-box__label" style="color: green; font-size: 16px;" for="cash-on-delivery">RP. 30.000.00</label>
                                             </div>
@@ -140,15 +140,15 @@
                                     <tbody style="width: 100%;">
                                         <tr>
                                             <td>Sub Total</td>
-                                            <td>Rp.{{ number_format(auth()->user()->carts()->sum('price')) }}</td>
+                                            <td>Rp.{{ $total = number_format(auth()->user()->carts()->sum('price')) }}</td>
                                         </tr>
                                         <tr>
                                             <td>Ongkos Kirim</td>
-                                            <td>Rp.0</td>
+                                            <td id="shipping-cost">Rp.0</td>
                                         </tr>
                                         <tr>
                                             <td>Total </td>
-                                            <td>Rp. 379.000.00</td>
+                                            <td id="total">Rp.{{ $total }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -163,65 +163,27 @@
                                         <div class="radio-box">
                                             <input type="radio" id="cash-on-delivery" name="payment">
                                             <div class="radio-box__state radio-box__state--primary">
-                                            <label class="radio-box__label" for="cash-on-delivery">Bayar Di tempat</label></div>
+                                                <label class="radio-box__label" for="cash-on-delivery">Bayar di Tempat</label>
+                                            </div>
                                         </div>
                                         <!--====== End - Radio Box ======-->
-
-                                        <span class="gl-text u-s-m-t-6">Pay Upon Cash on delivery. (This
-                                            service is only available for some countries)</span>
+                                        <span class="gl-text u-s-m-t-6">Bayar Setelah Tunai saat pengiriman. (Layanan ini hanya tersedia untuk beberapa daerah)</span>
                                     </div>
                                     <div class="u-s-m-b-10">
-
                                         <!--====== Radio Box ======-->
                                         <div class="radio-box">
-
                                             <input type="radio" id="direct-bank-transfer" name="payment">
                                             <div class="radio-box__state radio-box__state--primary">
-
-                                                <label class="radio-box__label"
-                                                    for="direct-bank-transfer">Transfer Bank </label></div>
+                                                <label class="radio-box__label" for="direct-bank-transfer">Transfer Bank (Adly, BRI: 123 345 123) </label>
+                                            </div>
                                         </div>
                                         <!--====== End - Radio Box ======-->
-
-                                        <span class="gl-text u-s-m-t-6">Make your payment directly into our
-                                            bank account. Please use your Order ID as the payment reference.
-                                            Your order will not be shipped until the funds have cleared in
-                                            our account.</span>
+                                        <span class="gl-text u-s-m-t-6">
+                                            Lakukan pembayaran langsung ke rekening bank kami. Silakan gunakan ID Pesanan Anda sebagai referensi pembayaran. Pesanan Anda tidak akan dikirim sampai dana telah masuk ke rekening kami.
+                                        </span>
                                     </div>
 
-                                    <div class="u-s-m-b-10">
-
-                                        <!--====== Radio Box ======-->
-                                        <div class="radio-box">
-
-                                            <input type="radio" id="pay-with-card" name="payment">
-                                            <div class="radio-box__state radio-box__state--primary">
-
-                                                <label class="radio-box__label" for="pay-with-card">Bayar
-                                                    Dengan Kartu Kredit / Debit</label></div>
-                                        </div>
-                                        <!--====== End - Radio Box ======-->
-
-                                        <span class="gl-text u-s-m-t-6">International Credit Cards must be
-                                            eligible for use within the United States.</span>
-                                    </div>
-
-                                    <div class="u-s-m-b-15">
-
-                                        <!--====== Check Box ======-->
-                                        <!-- <div class="check-box">
-
-                                                <input type="checkbox" id="term-and-condition">
-                                                <div class="check-box__state check-box__state--primary">
-
-                                                    <label class="check-box__label" for="term-and-condition">I consent to the</label></div>
-                                            </div> -->
-                                        <!--====== End - Check Box ======-->
-
-                                        <!-- <a class="gl-link">Terms of Service.</a> -->
-                                    </div>
                                     <div>
-
                                         <a href="checkout-konfirm.html" class="mini-link btn--e-brand-b-2"
                                             style="font-size: 12px">LANJUT</a>
                                     </div>
@@ -236,4 +198,28 @@
     </div>
 </div>
 <!--====== End - Section 2 ======-->
+@push('script')
+<script>
+$(document).ready(function(){
+    $("input[type='radio']").click(function(){
+        // Get value ongkir
+        let ongkir = $("input[name='pembayaran']:checked").val();
+        if (ongkir) {
+            // Set value ongkos kirim
+            $("#shipping-cost").text('Rp.'+numberWithCommas(ongkir));
+
+            // Add  ongkir + harga
+            const total = +parseInt(ongkir) + {{ auth()->user()->carts()->sum('price') }}
+            $("#total").text('Rp.' + numberWithCommas(total));
+        }
+    });
+
+    // Converter number_format
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+})
+
+</script>
+@endpush
 </x-main>

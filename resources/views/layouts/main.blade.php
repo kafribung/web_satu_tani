@@ -88,7 +88,6 @@
         </noscript>
 
     @stack('script')
-
 </body>
 
 </html>
