@@ -21,7 +21,7 @@ class CreateCheckoutsTable extends Migration
             $table->unsignedInteger('total');
             $table->enum('payment_method', ['cod', 'transfer']);
             $table->json('products');
-            $table->enum('status', ['menunggu pembayaran', 'diproses', 'dikirim', 'selesai']);
+            $table->enum('status', ['menunggu konfirmasi', 'menunggu pembayaran', 'diproses', 'dikirim', 'selesai']);
             $table->timestamps();
         });
     }

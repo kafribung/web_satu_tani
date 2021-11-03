@@ -162,7 +162,7 @@
                                     <div class="u-s-m-b-10">
                                         <!--====== Radio Box ======-->
                                         <div class="radio-box">
-                                            <input type="radio" id="cash-on-delivery" value="cod" name="payment">
+                                            <input type="radio" id="cash-on-delivery" value="cod" name="payment_method">
                                             <div class="radio-box__state radio-box__state--primary">
                                                 <label class="radio-box__label" for="cash-on-delivery">Bayar di Tempat</label>
                                             </div>
@@ -173,7 +173,7 @@
                                     <div class="u-s-m-b-10">
                                         <!--====== Radio Box ======-->
                                         <div class="radio-box">
-                                            <input type="radio" id="direct-bank-transfer" value="transfer" name="payment">
+                                            <input type="radio" id="direct-bank-transfer" value="transfer" name="payment_method">
                                             <div class="radio-box__state radio-box__state--primary">
                                                 <label class="radio-box__label" for="direct-bank-transfer">Transfer Bank (Adly, BRI: 123 345 123) </label>
                                             </div>
@@ -184,13 +184,14 @@
                                         </span>
                                     </div>
                                     <div class="u-s-m-b-10">
-                                        @error('payment')
+                                        @error('payment_method')
                                         <p style="color: #bb2124">{{ $message }}</p>
                                         @enderror
                                         @error('shipping_cost')
                                         <p style="color: #bb2124">{{ $message }}</p>
                                         @enderror
                                     </div>
+                                    {{--  --}}
                                     <input name="shipping_cost" style="display: none" value="" type="number">
                                     <div>
                                         <button  class="mini-link btn--e-brand-b-2" style="font-size: 12px">Buat Pesanan</button>
@@ -219,7 +220,7 @@ $(document).ready(function(){
             // Add  ongkir + harga
             const total = +parseInt(ongkir) + {{ auth()->user()->carts()->sum('price') }}
             $("#total").text('Rp.' + numberWithCommas(total));
-            $("input[name=shipping_cost]").val(total);
+            $("input[name=shipping_cost]").val(ongkir);
         }
     });
 
