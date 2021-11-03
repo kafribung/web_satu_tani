@@ -15,7 +15,7 @@ class CheckoutController extends Controller
     {
         // Jika user sudah memiliki pesanan
         if ($request->user()->checkouts()->where('status', 'menunggu konfirmasi')->count() > 0) {
-            return redirect()->route('konfirmasi.index')->with('message', 'Anda tidak dapat melakukan pembelilan, selama pesanan belum selesai');
+            return redirect()->route('konfirmasi.index')->with('message', 'Selesaikan pesanan terlebih dahulu!');
         }
 
         $data = $request->validate(
@@ -29,7 +29,7 @@ class CheckoutController extends Controller
         $data['product_price'] = auth()->user()->carts()->sum('price');
         $data['total']         = $data['product_price'] + $request->shipping_cost;
         $data['status']        = 'menunggu konfirmasi';
-        $data['products']       = auth()->user()->carts()->latest()->get();
+        $data['products']      = auth()->user()->carts()->latest()->get();
 
         $request->user()->checkouts()->create($data);
 

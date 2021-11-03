@@ -15,12 +15,12 @@
                         Profil Saya
                     </a>
                 </li>
-                @if (auth()->user()->verification())
+                @if (!auth()->user()->verification())
                 <li>
                     <a href="{{ route('buat-toko') }}" class="{{ request()->routeIs('buat-toko') ? 'active' : '' }} {{ request()->is('buat-toko/*') ? 'active' : '' }} ">Buat Toko</a>
                 </li>
                 @endif
-                @if (!auth()->user()->verification())
+                @if (auth()->user()->verification() )
                 <li>
                     <a href="{{ route('posting.create') }}" class="{{ request()->is('posting/*') ? 'active' : '' }}">
                         Posting

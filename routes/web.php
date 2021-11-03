@@ -55,8 +55,8 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     });
 
     // Buat Toko
+    Route::view('buat-toko', 'client.dashboard.create-market')->name('buat-toko');
     Route::middleware('validation_nonactive')->prefix('buat-toko')->name('buat-toko')->group(function () {
-        Route::view('', 'client.dashboard.create-market');
         Route::get('/petani', [CreateMarketFarmerController::class, 'index'])->name('.petani');
         Route::post('/petani', [CreateMarketFarmerController::class, 'store_img'])->name('.petani');
         Route::get('/petani/lengkapi-info', [CreateMarketFarmer2Controller::class, 'index'])->name('.petani.lengkapi-info');

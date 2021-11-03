@@ -85,6 +85,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function verification()
     {
-        $this->validation == 0 ? true : false;
+        $this->validation == 1 ? true : false;
     }
 }
