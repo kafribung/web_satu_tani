@@ -87,7 +87,8 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     });
 
     // Konfirmasi
-    Route::get('konfirmasi', ConfrirmController::class)->name('konfirmasi.index');
+    Route::get('konfirmasi', [ConfrirmController::class, 'index'])->name('konfirmasi.index');
+    Route::patch('konfirmasi/{checkout:id}', [ConfrirmController::class, 'update'])->name('konfirmasi.edit');
 });
 
     // Petunjuk

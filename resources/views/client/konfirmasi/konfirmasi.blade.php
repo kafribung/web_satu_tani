@@ -78,6 +78,10 @@
                                         <table class="o-summary__table1">
                                             <tbody>
                                                 <tr>
+                                                    <td class="nama1">Metode Pembayaran</td>
+                                                    <td class="nama2">{{ $checkout->payment_method  == 'transfer'? 'Transfer BRI(Adly 12345678)' : 'COD' }}</td>
+                                                </tr>
+                                                <tr>
                                                     <td class="nama1">Harga Bawang</td>
                                                     <td class="nama2">Rp. {{ number_format($checkout->product_price) }}</td>
                                                 </tr>
@@ -97,8 +101,11 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <a href="checkout-konfirm.html" class="mini-link btn--e-brand-b-2"
-                                            style="font-size: 12px; margin-top: 30px;">KONFIRMASI</a>
+                                        <form action="{{ route('konfirmasi.edit', $checkout) }}" method="POST">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" class="mini-link btn--e-brand-b-2" style="font-size: 12px; margin-top: 30px;">KONFIRMASI</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
