@@ -101,7 +101,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <form action="{{ route('konfirmasi.edit', $checkout) }}" method="POST">
+                                        <form action="{{ route('konfirmasi.update', $checkout) }}" method="POST">
                                             @csrf
                                             @method('PATCH')
                                             <button type="submit" class="mini-link btn--e-brand-b-2" style="font-size: 12px; margin-top: 30px;">KONFIRMASI</button>
