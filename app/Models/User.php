@@ -63,6 +63,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(Role::class);
     }
 
+    public function checkouts()
+    {
+        return $this->hasMany(Checkout::class);
+    }
+
     public function hasAdmin()
     {
         if (!empty($this->role->name)) {

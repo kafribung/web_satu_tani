@@ -83,6 +83,7 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     // Pembayaran
     Route::prefix('pembayaran')->name('pembayaran')->group(function () {
         Route::get('', [CheckoutController::class, 'index'])->name('.index');
+        Route::post('', [CheckoutController::class, 'store'])->name('.create');
     });
 });
 

@@ -156,12 +156,13 @@
                         </div>
                         <div class="o-summary__section u-s-m-b-30">
                             <div class="o-summary__box">
-                                <h1 class="checkout-f__h1"> INFORMASI PEMBAYARAN</h1>
-                                <form class="checkout-f__payment">
+                                <h1 class="checkout-f__h1">METODE PEMBAYARAN</h1>
+                                <form action="{{ route('pembayaran.create') }}" method="POST" class="checkout-f__payment">
+                                    @csrf
                                     <div class="u-s-m-b-10">
                                         <!--====== Radio Box ======-->
                                         <div class="radio-box">
-                                            <input type="radio" id="cash-on-delivery" name="payment">
+                                            <input type="radio" id="cash-on-delivery" value="cod" name="payment">
                                             <div class="radio-box__state radio-box__state--primary">
                                                 <label class="radio-box__label" for="cash-on-delivery">Bayar di Tempat</label>
                                             </div>
@@ -172,7 +173,7 @@
                                     <div class="u-s-m-b-10">
                                         <!--====== Radio Box ======-->
                                         <div class="radio-box">
-                                            <input type="radio" id="direct-bank-transfer" name="payment">
+                                            <input type="radio" id="direct-bank-transfer" value="transfer" name="payment">
                                             <div class="radio-box__state radio-box__state--primary">
                                                 <label class="radio-box__label" for="direct-bank-transfer">Transfer Bank (Adly, BRI: 123 345 123) </label>
                                             </div>
@@ -182,10 +183,17 @@
                                             Lakukan pembayaran langsung ke rekening bank kami. Silakan gunakan ID Pesanan Anda sebagai referensi pembayaran. Pesanan Anda tidak akan dikirim sampai dana telah masuk ke rekening kami.
                                         </span>
                                     </div>
-
+                                    <div class="u-s-m-b-10">
+                                        @error('payment')
+                                        <p style="color: #bb2124">{{ $message }}</p>
+                                        @enderror
+                                        @error('shipping_cost')
+                                        <p style="color: #bb2124">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                    <input name="shipping_cost" style="display: none" value="" type="number">
                                     <div>
-                                        <a href="checkout-konfirm.html" class="mini-link btn--e-brand-b-2"
-                                            style="font-size: 12px">LANJUT</a>
+                                        <button  class="mini-link btn--e-brand-b-2" style="font-size: 12px">Buat Pesanan</button>
                                     </div>
                                 </form>
                             </div>
@@ -211,6 +219,7 @@ $(document).ready(function(){
             // Add  ongkir + harga
             const total = +parseInt(ongkir) + {{ auth()->user()->carts()->sum('price') }}
             $("#total").text('Rp.' + numberWithCommas(total));
+            $("input[name=shipping_cost]").val(total);
         }
     });
 
