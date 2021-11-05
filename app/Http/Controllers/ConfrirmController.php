@@ -9,6 +9,9 @@ class ConfrirmController extends Controller
 {
     public function index(Request $request)
     {
+        if (auth()->user()->checkouts()->count() == 0) {
+            return redirect('/')->with('message', 'anda tidak memiliki barang di kerangjang');
+        }
         $checkout = $request->user()->checkouts()->where('status', 'menunggu konfirmasi')->first();
         return view('client.konfirmasi.konfirmasi', compact('checkout'));
     }

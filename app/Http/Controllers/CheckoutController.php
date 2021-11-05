@@ -25,15 +25,22 @@ class CheckoutController extends Controller
         $data = $request->validate(
             [
                 'payment_method'       => 'required',
-                'shipping_cost' => 'required',
+                'shipping_cost'        => 'required',
             ],
-            ['payment_method.required' => 'Metode pembayaran wajib disi', 'shipping_cost.required' => 'Ongkos kirim wajib disi'],
+            [
+                'payment_method.required' => 'Metode pembayaran wajib disi',
+                'shipping_cost.required' => 'Ongkos kirim wajib disi',
+            ],
         );
 
         $data['product_price'] = auth()->user()->carts()->sum('price');
         $data['total']         = $data['product_price'] + $request->shipping_cost;
-        $data['status']        = 'menunggu konfirmasi';
-        $data['products']      = auth()->user()->carts()->latest()->get();
+        $products              = [];
+        $data['carts']         = auth()->user()->carts()->latest()->get();
+
+        // foreach (auth()->user()->carts()->with('product')->latest()->get() as $cart) {
+        //     $data['products'] =  array_push($products, $cart->product()->get()) ;
+        // }
 
         // Cek apakah products ada atau tidak
         if (auth()->user()->carts()->count() == 0) {

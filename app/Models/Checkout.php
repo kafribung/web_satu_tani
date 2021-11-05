@@ -19,4 +19,14 @@ class Checkout extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function product($productId)
+    {
+        return Product::find($productId);
+    }
+
+    public function take_img($img)
+    {
+        return url('storage', $img);
+    }
 }

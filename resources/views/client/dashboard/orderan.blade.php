@@ -70,58 +70,48 @@
                                         <div class="dash__pad-2">
                                             <h1 class="dash__h1 u-s-m-b-14">Pesanan Saya</h1>
                                             <span class="dash__text u-s-m-b-30">Semua pesanan yang menunggu pembayaran, silahkan transfer ke nomor dengna biaya: Rp.{{ number_format($checkouts->sum('total') ?? '')  }}.</span>
-                                            <p class="dash__h2 u-s-m-b-14">Transfer ke BRI(Adly 123 3443 5454).</p>
+                                            @if ($checkouts->count() != 0)
+                                            <p style="font-weight: bold" class="dash__h2 u-s-m-b-14">Transfer ke BRI(Adly 123 3443 5454).</p>
+                                            @endif
                                             <div class="m-order__list">
-                                                @foreach ($checkouts as $checkout)
-                                                    {{-- @foreach ($checkout as $product)
-                                                        {{ $product }}
-                                                    @endforeach --}}
-                                                    {{ dd(json_decode($checkout->products) ) }}
-                                                    {{-- @foreach ($checkout->products as $item)
-                                                    {{ $item }}
-
-                                                    @endforeach --}}
-
-                                                {{-- <div class="m-order__get">
-                                                    <div class="manage-o__header u-s-m-b-30">
-                                                        <div class="dash-l-r">
-                                                            <div>
-                                                                <div class="manage-o__text-2 u-c-secondary">
-                                                                    Order #305423126</div>
-                                                                <div class="manage-o__text u-c-silver">Dipesan
-                                                                    pada 26 Oct 2016 09:08:37</div>
+                                                @forelse ($checkouts as $checkout)
+                                                <p class="dash__h2 u-s-m-b-14">Ongkir: Rp.{{ number_format($checkout->shipping_cost) }}</p>
+                                                <p style="font-weight: bold" class="dash__h2 u-s-m-b-14">Total: Rp.{{ number_format($checkout->total) }}</p>
+                                                    @foreach (json_decode($checkout->carts) as $cart)
+                                                    <div class="m-order__get">
+                                                        <div class="manage-o__header u-s-m-b-30">
+                                                            <div class="dash-l-r">
+                                                                <div>
+                                                                    <div class="manage-o__text-2 u-c-secondary"> Order #{{ $checkout->id }}</div>
+                                                                    <div class="manage-o__text u-c-silver">Dipesan pada {{ $checkout->created_at->format('d-m-Y : H:i:s') }}</div>
+                                                                </div>
                                                             </div>
-                                                            <div>
-                                                                <div class="dash__link dash__link--brand">
-                                                                    <a href="dash-manage-order.html">Lihat</a>
+                                                        </div>
+                                                        <div class="manage-o__description">
+                                                            <a href="{{ route('bawang-eceran.show', $checkout->product($cart->product_id)->slug) }}" class="description__container">
+                                                                <div class="description__img-wrap">
+                                                                    <img class="u-img-fluid" src="{{ $checkout->take_img($checkout->product($cart->product_id)->img_1) }}" alt="">
+                                                                </div>
+                                                                <div class="description-title">{{ $checkout->product($cart->product_id)->name }}</div>
+                                                            </a>
+                                                            <div class="description__info-wrap">
+                                                                <div>
+                                                                    <span class="manage-o__text-2 u-c-silver">Jumlah:
+                                                                        <span class="manage-o__text-2 u-c-brand">{{ $cart->stock }}</span>
+                                                                    </span>
+                                                                </div>
+                                                                <div>
+                                                                    <span class="manage-o__text-2 u-c-silver">Harga:
+                                                                    <span class="manage-o__text-2 u-c-brand"> Rp.{{ number_format($cart->price) }}</span>
+                                                                    </span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="manage-o__description">
-                                                        <div class="description__container">
-                                                            <div class="description__img-wrap">
-                                                                <img class="u-img-fluid"
-                                                                    src="images/product/electronic/product3.jpg"
-                                                                    alt="">
-                                                            </div>
-                                                            <div class="description-title">Varietas A</div>
-                                                        </div>
-                                                        <div class="description__info-wrap">
-                                                            <div>
-                                                                <span class="manage-o__text-2 u-c-silver">Kuantiti:
-                                                                    <span class="manage-o__text-2 u-c-brand">1 Ton</span>
-                                                                </span>
-                                                            </div>
-                                                            <div>
-                                                                <span class="manage-o__text-2 u-c-silver">Total:
-                                                                <span class="manage-o__text-2 u-c-brand"> Rp 20.000.000</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div> --}}
-                                                @endforeach
+                                                    @endforeach
+                                                @empty
+                                                <p>Produk belum ditambahkan</p>
+                                                @endforelse
                                             </div>
                                         </div>
                                     </div>
