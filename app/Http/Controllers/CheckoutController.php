@@ -8,6 +8,10 @@ class CheckoutController extends Controller
 {
     public function index()
     {
+        // Cek apakah products ada atau tidak
+        if (auth()->user()->carts()->count() == 0) {
+            return redirect('/')->with('message', 'anda tidak memiliki barang di kerangjang');
+        }
         return view('client.pembayaran.pembayaran');
     }
 
@@ -30,6 +34,11 @@ class CheckoutController extends Controller
         $data['total']         = $data['product_price'] + $request->shipping_cost;
         $data['status']        = 'menunggu konfirmasi';
         $data['products']      = auth()->user()->carts()->latest()->get();
+
+        // Cek apakah products ada atau tidak
+        if (auth()->user()->carts()->count() == 0) {
+            return back()->with('message', 'anda tidak memiliki barang di kerangjang');
+        }
 
         $request->user()->checkouts()->create($data);
 

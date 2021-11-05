@@ -21,6 +21,6 @@ class ConfrirmController extends Controller
 
         $request->user()->carts()->truncate();
 
-        return redirect('/');
+        return redirect()->route('pesanan.index');
     }
 }

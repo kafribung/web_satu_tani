@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController};
 use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController};
-use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController};
+use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController, OrderanController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -89,6 +89,10 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     // Konfirmasi
     Route::get('konfirmasi', [ConfrirmController::class, 'index'])->name('konfirmasi.index');
     Route::patch('konfirmasi/{checkout:id}', [ConfrirmController::class, 'update'])->name('konfirmasi.update');
+
+    // Pesanan
+    Route::get('pesanan', [OrderanController::class, 'index'])->name('pesanan.index');
+
 });
 
     // Petunjuk

@@ -32,12 +32,11 @@
                     </a>
                 </li>
                 @endif
-
-                {{-- <li>
-                    <a href="{{ route('panduan') }}" class="{{ request()->routeIs('panduan') ? 'active' : '' }} ">Panduan</a>
                 <li>
-                    <a href="{{ route('tentang-kami') }}" class="{{ request()->routeIs('tentang-kami') ? 'active' : '' }} ">Tentang Kami</a>
-                </li> --}}
+                    <a href="{{ route('pesanan.index') }}" class="{{ request()->routeIs('pesanan.index') ? 'active' : '' }}">
+                        Pesanan
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

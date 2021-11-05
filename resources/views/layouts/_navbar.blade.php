@@ -224,7 +224,9 @@
                                                 @if (auth()->user()->checkouts()->where('status', 'menunggu konfirmasi')->count() > 0)
                                                 <a class="mini-link btn--e-brand-b-2" href="{{ route('konfirmasi.index') }}">Selesaikan Pesanan</a>
                                                 @else
-                                                <a class="mini-link btn--e-brand-b-2" href="{{ route('pembayaran.index') }}">Pembayaran</a>
+                                                    @if (auth()->user()->carts()->count() != 0)
+                                                    <a class="mini-link btn--e-brand-b-2" href="{{ route('pembayaran.index') }}">Pembayaran</a>
+                                                    @endif
                                                 @endif
                                             </div>
                                         </div>
