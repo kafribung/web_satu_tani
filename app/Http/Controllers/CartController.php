@@ -14,6 +14,11 @@ class CartController extends Controller
             return redirect()->route('konfirmasi.index')->with('message', 'Anda tidak dapat melakukan pembelilan, selama pesanan belum selesai');
         }
 
+        // Jika user sudah memiliki pesanan
+        if ($request->user()->checkouts()->where('status', 'menunggu pembayaran')->count() > 0) {
+            return redirect()->route('pesanan.index')->with('message', 'Anda tidak dapat melakukan pembelilan, selama pesanan belum selesai');
+        }
+
         // Cek apakah ownernya sendiri atau bukan
         if ($request->user == auth()->user()->name) {
             return back()->with('message', 'Anda tidak dapat membeli produk sendiri');

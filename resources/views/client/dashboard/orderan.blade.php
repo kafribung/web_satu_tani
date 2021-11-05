@@ -10,6 +10,15 @@
             <div class="dash">
                 <div class="container">
                     <div class="row">
+                        <div class="col-lg-6">
+                            @if (session('message'))
+                            <div class="col-lg-12">
+                                <span class="pd-detail__left mb-5">{{ session('message') }}</span>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="row">
                         @include('client.dashboard._sidebar-dashboard')
                         <div class="col-lg-9 col-md-12">
                             <div
