@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Checkout;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class OrderanController extends Controller
 {
-    public function index()
+    public function __invoke()
     {
-        // $checkout  = Checkout::where('user_id', auth()->id);
         $checkouts = Checkout::where([
             ['user_id', auth()->id()],
-            ['status', 'menunggu pembayaran'],
             ['status', 'menunggu pembayaran'],
             ['payment_method', 'transfer'],
         ])->get();

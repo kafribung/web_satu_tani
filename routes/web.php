@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController};
-use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController};
-use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController, OrderanController};
+use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanProcessController};
+use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -95,7 +95,8 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     Route::patch('konfirmasi/{checkout:id}', [ConfrirmController::class, 'update'])->name('konfirmasi.update');
 
     // Pesanan
-    Route::get('pesanan', [OrderanController::class, 'index'])->name('pesanan.index');
+    Route::get('pesanan', OrderanController::class)->name('pesanan.index');
+    Route::get('diproses', OrderanProcessController::class)->name('diproses.index');
 
 });
 

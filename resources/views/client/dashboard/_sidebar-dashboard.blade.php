@@ -33,7 +33,7 @@
                 </li>
                 @endif
                 <li>
-                    <a href="{{ route('pesanan.index') }}" class="{{ request()->routeIs('pesanan.index') ? 'active' : '' }}">
+                    <a href="{{ route('pesanan.index') }}" class="{{ request()->routeIs('pesanan.index') ? 'active' : '' }} {{ request()->routeIs('diproses.index') ? 'active' : '' }}">
                         Pesanan
                     </a>
                 </li>

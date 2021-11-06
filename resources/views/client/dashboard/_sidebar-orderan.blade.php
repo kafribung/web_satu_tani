@@ -6,7 +6,7 @@
                     <div class="col-lg-3 u-s-m-b-30">
                         <a href="{{ route('pesanan.index') }}">
                             <div class="timeline-step">
-                                <div class="timeline-l-i timeline-l-i--finish">
+                                <div class="timeline-l-i {{ request()->routeIs('pesanan.index') ? 'timeline-l-i--finish' : ''}}">
                                     <span class="timeline-circle"></span>
                                 </div>
                                 <span class="timeline-text">Menunggu Pembayaran</span>
@@ -14,9 +14,9 @@
                         </a>
                     </div>
                     <div class="col-lg-3 u-s-m-b-30">
-                        <a href="pesanan-diproses.html">
+                        <a href="{{ route('diproses.index') }}">
                             <div class="timeline-step">
-                                <div class="timeline-l-i">
+                                <div class="timeline-l-i {{ request()->routeIs('diproses.index') ? 'timeline-l-i--finish' : '' }}">
                                     <span class="timeline-circle"></span>
                                 </div>
                                 <span class="timeline-text">Diproses</span>
