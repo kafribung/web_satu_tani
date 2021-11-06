@@ -72,18 +72,6 @@
                         <span>Validasi</span>
                     </a>
                 </li>
-                {{--<li class="{{ request()->routeIs('admin.petani.index') ? 'active' : '' }} {{ request()->is('admin/petani/*') ? 'active' : '' }}">
-                    <a href="{{ route('admin.petani.index') }}">
-                        <i class="material-icons">layers</i>
-                        <span>Petani</span>
-                    </a>
-                </li>
-                <li class="{{ request()->routeIs('admin.koperai.index') ? 'active' : '' }} {{ request()->is('admin/koperai/*') ? 'active' : '' }}">
-                    <a href="{{ route('admin.koperai.index') }}">
-                        <i class="material-icons">swap_calls</i>
-                        <span>Koperasi</span>
-                    </a>
-                </li> --}}
                 <li>
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">swap_calls</i>
@@ -329,31 +317,6 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="pages/changelogs.html">
-                        <i class="material-icons">update</i>
-                        <span>Changelogs</span>
-                    </a>
-                </li>
-                <li class="header">LABELS</li>
-                <li>
-                    <a href="javascript:void(0);">
-                        <i class="material-icons col-red">donut_large</i>
-                        <span>Important</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);">
-                        <i class="material-icons col-amber">donut_large</i>
-                        <span>Warning</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0);">
-                        <i class="material-icons col-light-blue">donut_large</i>
-                        <span>Information</span>
-                    </a>
                 </li>
             </ul>
         </div>
