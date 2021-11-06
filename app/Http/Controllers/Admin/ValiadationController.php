@@ -10,10 +10,12 @@ class ValiadationController extends Controller
     public function index()
     {
         $validations = ValidationSeller::with('user')->whereHas('user', function($query){
-            $query->where('validation', 0);
+            $query->where('validation', 0)->where('role_id', 4);
         })
         ->latest()
         ->paginate(30);
+
+        dd($validations);
         return view('admin.validation.validation', compact('validations'));
     }
 
