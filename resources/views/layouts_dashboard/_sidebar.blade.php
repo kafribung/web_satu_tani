@@ -82,7 +82,7 @@
                             <a href="{{ route('admin.waiting-for-payment.index') }}">Menunggu Pembayaran</a>
                         </li>
                         <li>
-                            <a href="pages/ui/animations.html">Animations</a>
+                            <a href="{{ route('admin.prosess-payment.index') }}">Menunggu Pembayaran</a>
                         </li>
                     </ul>
                 </li>
