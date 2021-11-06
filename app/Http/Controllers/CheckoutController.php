@@ -35,12 +35,7 @@ class CheckoutController extends Controller
 
         $data['product_price'] = auth()->user()->carts()->sum('price');
         $data['total']         = $data['product_price'] + $request->shipping_cost;
-        $products              = [];
         $data['carts']         = auth()->user()->carts()->latest()->get();
-
-        // foreach (auth()->user()->carts()->with('product')->latest()->get() as $cart) {
-        //     $data['products'] =  array_push($products, $cart->product()->get()) ;
-        // }
 
         // Cek apakah products ada atau tidak
         if (auth()->user()->carts()->count() == 0) {

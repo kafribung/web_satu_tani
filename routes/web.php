@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController};
+use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController};
 use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController};
 use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController, OrderanController};
 use Illuminate\Support\Facades\Route;
@@ -35,6 +35,9 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     // Validasi
     Route::get('/validasi', [ValiadationController::class, 'index'])->name('validasi.index');
     Route::patch('/validasi/{user:id}', [ValiadationController::class, 'update'])->name('validasi.update');
+
+    // Menunggu Pembayaran
+    Route::get('waiting-for-payment', [WaitingForPaymentController::class, 'index'])->name('waiting-for-payment.index');
 });
 
 // ============================================================User

@@ -23,14 +23,13 @@
             <div class="col-md-6 offset-md-1">
                 <form class="" style="margin-bottom: 20px; padding-top: 10px;">
                     <div class="input-group input-group-lg mb-3" id="search-box" data-component-category>
-                        <input type="text" class="form-control default-font-size" placeholder="Search product"
+                        <input type="text" class="form-control default-font-size" placeholder="Cari bawang"
                             aria-label="Search product">
                         <select
                             class="custom-select input-group-append form-control-lg no-border-x default-font-size">
-                            <option selected="">All categories</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option selected="">Kategori</option>
+                            <option value="1">Bawang Petani</option>
+                            <option value="2">Bawang Koperasi</option>
                         </select>
                         <div class="input-group-append">
                             <button class="btn1 btn-primary" type="button">
@@ -79,9 +78,6 @@
                             </li>
                             <li>
                                 <a href="bawang-koperasi.html">BAWANG KOPERASI</a>
-                            </li>
-                            <li>
-                                <a href="article.html">ARTIKEL</a>
                             </li>
                         </ul>
                         <!--====== End - List ======-->

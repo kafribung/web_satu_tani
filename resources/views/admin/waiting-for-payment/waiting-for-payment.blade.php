@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="header">
                         <h2 style="margin-bottom: 10px">
-                            Validasi Permintaan Untuk Menjadi Penjual
+                            Menunggu Pembayaran
                         </h2>
 
                         @if (session('message'))
@@ -20,29 +20,33 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>PEMILIK</th>
-                                    <th>KATEGORI</th>
-                                    <th>BERKAS</th>
-                                    <th>INFO REKENING</th>
+                                    <th>PEMBELI</th>
+                                    <th>HARGA PRODUK</th>
+                                    <th>BIAYA PENGIRIMAN</th>
+                                    <th>TOTAL</th>
+                                    <th>PRODUK</th>
+                                    <th>METODE PEMBAYARAN</th>
                                     <th>AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($validations as $validation)
+                                @forelse ($checkouts as $checkout)
                                 <tr>
-                                    <th scope="row">{{ (($validations->currentPage() - 1 ) * $validations->perPage() ) + $loop->iteration }}</th>
+                                    <th scope="row">{{ (($checkouts->currentPage() - 1 ) * $checkouts->perPage() ) + $loop->iteration }}</th>
+                                    <td>{{ $checkout->user->name }}</td>
+                                    <td>{{ number_format($checkout->product_price) }}</td>
+                                    <td>{{ number_format($checkout->shipping_cost) }}</td>
+                                    <td>{{ number_format($checkout->total) }}</td>
                                     <td>
-                                        {{ $validation->user->name }}
+                                        <div class="list-group">
+                                            @foreach (json_decode($checkout->carts) as $cart)
+                                            <button type="button" class="list-group-item">{{ $checkout->product($cart->product_id)->name ?? '' }} - Rp.{{ number_format($cart->price) }} <span class="badge bg-teal">Jumlah: {{ $cart->stock }}</span></button>
+                                            @endforeach
+                                        </div>
                                     </td>
-                                    <td>{{ $validation->name }}</td>
+                                    <td>{{ $checkout->payment_method }}</td>
                                     <td>
-                                        <a target="_blank" href="{{ $validation->takeImg }}">
-                                            <img src="{{ $validation->takeImg }}" class="img-responsive thumbnail" width="100px" alt="Gambar gagal diload">
-                                        </a>
-                                    </td>
-                                    <td>{{ $validation->bank }} / {{ $validation->rekening_name }} / {{ $validation->rekening_number }} </td>
-                                    <td>
-                                        <form style="display: inline"  action="{{ route('admin.validasi.update', $validation->user) }}" method="POST">
+                                        <form style="display: inline"  action="{{ route('admin.validasi.update', $checkout->user) }}" method="POST">
                                             @csrf
                                             @method('patch')
                                             <button type="submit" class="btn btn-success waves-effect">
@@ -60,7 +64,7 @@
                             </tbody>
                         </table>
                         <p class="footer">
-                            {{ $validations->links() }}
+                            {{ $checkouts->links() }}
                         </p>
                     </div>
                 </div>

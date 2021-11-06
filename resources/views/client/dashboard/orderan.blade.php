@@ -97,11 +97,11 @@
                                                             </div>
                                                         </div>
                                                         <div class="manage-o__description">
-                                                            <a href="{{ route('bawang-eceran.show', $checkout->product($cart->product_id)->slug) }}" class="description__container">
+                                                            <a href="{{ route('bawang-eceran.show', $checkout->product($cart->product_id)->slug ?? '-') }}" class="description__container">
                                                                 <div class="description__img-wrap">
-                                                                    <img class="u-img-fluid" src="{{ $checkout->take_img($checkout->product($cart->product_id)->img_1) }}" alt="">
+                                                                    <img class="u-img-fluid" src="{{ $checkout->take_img($checkout->product($cart->product_id)->img_1 ?? '') }}" alt="">
                                                                 </div>
-                                                                <div class="description-title">{{ $checkout->product($cart->product_id)->name }}</div>
+                                                                <div class="description-title">{{ $checkout->product($cart->product_id)->name ?? '' }}</div>
                                                             </a>
                                                             <div class="description__info-wrap">
                                                                 <div>
@@ -110,8 +110,12 @@
                                                                     </span>
                                                                 </div>
                                                                 <div>
+                                                                    @php
+                                                                        $discount = number_format((($checkout->product($cart->product_id)->price * $checkout->product($cart->product_id)->discount) / 100));
+                                                                        $harga    = $checkout->product($cart->product_id)->price - $discount;
+                                                                    @endphp
                                                                     <span class="manage-o__text-2 u-c-silver">Harga:
-                                                                    <span class="manage-o__text-2 u-c-brand"> Rp.{{ number_format($cart->price) }}</span>
+                                                                    <span class="manage-o__text-2 u-c-brand"> Rp.{{ number_format($harga) }}</span>
                                                                     </span>
                                                                 </div>
                                                             </div>

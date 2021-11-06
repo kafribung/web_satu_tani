@@ -15,7 +15,6 @@ class ValiadationController extends Controller
         ->latest()
         ->paginate(30);
 
-        dd($validations);
         return view('admin.validation.validation', compact('validations'));
     }
 
