@@ -40,16 +40,20 @@
                                     <td>
                                         <div class="list-group">
                                             @foreach (json_decode($checkout->carts) as $cart)
-                                            <button type="button" class="list-group-item">{{ $checkout->product($cart->product_id)->name ?? '' }} - Rp.{{ number_format($cart->price) }} <span class="badge bg-teal">Jumlah: {{ $cart->stock }}</span></button>
+                                            @php
+                                                $discount = number_format((($checkout->product($cart->product_id)->price * $checkout->product($cart->product_id)->discount) / 100));
+                                                $harga    = $checkout->product($cart->product_id)->price - $discount;
+                                            @endphp
+                                            <button type="button" class="list-group-item">{{ $checkout->product($cart->product_id)->name ?? '' }} - Rp.{{ number_format($harga) }} <span class="badge bg-teal">Jumlah: {{ $cart->stock }}</span></button>
                                             @endforeach
                                         </div>
                                     </td>
-                                    <td>{{ $checkout->payment_method }}</td>
+                                    <td>{{ $checkout->payment_method == 'transfer'? 'Transfer' : 'COD'}}</td>
                                     <td>
-                                        <form style="display: inline"  action="{{ route('admin.validasi.update', $checkout->user) }}" method="POST">
+                                        <form style="display: inline"  action="{{ route('admin.waiting-for-payment.update', $checkout) }}" method="POST">
                                             @csrf
                                             @method('patch')
-                                            <button type="submit" class="btn btn-success waves-effect">
+                                            <button type="submit" onclick="return confirm('Dengan memilih OK, proses pembayaran sudah diterima dan bawang siap diproses')" class="btn btn-success waves-effect">
                                                 <i class="material-icons">check</i>
                                             </button>
                                         </form>

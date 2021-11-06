@@ -38,6 +38,7 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
 
     // Menunggu Pembayaran
     Route::get('waiting-for-payment', [WaitingForPaymentController::class, 'index'])->name('waiting-for-payment.index');
+    Route::patch('waiting-for-payment/{checkout}', [WaitingForPaymentController::class, 'update'])->name('waiting-for-payment.update');
 });
 
 // ============================================================User

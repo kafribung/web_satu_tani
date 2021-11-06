@@ -16,4 +16,13 @@ class WaitingForPaymentController extends Controller
 
         return view('admin.waiting-for-payment.waiting-for-payment', compact('checkouts'));
     }
+
+    public function update(Checkout $checkout)
+    {
+        $checkout->update([
+            'status' => 'diproses',
+        ]);
+
+        return back()->with('message', 'Proses pembayaran atas nama '. $checkout->user->name .' telah diterima, dan pembayaran dipindahkan ke list diproses');
+    }
 }
