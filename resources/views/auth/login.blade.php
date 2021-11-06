@@ -33,7 +33,7 @@
                                         <input name="email" value="{{ old('email') }}" class="input-text input-text--primary-style" type="text"
                                             id="reg-email" placeholder="Contoh: mail@satutani.com">
                                         @error('email')
-                                        <p class="alert alert-danger">{{ $message }}</p>
+                                        <p style="color: #bb2124" class="alert alert-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
 
@@ -42,7 +42,7 @@
                                         <input name="password" class="input-text input-text--primary-style" type="password"
                                             id="reg-password" placeholder="Masukkan Kata Sandi">
                                         @error('password')
-                                        <p class="alert alert-danger">{{ $message }}</p>
+                                        <p style="color: #bb2124" class="alert alert-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
 

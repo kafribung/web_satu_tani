@@ -33,7 +33,7 @@
                                             <input name="name" value="{{ old('name') }}" class="input-text input-text--primary-style" type="text"
                                                 id="reg-lname" placeholder="Nama Lengkap">
                                             @error('name')
-                                            <p class="alert alert-danger">{{ $message }}</p>
+                                            <p style="color: #bb2124" class="alert alert-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -42,7 +42,7 @@
                                             <input name="date_birth" value="{{ old('date_birth') }}" max="2008-04-30" class="input-text input-text--primary-style" type="date"
                                                 id="reg-birthday">
                                             @error('date_birth')
-                                            <p class="alert alert-danger">{{ $message }}</p>
+                                            <p style="color: #bb2124" class="alert alert-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -56,7 +56,7 @@
                                                 <option {{ old('gender') == 'wanita' ? 'selected' : '' }} value="wanita">Perempuan</option>
                                             </select>
                                             @error('gender')
-                                            <p class="alert alert-danger">{{ $message }}</p>
+                                            <p style="color: #bb2124" class="alert alert-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -65,7 +65,7 @@
                                             <input name="email" value="{{ old('email') }}" class="input-text input-text--primary-style" type="text"
                                                 id="reg-email" placeholder="Contoh: mail@satutani.com">
                                             @error('email')
-                                            <p class="alert alert-danger">{{ $message }}</p>
+                                            <p style="color: #bb2124" class="alert alert-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
 
@@ -74,7 +74,7 @@
                                             <input name="password" class="input-text input-text--primary-style" type="password"
                                                 id="reg-password" placeholder="Masukkan Kata Sandi">
                                             @error('password')
-                                            <p class="alert alert-danger">{{ $message }}</p>
+                                            <p style="color: #bb2124" class="alert alert-danger">{{ $message }}</p>
                                             @enderror
                                         </div>
 
