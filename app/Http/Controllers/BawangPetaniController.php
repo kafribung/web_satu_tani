@@ -19,7 +19,7 @@ class BawangPetaniController extends Controller
             $query->where('name', 'Eceran');
         })
         ->inRandomOrder()
-        ->paginate(4);
+        ->paginate(24);
         return view('client.bawang-petani.index', compact('bawangPetanis'));
     }
 

@@ -73,13 +73,13 @@
                                                     <a href="{{ route('posting.edit', $product) }}" class="btn" style="color: #FFC107">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <form style="display: inline"  action="{{ route('posting.delete', $product) }}" method="POST">
+                                                    {{-- <form style="display: inline"  action="{{ route('posting.delete', $product) }}" method="POST">
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" onclick="return confirm('Data product {{ $product->name }} akan dihapus secara permanent')" class="btn" style="color: #DC3545">
                                                             <i class="fas fa-trash"></i>
                                                         </button>
-                                                    </form>
+                                                    </form> --}}
                                                 </td>
 
                                                 </td>
