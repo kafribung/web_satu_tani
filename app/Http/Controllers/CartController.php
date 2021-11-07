@@ -15,7 +15,7 @@ class CartController extends Controller
         }
 
         // Jika user sudah memiliki pesanan
-        if ($request->user()->checkouts()->where('status', 'menunggu konfirmasi')->count() > 0) {
+        if ($request->user()->checkouts()->whereIn('status', ['menunggu konfirmasi'])->count() > 0) {
             return redirect()->route('konfirmasi.index')->with('message', 'Anda tidak dapat melakukan pembelilan, selama pesanan belum selesai');
         }
 

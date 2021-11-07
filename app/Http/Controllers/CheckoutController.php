@@ -37,10 +37,6 @@ class CheckoutController extends Controller
         $data['total']         = $data['product_price'] + $request->shipping_cost;
         $data['carts']         = auth()->user()->carts()->latest()->get();
 
-        if ($request->payment_method == 'cod')
-            $data['status']  = 'diproses';
-        else $data['status'] = 'menunggu konfirmasi';
-
         // Cek apakah products ada atau tidak
         if (auth()->user()->carts()->count() == 0) {
             return back()->with('message', 'anda tidak memiliki barang di kerangjang');
