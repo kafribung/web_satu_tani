@@ -34,6 +34,7 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     // Petani
     Route::get('/petani', [FarmerController::class, 'index'])->name('petani.index');
     Route::patch('/petani/{user:id}', [FarmerController::class, 'update'])->name('petani.update');
+
     // Koperasi
     Route::get('/koperasi', [CooperativeController::class, 'index'])->name('koperai.index');
 
