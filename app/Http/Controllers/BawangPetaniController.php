@@ -18,6 +18,7 @@ class BawangPetaniController extends Controller
         ->whereHas('product_group', function($query){
             $query->where('name', 'Eceran');
         })
+        ->where('stock', '!=', 0)
         ->inRandomOrder()
         ->paginate(24);
         return view('client.bawang-petani.index', compact('bawangPetanis'));
@@ -59,6 +60,7 @@ class BawangPetaniController extends Controller
             $query->where('name', 'Eceran');
         })
         ->where('id', '!=', $product->id)
+        ->where('stock', '!=', 0)
         ->inRandomOrder()
         ->limit(4)
         ->get();

@@ -75,7 +75,7 @@
 
                         <div class="u-s-m-t-10">
                             <div class="pd-detail__inline">
-                                <span class="pd-detail__stock">Stock: {{ $bawangPetani->stock }} 200 Kg</span>
+                                <span class="pd-detail__stock">Stock: {{ $bawangPetani->stock }} Kg</span>
                                 <span class="pd-detail__stock">Panen: {{ date('d-m-Y', strtotime($bawangPetani->harvest_time)) }}</span>
                             </div>
                             <div class="u-s-m-t-15">

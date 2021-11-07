@@ -11,6 +11,7 @@ class HomeController extends Controller
     {
         $bawangPetanis = Product::with('product_group')
                         ->where('product_group_id', 1)
+                        ->where('stock', '!=', 0)
                         ->inRandomOrder()
                         ->limit(4)
                         ->get();

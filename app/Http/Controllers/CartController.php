@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
+use App\Models\{Cart, Product};
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
     public function store(Request $request, $productId)
     {
+        // Jika produk stocknya 0
+        if (Product::find($productId)->stock == 0) {
+            return back()->with('message', 'Maaf produk ini telah habis');
+        }
+
         // Jika user sudah memiliki pesanan
         if ($request->user()->checkouts()->where('status', 'menunggu konfirmasi')->count() > 0) {
             return redirect()->route('konfirmasi.index')->with('message', 'Anda tidak dapat melakukan pembelilan, selama pesanan belum selesai');
