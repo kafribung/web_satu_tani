@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPaymentController, SendPaymentController};
-use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanProcessController};
-use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController};
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\FinishPaymentController;
+use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController};
+use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanProcessController};
+use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPaymentController, SendPaymentController};
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,10 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     // Dikirim
     Route::get('send-payment', [SendPaymentController::class, 'index'])->name('send-payment.index');
     Route::patch('send-payment/{checkout}', [SendPaymentController::class, 'update'])->name('send-payment.update');
+
+    // Selesai
+    Route::get('finish-payment', [FinishPaymentController::class, 'index'])->name('finish-payment.index');
+    Route::patch('finish-payment/{checkout}', [FinishPaymentController::class, 'update'])->name('finish-payment.update');
 
 });
 
