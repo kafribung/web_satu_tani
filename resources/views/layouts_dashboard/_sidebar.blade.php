@@ -72,7 +72,7 @@
                         <span>Validasi</span>
                     </a>
                 </li>
-                <li class="{{ request()->routeIs('admin.waiting-for-payment.index') ? 'active' : '' }}">
+                <li class="{{ request()->routeIs('admin.waiting-for-payment.index') ? 'active' : '' }} {{ request()->routeIs('admin.prosess-payment.index') ? 'active' : '' }}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">swap_calls</i>
                         <span>Pembayaran</span>
@@ -82,7 +82,7 @@
                             <a href="{{ route('admin.waiting-for-payment.index') }}">Menunggu Pembayaran</a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.prosess-payment.index') }}">Menunggu Pembayaran</a>
+                            <a href="{{ route('admin.prosess-payment.index') }}">Di Proses</a>
                         </li>
                     </ul>
                 </li>
