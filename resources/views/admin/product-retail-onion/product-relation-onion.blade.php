@@ -16,6 +16,7 @@
                             <a target="_blank" href="{{ route('bawang-eceran.show', $bawangPetani->slug) }}">{{ $bawangPetani->name }}</a>
                             <small>Rp.{{ $harga = number_format($bawangPetani->price - $discount) }}</small>
                             <small>Diskon: {{ $bawangPetani->discount }} %</small>
+                            <small>Pemilik: {{ $bawangPetani->user->name }}</small>
                             @if ($bawangPetani->discount != 0 || $bawangPetani->discount != null)
                                 <small >Harga awal: Rp. {{ number_format($bawangPetani->price, 2) }}</small>
                             @endif
@@ -28,6 +29,9 @@
                 </div>
             </div>
             @endforeach
+        </div>
+        <div>
+            {{ $bawangPetanis->links('pagination::bootstrap-4') }}
         </div>
     </div>
 </x-master>
