@@ -35,6 +35,9 @@
                 <li>
                     <a href="{{ route('pesanan.index') }}" class="{{ request()->routeIs('pesanan.index') ? 'active' : '' }} {{ request()->routeIs('diproses.index') ? 'active' : '' }}">
                         Pesanan
+                        @if (auth()->user()->checkouts()->where('status', 'menunggu pembayaran')->count() > 0)
+                        <span class="total-item-round">{{ auth()->user()->checkouts()->where('status', 'menunggu pembayaran')->count() }}</span>
+                        @endif
                     </a>
                 </li>
             </ul>

@@ -102,6 +102,9 @@
                                     title="Account">
                                     <a>
                                         <i class="fas fa-cogs fa-lg"></i>
+                                        @if (auth()->user()->checkouts()->where('status', 'menunggu pembayaran')->count() > 0)
+                                            <span class="total-item-round">{{ auth()->user()->checkouts()->where('status', 'menunggu pembayaran')->count() }}</span>
+                                        @endif
                                     </a>
                                     <!--====== Dropdown ======-->
                                     <span class="js-menu-toggle"></span>

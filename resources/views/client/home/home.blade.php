@@ -280,89 +280,6 @@
     </div>
     <!--====== End - Bawang Koperasi ======-->
 
-    {{--
-    <!--====== Artikel ======-->
-    <div class="u-s-p-b-60">
-        <!--====== Section Intro ======-->
-        <div class="bg2" style="margin-top: 50px;">
-            <div class="section__intro u-s-m-b-46">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="section__text-wrap" style="padding: 50px;">
-                                <h1 class="section__heading u-c-secondary u-s-m-b-12">ARTIKEL TERBARU</h1>
-                                <span class="section__span u-c-silver">MULAI HARI ANDA DENGAN BERITA SEGAR DAN
-                                    TERBARU</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--====== End - Section Intro ======-->
-
-        <!--====== Section Content ======-->
-        <div class="section__content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 u-s-m-b-30">
-                        <div class="bp-mini bp-mini--img u-h-100">
-                            <div class="bp-mini__thumbnail">
-                                <!--====== Image Code ======-->
-                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="article-detail.html">
-                                    <img class="aspect__img" src="{{ asset('assets/images/blog/post-2.jpg') }}"
-                                        alt=""></a>
-                                <!--====== End - Image Code ======-->
-                            </div>
-                            <div class="bp-mini__content">
-                                <div class="bp-mini__stat">
-                                    <span class="bp-mini__stat-wrap">
-                                        <span class="bp-mini__publish-date">
-                                            <a>
-                                                <span>25 February 2018</span>
-                                            </a>
-                                        </span>
-                                    </span>
-
-                                    <span class="bp-mini__stat-wrap">
-                                        <span class="bp-mini__preposition">By</span>
-                                        <span class="bp-mini__author">
-                                            <a href="#">Dayle</a>
-                                        </span>
-                                    </span>
-
-                                    <span class="bp-mini__stat">
-                                        <span class="bp-mini__comment"></span>
-                                    </span>
-                                </div>
-
-                                <span class="bp-mini__h1">
-                                    <a href="article-detail.html">Life is an extraordinary Adventure</a>
-                                </span>
-
-                                <p class="bp-mini__p">Lorem Ipsum is simply dummy text of the printing and
-                                    typesetting industry.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-12">
-                    <div class="load-more">
-                        <a href="article.html">
-                            <button class="btn btn--e-brand" type="button"
-                                style="padding:20px 60px">Selanjutnya</button>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <!--====== End - Section Content ======-->
-    </div>
-    <!--====== End - Artikel ======-->
-
     <!--====== Manfaat ======-->
     <div class="u-s-p-b-60">
         <!--====== Section Content ======-->
@@ -372,10 +289,8 @@
                     <div class="col-lg-4 col-md-6 u-s-m-b-30" style="padding-top: 80px; padding-bottom: 50px;">
                         <div class="bp-mini bp-mini--img u-h-100" style="background-color: rgb(79, 165, 93);">
                             <div class="bp-mini__thumbnail">
-
                                 <!--====== Image Code ======-->
-                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="blog-detail.html">
-
+                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block">
                                     <img class="aspect__img" style="padding: 20px 60px;"
                                         src="{{ asset('assets/images/ilustrasi/illust1.png') }}" alt="">
                                 </a>
@@ -383,7 +298,6 @@
                             </div>
                             <div class="bp-mini__content">
                                 <div class="bp-mini__stat">
-
                                     <span class="bp-mini__h1" style="color: white;">
                                         <center>
                                             <h4>Belanja lebih mudah dan praktis</h4>
@@ -393,23 +307,19 @@
                         </div>
                     </div>
 
-
                     <div class="col-lg-4 col-md-6 u-s-m-b-30" style="padding-top: 80px;  padding-bottom: 50px;">
                         <div class="bp-mini bp-mini--img u-h-100" style="background-color: rgb(79, 165, 93);">
                             <div class="bp-mini__thumbnail">
-
                                 <!--====== Image Code ======-->
-
-                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="blog-detail.html">
-
+                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block">
                                     <img class="aspect__img" style="padding: 20px 60px;"
-                                        src="{{ asset('assets/images/ilustrasi/Illust2.png') }}" alt=""></a>
+                                        src="{{ asset('assets/images/ilustrasi/Illust2.png') }}" alt="">
+                                </a>
                                 <!--====== End - Image Code ======-->
                             </div>
                             <div class="bp-mini__content">
                                 <div class="bp-mini__stat">
                                     <span class="bp-mini__h1" style="color: white;">
-
                                         <center>
                                             <h4>Kualitas terjamin</h4>
                                         </center>
@@ -418,15 +328,11 @@
                         </div>
                     </div>
 
-
                     <div class="col-lg-4 col-md-6 u-s-m-b-30" style="padding-top: 80px;  padding-bottom: 50px;">
                         <div class="bp-mini bp-mini--img u-h-100" style="background-color: rgb(79, 165, 93);">
                             <div class="bp-mini__thumbnail">
-
                                 <!--====== Image Code ======-->
-
-                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block" href="blog-detail.html">
-
+                                <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block">
                                     <img class="aspect__img" style="padding: 20px 60px;"
                                         src="{{ asset('assets/images/ilustrasi/illust3 (1).png') }}" alt="">
                                 </a>
@@ -434,9 +340,7 @@
                             </div>
                             <div class="bp-mini__content">
                                 <div class="bp-mini__stat">
-
                                     <span class="bp-mini__h1" style="color: white;">
-
                                         <center>
                                             <h4>Promo menarik</h4>
                                         </center>
@@ -449,5 +353,5 @@
         </div>
         <!--====== End - Section Content ======-->
     </div>
-    <!--====== End - Manfaat ======--> --}}
+    <!--====== End - Manfaat ======-->
 </x-main>
