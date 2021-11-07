@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Product;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class RetailOnionController extends Controller
 {
     public function index()
     {
-        return view();
+        $bawangPetanis = Product::with(['product_group', 'user'])
+                        ->whereHas('product_group', function($query){
+                            $query->where('name', 'Eceran');
+                        })
+                        ->inRandomOrder()
+                        ->paginate(24);
+        return view('admin.product-retail-onion.product-relation-onion', compact('bawangPetanis'));
     }
 }

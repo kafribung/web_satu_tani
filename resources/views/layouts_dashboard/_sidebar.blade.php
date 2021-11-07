@@ -92,8 +92,8 @@
                         </li>
                     </ul>
                 </li>
-                <li  class="{{ request()->routeIs('admin.admin.index') ? 'active' : '' }} {{ request()->is('admin/admin/*') ? 'active' : '' }}">
-                    <a href="{{ route('admin.admin.index') }}">
+                <li  class="{{ request()->routeIs('admin.bawang-eceran.index') ? 'active' : '' }} {{ request()->is('admin/bawang-eceran/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.bawang-eceran.index') }}">
                         <i class="material-icons">assignment</i>
                         <span>Bawang Eceran</span>
                     </a>
