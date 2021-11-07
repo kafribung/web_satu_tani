@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FinishPaymentController;
 use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController};
 use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanFinishController, OrderanProcessController, OrderanSendController};
-use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPaymentController, SendPaymentController};
+use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPaymentController, RetailOnionController, SendPaymentController};
 
 /*
 |--------------------------------------------------------------------------
@@ -23,16 +23,20 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     // Dashboard
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
+
     // Admin
     Route::resource('/admin', AdminController::class);
+
     // User
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
     Route::delete('/user/{user:id}', [UserController::class, 'destroy'])->name('user.delete');
+
     // Petani
     Route::get('/petani', [FarmerController::class, 'index'])->name('petani.index');
     Route::patch('/petani/{user:id}', [FarmerController::class, 'update'])->name('petani.update');
     // Koperasi
     Route::get('/koperasi', [CooperativeController::class, 'index'])->name('koperai.index');
+
     // Validasi
     Route::get('/validasi', [ValiadationController::class, 'index'])->name('validasi.index');
     Route::patch('/validasi/{user:id}', [ValiadationController::class, 'update'])->name('validasi.update');
@@ -52,6 +56,13 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     // Selesai
     Route::get('finish-payment', [FinishPaymentController::class, 'index'])->name('finish-payment.index');
     Route::patch('finish-payment/{checkout}', [FinishPaymentController::class, 'update'])->name('finish-payment.update');
+
+    // Bawang Eceran
+
+    Route::prefix('bawang-eceran')->name('bawang-eceran')->group(function () {
+        Route::get('', [RetailOnionController::class, 'index'])->name('.index');
+        Route::get('/{product:slug}', [RetailOnionController::class, 'show'])->name('.show');
+    });
 
 });
 
@@ -128,7 +139,7 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     Route::view('panduan', 'client.instruction.panduan')->name('panduan');
     Route::view('tentang-kami', 'client.instruction.tentang-kami')->name('tentang-kami');
 
-    // Produk
+    // Produk Bawang Eceran
     Route::prefix('bawang-eceran')->name('bawang-eceran')->group(function () {
         Route::get('', [BawangPetaniController::class, 'index'])->name('.index');
         Route::get('/{product:slug}', [BawangPetaniController::class, 'show'])->name('.show');
