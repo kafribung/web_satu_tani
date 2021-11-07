@@ -26,7 +26,6 @@
                                     <th>TOTAL</th>
                                     <th>PRODUK</th>
                                     <th>METODE PEMBAYARAN</th>
-                                    <th>AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>

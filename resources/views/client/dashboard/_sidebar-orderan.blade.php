@@ -34,9 +34,9 @@
                         </a>
                     </div>
                     <div class="col-lg-3 u-s-m-b-30">
-                        <a href="pesanan-selesai.html">
+                        <a href="{{ route('selesai.index') }}">
                             <div class="timeline-step">
-                                <div class="timeline-l-i">
+                                <div class="timeline-l-i {{ request()->routeIs('selesai.index') ? 'timeline-l-i--finish' : '' }}">
                                     <span class="timeline-circle"></span>
                                 </div>
                                 <span class="timeline-text">Selesai</span>

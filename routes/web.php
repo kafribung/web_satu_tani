@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FinishPaymentController;
 use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController};
-use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanProcessController, OrderanSendController};
+use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanFinishController, OrderanProcessController, OrderanSendController};
 use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPaymentController, SendPaymentController};
 
 /*
@@ -117,7 +117,8 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     // Dikirim
     Route::get('dikirim', OrderanSendController::class)->name('dikirim.index');
 
-
+    // Selesai
+    Route::get('selesai', OrderanFinishController::class)->name('selesai.index');
 });
 
     // Petunjuk
