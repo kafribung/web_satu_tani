@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-2">
                 <a class="main-logo" style="padding-bottom: 0px;" href="/">
-                    <img src="{{ asset('assets/images/logo/logo st1.png') }}" alt="">
+                    <img src="{{ asset('assets/images/logo/logo st.png') }}" alt="">
                 </a>
 
             </div>

@@ -6,7 +6,7 @@
                 <div class="col-lg-5 col-md-6">
                     <div class="outer-footer__content u-s-m-b-40">
                         <a href="/">
-                            <img src="{{ asset('assets/images/logo/logo st1.png') }}" alt="" style="width: 150px;">
+                            <img src="{{ asset('assets/images/logo/logo st.png') }}" alt="" style="width: 150px;">
                         </a>
                         <div class="outer-footer__text-wrap">
                             <span>

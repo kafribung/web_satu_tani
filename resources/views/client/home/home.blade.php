@@ -236,7 +236,6 @@
                                 <div class="product-o__wrap">
                                     <a class="aspect aspect--bg-grey aspect--square u-d-block"
                                         href="bawang-koperasi-detail.html">
-
                                         <img class="aspect__img"
                                             src="{{ asset('assets/images/product/electronic/product14.jpg') }}" alt="">
                                     </a>
@@ -334,7 +333,7 @@
                                 <!--====== Image Code ======-->
                                 <a class="aspect aspect--bg-grey aspect--1366-768 u-d-block">
                                     <img class="aspect__img" style="padding: 20px 60px;"
-                                        src="{{ asset('assets/images/ilustrasi/illust3 (1).png') }}" alt="">
+                                        src="{{ asset('assets/images/ilustrasi/illust3.png') }}" alt="">
                                 </a>
                                 <!--====== End - Image Code ======-->
                             </div>
