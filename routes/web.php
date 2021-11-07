@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPymentController};
+use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPaymentController, SendPaymentController};
 use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanProcessController};
 use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController};
 use Illuminate\Support\Facades\Route;
@@ -41,8 +41,12 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     Route::patch('waiting-for-payment/{checkout}', [WaitingForPaymentController::class, 'update'])->name('waiting-for-payment.update');
 
     // Proses
-    Route::get('prosess-payment', [ProcessPymentController::class, 'index'])->name('prosess-payment.index');
-    Route::patch('prosess-payment/{checkout}', [ProcessPymentController::class, 'update'])->name('prosess-payment.update');
+    Route::get('prosess-payment', [ProcessPaymentController::class, 'index'])->name('prosess-payment.index');
+    Route::patch('prosess-payment/{checkout}', [ProcessPaymentController::class, 'update'])->name('prosess-payment.update');
+
+    // Dikirim
+    Route::get('send-payment', [SendPaymentController::class, 'index'])->name('send-payment.index');
+    Route::patch('send-payment/{checkout}', [SendPaymentController::class, 'update'])->name('send-payment.update');
 
 });
 

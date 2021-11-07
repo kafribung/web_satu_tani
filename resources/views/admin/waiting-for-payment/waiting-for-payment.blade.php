@@ -62,7 +62,7 @@
                                 </tr>
                                 @empty
                                 <tr>
-                                    <th colspan="6">Data tidak ditemukan</th>
+                                    <th class="justify-content-center text-center" colspan="12">Belum ada data yang ditambahkan</th>
                                 </tr>
                                 @endforelse
                             </tbody>
