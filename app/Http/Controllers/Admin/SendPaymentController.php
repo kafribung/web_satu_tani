@@ -22,6 +22,6 @@ class SendPaymentController extends Controller
             'status' => 'selesai',
         ]);
 
-        return back()->with('message', 'Barang akan dikirim ke '. $checkout->user->name .' dan list pembayaran dipindahkan ke selesai');
+        return back()->with('message', 'Barang telah dikirim ke '. $checkout->user->name .' dan list pembayaran dipindahkan ke selesai');
     }
 }

@@ -53,7 +53,7 @@
                                         <form style="display: inline"  action="{{ route('admin.send-payment.update', $checkout) }}" method="POST">
                                             @csrf
                                             @method('patch')
-                                            <button type="submit" onclick="return confirm('Dengan memilih OK, barang telah dikirim ke '.{{ $checkout->user->name }} .' dan list akan dipindahkan ke selesai')" class="btn btn-success waves-effect">
+                                            <button type="submit" onclick="return confirm('Dengan memilih OK, barang telah diterima dan list pembayaran telah selesai')" class="btn btn-success waves-effect">
                                                 <i class="material-icons">check</i>
                                             </button>
                                         </form>

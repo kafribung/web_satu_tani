@@ -63,31 +63,30 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6">
+                <div class="col-lg-2 col-md-12">
                     <div class="outer-footer__content">
                         <span class="outer-footer__content-title">Kontak Kami</span>
                         <form class="newsletter">
                             <div class="u-s-m-b-15">
                                 <div class="radio-box newsletter__radio">
                                     <div class="row" style="margin-bottom: 10px;">
-                                        <div class="col-lg-4 col-md-2">
+                                        <div class="col-lg-4 col-md-2 col-md-1">
                                             <a href=""><img src="{{ asset('assets/images/icon/fb.svg') }}" alt=""> </a>
                                         </div>
-                                        <div class="col-lg-4 col-md-2">
+                                        <div class="col-lg-4 col-md-2 col-md-1">
                                             <a href=""><img src="{{ asset('assets/images/icon/ig.svg') }}" alt=""> </a>
                                         </div>
-                                        <div class="col-lg-4 col-md-2" style="margin-bottom: 10px;">
+                                        <div class="col-lg-4 col-md-2 col-md-1" style="margin-bottom: 10px;">
                                             <a href=""><img src="{{ asset('assets/images/icon/twi.svg') }}" alt=""> </a>
                                         </div>
 
-
-                                        <div class="col-lg-4 col-md-2">
+                                        <div class="col-lg-4 col-md-2 col-md-1">
                                             <a href=""><img src="{{ asset('assets/images/icon/wa.svg') }}" alt=""> </a>
                                         </div>
-                                        <div class="col-lg-4 col-md-2">
+                                        <div class="col-lg-4 col-md-2 col-md-1">
                                             <a href=""><img src="{{ asset('assets/images/icon/yt.svg') }}" alt=""> </a>
                                         </div>
-                                        <div class="col-lg-4 col-md-2">
+                                        <div class="col-lg-4 col-md-2 col-md-1">
                                             <a href=""><img src="{{ asset('assets/images/icon/tele.svg') }}" alt=""> </a>
                                         </div>
                                     </div>

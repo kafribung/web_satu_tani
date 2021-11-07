@@ -24,9 +24,9 @@
                         </a>
                     </div>
                     <div class="col-lg-3 u-s-m-b-30">
-                        <a href="pesanan-dikirim.html">
+                        <a href="{{ route('dikirim.index') }}">
                             <div class="timeline-step">
-                                <div class="timeline-l-i">
+                                <div class="timeline-l-i {{ request()->routeIs('dikirim.index') ? 'timeline-l-i--finish' : '' }}">
                                     <span class="timeline-circle"></span>
                                 </div>
                                 <span class="timeline-text">Dikirim</span>
