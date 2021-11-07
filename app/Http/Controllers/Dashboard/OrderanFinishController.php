@@ -12,7 +12,9 @@ class OrderanFinishController extends Controller
         $checkouts = Checkout::where([
             ['user_id', auth()->id()],
             ['status', 'selesai'],
-        ])->get();
+        ])
+        ->latest()
+        ->get();
         return view('client.dashboard.orderan-finish', compact('checkouts'));
     }
 }
