@@ -31,9 +31,11 @@
                                             <span class="dash__text u-s-m-b-30">Semua pesanan yang menunggu pembayaran, silahkan transfer ke nomor dengna biaya: Rp.{{ number_format($checkouts->sum('total') ?? '')  }}.</span>
                                             @if ($checkouts->count() != 0)
                                             <p style="font-weight: bold" class="dash__h2 u-s-m-b-14">Transfer ke BRI(Adly 123 3443 5454).</p>
+                                            <p style="font-weight: bold" class="dash__h2 u-s-m-b-14">Setelah ditransefer silahkan kirim bukti ke WA Satu Tani(083 1221 3232 12).</p>
                                             @endif
                                             <div class="m-order__list">
                                                 @forelse ($checkouts as $checkout)
+                                                <p class="dash__h2 u-s-m-b-14">Metode Pembayaran: {{ $checkout->payment_method }}</p>
                                                 <p class="dash__h2 u-s-m-b-14">Ongkir: Rp.{{ number_format($checkout->shipping_cost) }}</p>
                                                 <p style="font-weight: bold" class="dash__h2 u-s-m-b-14">Total: Rp.{{ number_format($checkout->total) }}</p>
                                                     @foreach (json_decode($checkout->carts) as $cart)

@@ -31,6 +31,7 @@
                                             <span class="dash__text u-s-m-b-30">Semua pesanan yang menunggu pembayaran, silahkan transfer ke nomor dengna biaya: Rp.{{ number_format($checkouts->sum('total') ?? '')  }}.</span>
                                             <div class="m-order__list">
                                                 @forelse ($checkouts as $checkout)
+                                                <p class="dash__h2 u-s-m-b-14">Metode Pembayaran: {{ $checkout->payment_method }}</p>
                                                 <p class="dash__h2 u-s-m-b-14">Ongkir: Rp.{{ number_format($checkout->shipping_cost) }}</p>
                                                 <p style="font-weight: bold" class="dash__h2 u-s-m-b-14">Total: Rp.{{ number_format($checkout->total) }}</p>
                                                     @foreach (json_decode($checkout->carts) as $cart)

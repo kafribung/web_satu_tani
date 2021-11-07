@@ -191,7 +191,7 @@
                                         <p style="color: #bb2124">{{ $message }}</p>
                                         @enderror
                                     </div>
-                                    {{--  --}}
+                                    {{-- Biaya Pengiriman  --}}
                                     <input name="shipping_cost" style="display: none" value="" type="number">
                                     <div>
                                         <button  class="mini-link btn--e-brand-b-2" style="font-size: 12px">Buat Pesanan</button>
