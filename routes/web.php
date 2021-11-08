@@ -6,19 +6,7 @@ use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutContr
 use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanFinishController, OrderanProcessController, OrderanSendController};
 use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPaymentController, RetailOnionController, SendPaymentController};
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
-
 // ============================================================Admin
 Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     // Dashboard
