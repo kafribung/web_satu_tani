@@ -21,18 +21,16 @@
 
             <!--====== Search Form ======-->
             <div class="col-md-6 offset-md-1">
-                <form class="" style="margin-bottom: 20px; padding-top: 10px;">
+                <form action="{{ route('home.index') }}" method="GET" style="margin-bottom: 20px; padding-top: 10px;">
                     <div class="input-group input-group-lg mb-3" id="search-box" data-component-category>
-                        <input type="text" class="form-control default-font-size" placeholder="Cari bawang"
-                            aria-label="Search product">
-                        <select
+                        <input name="search" type="text" class="form-control default-font-size" placeholder="Cari bawang" aria-label="Search product">
+                        <select name="category"
                             class="custom-select input-group-append form-control-lg no-border-x default-font-size">
-                            <option selected="">Kategori</option>
-                            <option value="1">Bawang Petani</option>
+                            <option selected value="1">Bawang Eceran</option>
                             <option value="2">Bawang Koperasi</option>
                         </select>
                         <div class="input-group-append">
-                            <button class="btn1 btn-primary" type="button">
+                            <button class="btn1 btn-primary" type="submit">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
@@ -102,9 +100,12 @@
                                     title="Account">
                                     <a>
                                         <i class="fas fa-cogs fa-lg"></i>
-                                        @if (auth()->user()->checkouts()->where('status', 'menunggu pembayaran')->count() > 0)
-                                            <span class="total-item-round">{{ auth()->user()->checkouts()->where('status', 'menunggu pembayaran')->count() }}</span>
-                                        @endif
+                                        @auth
+                                            @if (auth()->user()->checkouts()->where('status', 'menunggu pembayaran')->count() > 0)
+                                                <span class="total-item-round">{{ auth()->user()->checkouts()->where('status', 'menunggu pembayaran')->count() }}</span>
+                                            @endif
+                                        @endauth
+
                                     </a>
                                     <!--====== Dropdown ======-->
                                     <span class="js-menu-toggle"></span>

@@ -20,7 +20,7 @@
                                 @endif
                                 <div class="col-lg-12">
                                     <div class="section__text-wrap">
-                                        <img style="width: 50%;" src="{{ asset('assets/images/logo/logo st1.png') }}">
+                                        <img style="width: 50%;" src="{{ asset('assets/images/logo/logo st.png') }}">
                                         <h1 class="gl-h1">Selamat Datang di Satutani</h1>
                                         <h5 class="h6">Masuk Untuk Melanjutkan</h5>
                                         <span class="gl-text u-s-m-b-30"> Belum punya akun? <b><a class="gl-link" href="{{ route('register') }}">Daftar di sini.</a></b></span>
