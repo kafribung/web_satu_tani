@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FinishPaymentController;
 use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController};
-use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanFinishController, OrderanProcessController, OrderanSendController};
+use App\Http\Controllers\Dashboard\{CreateMarketFarmer2Controller, CreateMarketFarmer3Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanFinishController, OrderanProcessController, OrderanSendController};
 use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPaymentController, RetailOnionController, SendPaymentController};
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
@@ -47,12 +47,10 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     Route::patch('finish-payment/{checkout}', [FinishPaymentController::class, 'update'])->name('finish-payment.update');
 
     // Bawang Eceran
-
     Route::prefix('bawang-eceran')->name('bawang-eceran')->group(function () {
         Route::get('', [RetailOnionController::class, 'index'])->name('.index');
         Route::get('/{product:slug}', [RetailOnionController::class, 'show'])->name('.show');
     });
-
 });
 
 // ============================================================User
@@ -79,7 +77,7 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
         Route::post('/petani', [CreateMarketFarmerController::class, 'store_img'])->name('.petani');
         Route::get('/petani/lengkapi-info', [CreateMarketFarmer2Controller::class, 'index'])->name('.petani.lengkapi-info');
         Route::patch('/petani/lengkapi-info', [CreateMarketFarmer2Controller::class, 'update'])->name('.petani.lengkapi-info');
-        Route::view('/petani/selesai', 'client.dashboard.create-market-farmer-3')->name('.petani.selesai');
+        Route::get('/petani/selesai', CreateMarketFarmer3Controller::class)->name('.petani.selesai');
     });
 
     // Barang

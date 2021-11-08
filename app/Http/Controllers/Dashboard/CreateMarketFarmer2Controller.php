@@ -9,6 +9,17 @@ class CreateMarketFarmer2Controller extends Controller
 {
     public function index()
     {
+        // Jika belum mengisi tahap awal
+        // if (auth()->user()->validation_sellers()->count() == 0) {
+        //     return redirect()->route('buat-toko.petani');
+        // }
+
+        if (auth()->user()->validation_sellers()->where([
+            ['img', null],
+        ])->first() == null) {
+            return redirect()->route('buat-toko.petani');
+        }
+
         $user = auth()->user();
         return view('client.dashboard.create-market-farmer-2', compact('user'));
     }
