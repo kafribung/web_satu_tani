@@ -20,7 +20,7 @@
                                             agar kamu dapat memasarkan hasil panenmu di Satutani</p>
                                         <a class="btn btn-primary" href="{{ route('buat-toko.petani') }}"
                                             style="margin-top: 50px;">Petani</a>
-                                        <a class="btn btn-primary" href="akun-bisnis-daftar-koperasi.html"
+                                        <a class="btn btn-primary" href="{{ route('buat-toko.koperasi') }}"
                                             style="margin-top: 50px;">Koperasi</a>
                                     </center>
                                 </div>
