@@ -72,12 +72,22 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
 
     // Buat Toko
     Route::view('buat-toko', 'client.dashboard.create-market')->name('buat-toko');
+    // Buat toko petani
     Route::middleware('validation_nonactive')->prefix('buat-toko')->name('buat-toko')->group(function () {
         Route::get('/petani', [CreateMarketFarmerController::class, 'index'])->name('.petani');
         Route::post('/petani', [CreateMarketFarmerController::class, 'store_img'])->name('.petani');
         Route::get('/petani/lengkapi-info', [CreateMarketFarmer2Controller::class, 'index'])->name('.petani.lengkapi-info');
         Route::patch('/petani/lengkapi-info', [CreateMarketFarmer2Controller::class, 'update'])->name('.petani.lengkapi-info');
         Route::get('/petani/selesai', CreateMarketFarmer3Controller::class)->name('.petani.selesai');
+    });
+
+    // Buat toko koperasi
+    Route::middleware('validation_nonactive')->prefix('buat-toko')->name('buat-toko')->group(function () {
+        Route::get('/koperasi', [CreateMarketFarmerController::class, 'index'])->name('.koperasi');
+        Route::post('/koperasi', [CreateMarketFarmerController::class, 'store_img'])->name('.koperasi');
+        Route::get('/koperasi/lengkapi-info', [CreateMarketFarmer2Controller::class, 'index'])->name('.koperasi.lengkapi-info');
+        Route::patch('/koperasi/lengkapi-info', [CreateMarketFarmer2Controller::class, 'update'])->name('.koperasi.lengkapi-info');
+        Route::get('/koperasi/selesai', CreateMarketFarmer3Controller::class)->name('.petani.selesai');
     });
 
     // Barang

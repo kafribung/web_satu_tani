@@ -14,7 +14,6 @@ class CreateMarketFarmer3Controller extends Controller
             return redirect()->route('buat-toko.petani');
         }
 
-
         // Jika belum mengisi tahap 2
         if (auth()->user()->validation_sellers()->where([
             ['img', null],
