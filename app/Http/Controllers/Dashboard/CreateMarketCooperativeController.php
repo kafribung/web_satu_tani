@@ -11,7 +11,9 @@ class CreateMarketCooperativeController extends Controller
     public function index()
     {
         // Jika sudah mengisi gambar
-        if (auth()->user()->validation_sellers->img != null) return redirect()->route('buat-toko.koperasi.lengkapi-info');
+        if (auth()->user()->validation_sellers()->count() > 0) {
+            if (auth()->user()->validation_sellers->img != null) return redirect()->route('buat-toko.koperasi.lengkapi-info');
+        }
 
         return view('client.dashboard.create-market-cooperative');
     }
