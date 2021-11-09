@@ -14,15 +14,9 @@ class CreateMarketCooperative3Controller extends Controller
         }
 
         // Jika belum mengisi tahap 2
-        if (auth()->user()->validation_sellers()->where([
-            ['img', null],
-            ['bank', null],
-            ['rekening_number', null],
-            ['rekening_name', null],
-        ])->first() == null) {
-            return redirect()->route('buat-toko.petani');
-        }
+        if (auth()->user()->validation_sellers->bank == null && auth()->user()->validation_sellers->rekening_number == null && auth()->user()->validation_sellers->rekening_name == null)
+            return redirect()->route('buat-toko.koperasi');
 
-        return view('client.dashboard.create-market-cooverative-3');
+        return view('client.dashboard.create-market-cooperative-3');
     }
 }

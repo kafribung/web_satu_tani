@@ -88,7 +88,7 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
         Route::post('/koperasi', [CreateMarketCooperativeController::class, 'store_img'])->name('.koperasi');
         Route::get('/koperasi/lengkapi-info', [CreateMarketCooperative2Controller::class, 'index'])->name('.koperasi.lengkapi-info');
         Route::patch('/koperasi/lengkapi-info', [CreateMarketCooperative2Controller::class, 'update'])->name('.koperasi.lengkapi-info');
-        Route::get('/koperasi/selesai', CreateMarketCooperative3Controller::class)->name('.petani.selesai');
+        Route::get('/koperasi/selesai', CreateMarketCooperative3Controller::class)->name('.koperasi.selesai');
     });
 
     // Barang

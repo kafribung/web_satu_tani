@@ -27,9 +27,9 @@ class CreateMarketCooperative2Controller extends Controller
 
         // Jika sudah mendaftar menjadi seller
         if (auth()->user()->validation_sellers()->count() > 0) {
-            if (auth()->user()->validation_sellers->bank != null && auth()->user()->validation_sellers->rekening_number != null && auth()->user()->validation_sellers->rekening_name != null) {
-                return redirect()->route('buat-toko');
-            }
+            if (auth()->user()->validation_sellers->name == 'Koperasi' && auth()->user()->validation_sellers->bank != null && auth()->user()->validation_sellers->rekening_number != null && auth()->user()->validation_sellers->rekening_name != null) {
+                return redirect()->route('buat-toko.koperasi.selesai');
+            } else return redirect()->route('buat-toko.petani.selesai');
         }
 
         $user = auth()->user();
