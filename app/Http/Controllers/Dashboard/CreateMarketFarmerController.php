@@ -10,6 +10,8 @@ class CreateMarketFarmerController extends Controller
 {
     public function index()
     {
+        // Jika sudah mengisi gambar
+        if (auth()->user()->validation_sellers->img != null) return redirect()->route('buat-toko.petani.lengkapi-info');
         return view('client.dashboard.create-market-farmer');
     }
 

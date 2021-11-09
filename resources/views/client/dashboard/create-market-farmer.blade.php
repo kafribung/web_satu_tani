@@ -48,7 +48,7 @@
 
                                                 @error('img')
                                                 <span class="dash__text u-s-m-b-30"
-                                                    style="margin-top: 5px; color: red">{{ $message }}
+                                                    style="margin-top: 5px; color: #bb2124">{{ $message }}
                                                 </span>
                                                 @enderror
 

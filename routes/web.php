@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FinishPaymentController;
+use App\Http\Controllers\Dashboard\CreateMarketCooperative3Controller;
 use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController};
 use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPaymentController, RetailOnionController, SendPaymentController};
-use App\Http\Controllers\Dashboard\{CreateMarketCooperative2Controller, CreateMarketCooperativeController, CreateMarketFarmer2Controller, CreateMarketFarmer3Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanFinishController, OrderanProcessController, OrderanSendController};
+use App\Http\Controllers\Dashboard\{CreateMarketController, CreateMarketCooperative2Controller, CreateMarketCooperativeController, CreateMarketFarmer2Controller, CreateMarketFarmer3Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanFinishController, OrderanProcessController, OrderanSendController};
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 // ============================================================Admin
@@ -71,7 +72,7 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     });
 
     // Buat Toko
-    Route::view('buat-toko', 'client.dashboard.create-market')->name('buat-toko');
+    Route::get('buat-toko', CreateMarketController::class)->name('buat-toko');
     // Buat toko petani
     Route::middleware('validation_nonactive')->prefix('buat-toko')->name('buat-toko')->group(function () {
         Route::get('/petani', [CreateMarketFarmerController::class, 'index'])->name('.petani');
@@ -87,7 +88,7 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
         Route::post('/koperasi', [CreateMarketCooperativeController::class, 'store_img'])->name('.koperasi');
         Route::get('/koperasi/lengkapi-info', [CreateMarketCooperative2Controller::class, 'index'])->name('.koperasi.lengkapi-info');
         Route::patch('/koperasi/lengkapi-info', [CreateMarketCooperative2Controller::class, 'update'])->name('.koperasi.lengkapi-info');
-        Route::get('/koperasi/selesai', CreateMarketFarmer3Controller::class)->name('.petani.selesai');
+        Route::get('/koperasi/selesai', CreateMarketCooperative3Controller::class)->name('.petani.selesai');
     });
 
     // Barang
