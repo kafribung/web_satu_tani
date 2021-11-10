@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\{User,  ValidationSeller};
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ValiadationController extends Controller
 {
@@ -31,5 +32,14 @@ class ValiadationController extends Controller
         ]);
 
         return redirect()->route('admin.validasi.index')->with('message', 'Data ' . $user->name .' berhasil diverifikasi menjadi '. $user->validation_sellers->name);
+    }
+
+    public function destroy($validationId)
+    {
+        $validation =  ValidationSeller::find($validationId);
+        Storage::delete($validation->img);
+        $validation->delete();
+
+        return redirect()->back()->with('message', 'Data berhasil dihapus');
     }
 }

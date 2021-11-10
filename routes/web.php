@@ -31,6 +31,9 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     // Validasi
     Route::get('/validasi', [ValiadationController::class, 'index'])->name('validasi.index');
     Route::patch('/validasi/{user:id}', [ValiadationController::class, 'update'])->name('validasi.update');
+    Route::delete('/validasi/{id}', [ValiadationController::class, 'destroy'])->name('validasi.delete');
+
+
 
     // Menunggu Pembayaran
     Route::get('waiting-for-payment', [WaitingForPaymentController::class, 'index'])->name('waiting-for-payment.index');

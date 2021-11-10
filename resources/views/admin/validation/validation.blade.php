@@ -42,10 +42,18 @@
                                     </td>
                                     <td>{{ $validation->bank }} / {{ $validation->rekening_name }} / {{ $validation->rekening_number }} </td>
                                     <td>
+                                        <form style="display: inline"  action="{{ route('admin.validasi.delete', $validation->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" onclick="return confirm('Data user {{ $validation->user->name }} batal divalidasi?')" class="btn btn-danger waves-effect">
+                                                <i class="material-icons">delete</i>
+                                            </button>
+                                        </form>
+
                                         <form style="display: inline"  action="{{ route('admin.validasi.update', $validation->user) }}" method="POST">
                                             @csrf
                                             @method('patch')
-                                            <button type="submit" class="btn btn-success waves-effect">
+                                            <button type="submit" onclick="return confirm('Data user {{ $validation->user->name }} akan diaktifkan ?')" class="btn btn-success waves-effect">
                                                 <i class="material-icons">check</i>
                                             </button>
                                         </form>
