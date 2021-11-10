@@ -23,6 +23,6 @@ class WaitingForPaymentController extends Controller
             'status' => 'diproses',
         ]);
 
-        return back()->with('message', 'Pembayaran atas nama '. $checkout->user->name .' telah diterima, dan pembayaran dipindahkan ke list diproses');
+        return back()->with('message', 'Pembayaran atas nama '. $checkout->user->name .' telah diterima, dan bawang siap diproses untuk dikirim');
     }
 }

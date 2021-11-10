@@ -53,7 +53,7 @@
                                         <form style="display: inline"  action="{{ route('admin.waiting-for-payment.update', $checkout) }}" method="POST">
                                             @csrf
                                             @method('patch')
-                                            <button type="submit" onclick="return confirm('Dengan memilih OK, proses pembayaran sudah diterima dan bawang siap diproses')" class="btn btn-success waves-effect">
+                                            <button type="submit" onclick="return confirm('Dengan memilih OK, proses pembayaran sudah diterima dan bawang siap diproses untuk dikirim')" class="btn btn-success waves-effect">
                                                 <i class="material-icons">check</i>
                                             </button>
                                         </form>
