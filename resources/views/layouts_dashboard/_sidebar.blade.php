@@ -68,10 +68,7 @@
                 </li>
                 <li class="{{ request()->routeIs('admin.validasi.index') ? 'active' : '' }} {{ request()->is('admin/validasi/*') ? 'active' : '' }}">
                     @php
-                         $validationCount =  App\Models\ValidationSeller::with('user')->whereHas('user', function($query){
-                                            $query->where('validation', 0)->where('role_id', 4);
-                                        })
-                                        ->count()
+                        $validationCount =  App\Models\ValidationSeller::with('user')->whereHas('user', function($query){ $query->where('validation', 0)->where('role_id', 4); })->count()
                     @endphp
                     <a href="{{ route('admin.validasi.index') }}">
                         <i class="material-icons">layers</i>
@@ -85,16 +82,28 @@
                     </a>
                     <ul class="ml-menu">
                         <li >
-                            <a href="{{ route('admin.waiting-for-payment.index') }}">Menunggu Pembayaran</a>
+                            @php
+                                $waitingForPaymentCount = \App\Models\Checkout::with('user')->where('status', 'menunggu pembayaran')->count();
+                            @endphp
+                            <a href="{{ route('admin.waiting-for-payment.index') }}">Menunggu Pembayaran({{ $waitingForPaymentCount }})</a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.prosess-payment.index') }}">Di Proses</a>
+                            @php
+                                $processCount = \App\Models\Checkout::with('user')->where('status', 'diproses')->count();
+                            @endphp
+                            <a href="{{ route('admin.prosess-payment.index') }}">Di Proses({{$processCount}})</a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.send-payment.index') }}">Di Kirim</a>
+                            @php
+                                $sendCount = \App\Models\Checkout::with('user')->where('status', 'dikirim')->count();
+                            @endphp
+                            <a href="{{ route('admin.send-payment.index') }}">Di Kirim({{ $sendCount }})</a>
                         </li>
                         <li>
-                            <a href="{{ route('admin.finish-payment.index') }}">Selesai</a>
+                            @php
+                                $finishCount = \App\Models\Checkout::with('user')->where('status', 'selesai')->count();
+                            @endphp
+                            <a href="{{ route('admin.finish-payment.index') }}">Selesai({{ $finishCount }})</a>
                         </li>
                     </ul>
                 </li>
