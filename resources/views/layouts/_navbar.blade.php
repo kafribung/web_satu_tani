@@ -186,8 +186,13 @@
                                                         <span class="mini-product__name">
                                                             <a href="{{ route('bawang-eceran.show', $cart->product) }}"> {{ $cart->product->name }}</a>
                                                         </span>
-                                                        <span class="mini-product__quantity">Jumlah {{ $cart->stock  }}</span>
-                                                        <span class="mini-product__price">Rp.{{ number_format($cart->price) }}</span>
+                                                        @php
+                                                            $discount = number_format((($cart->product->price * $cart->product->discount) / 100));
+                                                            $harga    = $cart->product->price - $discount;
+                                                        @endphp
+                                                        <span class="mini-product__quantity">{{ $cart->stock  }}</span>
+                                                        <span class="mini-product__price">x {{ number_format($harga) }}</span>
+                                                        <span class="mini-product__price"> = {{ number_format($cart->price) }}</span>
                                                     </div>
 
                                                 </div>
