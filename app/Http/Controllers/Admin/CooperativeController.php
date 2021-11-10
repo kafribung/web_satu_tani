@@ -19,4 +19,11 @@ class CooperativeController extends Controller
         return view('admin.cooperative.cooperative', compact('coperatives'));
     }
 
+    public function destroy(User $admin)
+    {
+        $admin->delete();
+
+        return redirect()->route('admin.koperasi.index')->with('message', 'Data koperasi'. $admin->name .'berhasil dihapus');
+    }
+
 }

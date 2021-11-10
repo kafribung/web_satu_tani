@@ -19,8 +19,12 @@ class FarmerController extends Controller
         return view('admin.farmer.farmer', compact('farmers'));
     }
 
-    public function update(User $validation)
+    public function destroy(User $coperative)
     {
 
+        dd($coperative);
+        $coperative->delete();
+
+        return redirect()->route('admin.admin.index')->with('message', 'Data admin'. $coperative->name .'berhasil dihapus');
     }
 }

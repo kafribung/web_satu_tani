@@ -42,17 +42,10 @@
                                     <td>{{ $coperative->address }}</td>
                                     <td><span class="badge {{ $coperative->validation == 1 ? 'bg-cyan' : 'bg-red' }} ">{{ $coperative->validation == 1 ? 'Aktif' : 'Tidak Aktif' }}</span></td>
                                     <td>
-                                        <form style="display: inline"  action="{{ route('admin.petani.update', $coperative) }}" method="POST">
+                                        <form style="display: inline"  action="{{ route('admin.koperasi.destroy', $coperative) }}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" onclick="return confirm('Data admin {{ $coperative->name }} akan diaktifkan')" class="btn btn-dark waves-effect">
-                                                <i class="material-icons">verified_user</i>
-                                            </button>
-                                        </form>
-                                        <form style="display: inline"  action="{{ route('admin.admin.destroy', $coperative) }}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" onclick="return confirm('Data admin {{ $coperative->name }} akan dihapus secara permanent')" class="btn btn-danger waves-effect">
+                                            <button type="submit" onclick="return confirm('Data koperasi {{ $coperative->name }} akan dihapus secara permanent')" class="btn btn-danger waves-effect">
                                                 <i class="material-icons">delete</i>
                                             </button>
                                         </form>

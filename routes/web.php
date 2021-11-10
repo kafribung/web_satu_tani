@@ -22,10 +22,11 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
 
     // Petani
     Route::get('/petani', [FarmerController::class, 'index'])->name('petani.index');
-    Route::patch('/petani/{user:id}', [FarmerController::class, 'update'])->name('petani.update');
+    Route::delete('/petani/{user:id}', [FarmerController::class, 'destroy'])->name('petani.destroy');
 
     // Koperasi
-    Route::get('/koperasi', [CooperativeController::class, 'index'])->name('koperai.index');
+    Route::get('/koperasi', [CooperativeController::class, 'index'])->name('koperasi.index');
+    Route::delete('/koperasi/{user:id}', [CooperativeController::class, 'destroy'])->name('koperasi.destroy');
 
     // Validasi
     Route::get('/validasi', [ValiadationController::class, 'index'])->name('validasi.index');

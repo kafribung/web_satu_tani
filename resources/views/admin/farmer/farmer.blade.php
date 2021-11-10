@@ -42,13 +42,6 @@
                                     <td>{{ $farmer->address }}</td>
                                     <td><span class="badge {{ $farmer->validation == 1 ? 'bg-cyan' : 'bg-red' }} ">{{ $farmer->validation == 1 ? 'Aktif' : 'Tidak Aktif' }}</span></td>
                                     <td>
-                                        <form style="display: inline"  action="{{ route('admin.petani.update', $farmer) }}" method="POST">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" onclick="return confirm('Data admin {{ $farmer->name }} akan diaktifkan')" class="btn btn-dark waves-effect">
-                                                <i class="material-icons">verified_user</i>
-                                            </button>
-                                        </form>
                                         <form style="display: inline"  action="{{ route('admin.admin.destroy', $farmer) }}" method="POST">
                                             @csrf
                                             @method('delete')

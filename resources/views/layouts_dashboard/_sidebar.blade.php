@@ -43,7 +43,7 @@
                         <span>Admin</span>
                     </a>
                 </li>
-                <li class="{{ request()->routeIs('admin.user.index') ? 'active' : '' }} {{ request()->is('admin/user/*') ? 'active' : '' }} {{ request()->routeIs('admin.petani.index') ? 'active' : '' }} {{ request()->is('admin/petani/*') ? 'active' : '' }} {{ request()->routeIs('admin.koperai.index') ? 'active' : '' }} {{ request()->is('admin/koperai/*') ? 'active' : '' }}">
+                <li class="{{ request()->routeIs('admin.user.index') ? 'active' : '' }} {{ request()->is('admin/user/*') ? 'active' : '' }} {{ request()->routeIs('admin.petani.index') ? 'active' : '' }} {{ request()->is('admin/petani/*') ? 'active' : '' }} {{ request()->routeIs('admin.koperasi.index') ? 'active' : '' }} {{ request()->is('admin/koperasi/*') ? 'active' : '' }}">
                     <a class="menu-toggle">
                         <i class="material-icons">widgets</i>
                         <span>Pengguna</span>
@@ -59,8 +59,8 @@
                                 <span>Petani</span>
                             </a>
                         </li>
-                        <li class="{{ request()->routeIs('admin.koperai.index') ? 'active' : '' }} {{ request()->is('admin/koperai/*') ? 'active' : '' }}">
-                            <a href="{{ route('admin.koperai.index') }}">
+                        <li class="{{ request()->routeIs('admin.koperasi.index') ? 'active' : '' }} {{ request()->is('admin/koperasi/*') ? 'active' : '' }}">
+                            <a href="{{ route('admin.koperasi.index') }}">
                                 <span>Koperasi</span>
                             </a>
                         </li>
