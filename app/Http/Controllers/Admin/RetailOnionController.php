@@ -14,7 +14,7 @@ class RetailOnionController extends Controller
                             $query->where('name', 'Eceran');
                         })
                         ->inRandomOrder()
-                        ->paginate(4);
+                        ->paginate(40);
         return view('admin.product-retail-onion.product-relation-onion', compact('bawangPetanis'));
     }
 }
