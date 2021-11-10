@@ -20,9 +20,14 @@ class ValiadationController extends Controller
 
     public function update(User $user)
     {
+        // Cek apakah sebagai koperasi atau Penjual
+        if ($user->validation_sellers->name == 'Koperasi') {
+            $role = 3;
+        } else $role = 2;
+
         $user->update([
             'validation' => 1,
-            'role_id'    => 2,
+            'role_id'    => $role,
         ]);
 
         return redirect()->route('admin.validasi.index')->with('message', 'Data ' . $user->name .' berhasil diverifikasi menjadi '. $user->validation_sellers->name);
