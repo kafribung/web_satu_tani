@@ -19,17 +19,11 @@ class CreateMarketCooperative2Controller extends Controller
             return redirect()->route('buat-toko.koperasi');
         }
 
-        if (auth()->user()->validation_sellers()->where([
-            ['img', '!=', null],
-        ])->first() == null) {
-            return redirect()->route('buat-toko.koperasi');
-        }
-
         // Jika sudah mendaftar menjadi seller
         if (auth()->user()->validation_sellers()->count() > 0) {
             if (auth()->user()->validation_sellers->name == 'Koperasi' && auth()->user()->validation_sellers->bank != null && auth()->user()->validation_sellers->rekening_number != null && auth()->user()->validation_sellers->rekening_name != null) {
                 return redirect()->route('buat-toko.koperasi.selesai');
-            } else return redirect()->route('buat-toko.petani.selesai');
+            }
         }
 
         $user = auth()->user();
@@ -39,8 +33,6 @@ class CreateMarketCooperative2Controller extends Controller
     public function update(Request $request)
     {
         $data =  $request->validate([
-            'no_hp'           => ['required', 'string', 'min:10', 'max:13'],
-            'address'         => ['required', 'string'],
             'bank'            => 'required|string|min:3|max:7',
             'rekening_number' => 'required|numeric|min:10',
             'rekening_name'   => 'required|string',
