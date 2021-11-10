@@ -9,11 +9,6 @@ class CreateMarketCooperative2Controller extends Controller
 {
     public function index()
     {
-        // Jika alamat dan no_hp belum ada
-        if (auth()->user()->no_hp == null || auth()->user()->address == null ) {
-            return redirect()->route('profil.edit')->with('message', 'Lenagkapi alamat dan nomor hp terlebih dahulu');
-        }
-
         // Jika belum mengisi tahap awal
         if (auth()->user()->validation_sellers()->count() == 0) {
             return redirect()->route('buat-toko.koperasi');
