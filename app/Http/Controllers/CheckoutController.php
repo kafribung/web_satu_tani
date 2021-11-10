@@ -8,6 +8,12 @@ class CheckoutController extends Controller
 {
     public function index()
     {
+
+        // Jika alamat dan no_hp belum ada
+        if (auth()->user()->no_hp == null || auth()->user()->address == null ) {
+            return redirect()->route('profil.edit')->with('message', 'Lenagkapi alamat dan nomor hp terlebih dahulu');
+        }
+
         // Cek apakah products ada atau tidak
         if (auth()->user()->carts()->count() == 0) {
             return redirect('/')->with('message', 'anda tidak memiliki barang di kerangjang');
