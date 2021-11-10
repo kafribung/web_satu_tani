@@ -67,9 +67,15 @@
                     </ul>
                 </li>
                 <li class="{{ request()->routeIs('admin.validasi.index') ? 'active' : '' }} {{ request()->is('admin/validasi/*') ? 'active' : '' }}">
+                    @php
+                         $validationCount =  App\Models\ValidationSeller::with('user')->whereHas('user', function($query){
+                                            $query->where('validation', 0)->where('role_id', 4);
+                                        })
+                                        ->count()
+                    @endphp
                     <a href="{{ route('admin.validasi.index') }}">
                         <i class="material-icons">layers</i>
-                        <span>Validasi</span>
+                        <span>Validasi({{ $validationCount }})</span>
                     </a>
                 </li>
                 <li class="{{ request()->routeIs('admin.waiting-for-payment.index') ? 'active' : '' }} {{ request()->routeIs('admin.prosess-payment.index') ? 'active' : '' }} {{ request()->routeIs('admin.send-payment.index') ? 'active' : '' }} {{ request()->routeIs('admin.finish-payment.index') ? 'active' : '' }}">
