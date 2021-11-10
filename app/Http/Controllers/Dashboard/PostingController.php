@@ -71,7 +71,7 @@ class PostingController extends Controller
         return view('client.dashboard.posting-create', compact('product'));
     }
 
-    public function update(PostingRequest $request, Product $product)
+    public function update(PostingFarmerRequest $request, Product $product)
     {
         $data = $request->validated();
 
