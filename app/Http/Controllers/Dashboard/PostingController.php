@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Product;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Dashboard\PostingFarmerRequest;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\Dashboard\PostingRequest;
 
 class PostingController extends Controller
 {
@@ -26,10 +26,14 @@ class PostingController extends Controller
         return view('client.dashboard.posting-create', compact('product'));
     }
 
-    public function store(PostingRequest $request)
+    public function store(PostingFarmerRequest $request)
     {
         $data = $request->validated();
-        $data['product_group_id'] = 1;
+
+        // Jika login sebagai petani atau koperasi ganti type produk
+        if (auth()->user()->role_id == 2) {
+            $data['product_group_id'] = 1;
+        } else $data['product_group_id'] = 2;
 
         $img_1 = $request->file('img_1');
         $data['img_1'] = $img_1->storeAs('product_images', mt_rand(). '.' .$img_1->extension());
@@ -46,9 +50,15 @@ class PostingController extends Controller
         $img_5 = $request->file('img_5');
         $data['img_5'] = $img_5->storeAs('product_images', mt_rand(). '.' .$img_5->extension());
 
+        // Cek slug kalau sama tambhakan pembeda
         $data['slug'] = Str::slug($request->name);
         if (Product::where('slug', $data['slug'])->first() != null) {
             $data['slug'] .= '-'.mt_rand();
+        }
+
+        // Jika diskon tidak diisi
+        if ($request->discount == null) {
+            $data['discount'] = 0;
         }
 
         $request->user()->products()->create($data);
@@ -97,11 +107,17 @@ class PostingController extends Controller
 
     public function destroy(Product $product)
     {
+        // Produk tidak dapat dihapus
+        if ($product->carts()->count() > 0) {
+            return redirect('posting')->with('message', 'Product gagal dihapus');
+        }
+
         Storage::delete($product->img_1);
         Storage::delete($product->img_2);
         Storage::delete($product->img_3);
         Storage::delete($product->img_4);
         Storage::delete($product->img_5);
+
 
         $product->delete();
         return redirect('posting')->with('message', 'Product berhasil dihapus');
