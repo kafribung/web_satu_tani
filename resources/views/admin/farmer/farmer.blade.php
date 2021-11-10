@@ -42,10 +42,10 @@
                                     <td>{{ $farmer->address }}</td>
                                     <td><span class="badge {{ $farmer->validation == 1 ? 'bg-cyan' : 'bg-red' }} ">{{ $farmer->validation == 1 ? 'Aktif' : 'Tidak Aktif' }}</span></td>
                                     <td>
-                                        <form style="display: inline"  action="{{ route('admin.admin.destroy', $farmer) }}" method="POST">
+                                        <form style="display: inline"  action="{{ route('admin.petani.destroy', $farmer->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" onclick="return confirm('Data admin {{ $farmer->name }} akan dihapus secara permanent')" class="btn btn-danger waves-effect">
+                                            <button type="submit" onclick="return confirm('Data petani {{ $farmer->name }} akan dihapus secara permanent')" class="btn btn-danger waves-effect">
                                                 <i class="material-icons">delete</i>
                                             </button>
                                         </form>

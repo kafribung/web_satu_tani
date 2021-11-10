@@ -19,12 +19,14 @@ class FarmerController extends Controller
         return view('admin.farmer.farmer', compact('farmers'));
     }
 
-    public function destroy(User $coperative)
+    public function destroy(User $user)
     {
+        if ($user->products()->count() > 0 || $user->carts()->count() > 0 || $user->checkouts()->count() > 0) {
+            return back()->with('message', 'Data petani '. $user->name .' tidak dapat di hapus dihapus');
+        }
 
-        dd($coperative);
-        $coperative->delete();
+        $user->delete();
 
-        return redirect()->route('admin.admin.index')->with('message', 'Data admin'. $coperative->name .'berhasil dihapus');
+        return redirect()->route('admin.admin.index')->with('message', 'Data petani '. $user->name .' berhasil dihapus');
     }
 }

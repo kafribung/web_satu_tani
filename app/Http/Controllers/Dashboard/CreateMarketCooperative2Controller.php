@@ -21,6 +21,11 @@ class CreateMarketCooperative2Controller extends Controller
             }
         }
 
+        // Jika yang login petani
+        if (auth()->user()->validation_sellers->name == "Petani") {
+            return redirect()->route('buat-toko.petani.lengkapi-info');
+        }
+
         $user = auth()->user();
         return view('client.dashboard.create-market-cooperative-2', compact('user'));
     }

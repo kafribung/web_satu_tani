@@ -21,6 +21,11 @@ class CreateMarketFarmer2Controller extends Controller
             }
         }
 
+        // Jika yang login petani
+        if (auth()->user()->validation_sellers->name == "Koperasi") {
+            return redirect()->route('buat-toko.koperasi.lengkapi-info');
+        }
+
         $user = auth()->user();
         return view('client.dashboard.create-market-farmer-2', compact('user'));
     }
