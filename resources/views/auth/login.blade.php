@@ -72,18 +72,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="gl-s-api">
-                                        <div class="u-s-m-b-15">
-                                            <div class="u-s-m-b-15">
-                                                <button class="gl-s-api__btn gl-s-api__btn--gplus" type="button"><i class="fab fa-google"></i>
-                                                    <span>Masuk dengan Google</span>
-                                                </button>
-                                            </div>
-                                            <button class="gl-s-api__btn gl-s-api__btn--fb" type="button"><i class="fab fa-facebook-f"></i>
-                                                <span>Masuk dengan Facebook</span>
-                                            </button>
-                                        </div>
-                                    </div>
                                 </form>
                             </div>
                         </div>
