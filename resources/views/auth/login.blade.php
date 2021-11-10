@@ -66,12 +66,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="u-s-m-b-30 section__text-wrap">
-                                        <div class="title-line">
-                                            <div class="title-name">Atau</div>
-                                        </div>
-                                    </div>
-
                                 </form>
                             </div>
                         </div>

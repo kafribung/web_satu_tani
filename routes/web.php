@@ -144,4 +144,4 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
         Route::get('/{product:slug}', [BawangPetaniController::class, 'show'])->name('.show');
     });
 
-Auth::routes(['verify' => true]);
+Auth::routes();
