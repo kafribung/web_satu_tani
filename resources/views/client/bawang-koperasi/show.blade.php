@@ -99,7 +99,7 @@
                             <div class="u-s-m-b-15">
                                 <div class="pd-detail__inline">
                                     <span class="pd-detail__click-wrap">
-                                        <a>*Maksimal Pemesanan 20 Kg</a>
+                                        <a>*Minimum Pemesanan 21 - 200 Kg</a>
                                     </span>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                                             <div class="input-counter">
                                                 <span class="input-counter__minus fas fa-minus"></span>
                                                 <input name="stock" class="input-counter__text input-counter--text-primary-style"
-                                                    type="text" value="1" data-min="1" data-max="20">
+                                                    type="text" value="21" data-min="21" data-max="200">
                                                 <span class="input-counter__plus fas fa-plus"></span></div>
                                                 {{-- Harga Barang sesudah diskon --}}
                                                 <input name="price" style="display: none" value="{{ $harga }}" type="number">
