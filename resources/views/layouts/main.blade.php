@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="images/.png" rel="shortcut icon">
-    <title>Home - Satu Tani</title>
+    <link href="{{ asset('assets/images/logo/logo st.png') }}" rel="shortcut icon">
+    <title>Satu Tani - {{ ucwords(request()->path()) }}</title>
 
     <!--====== Google Font ======-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">

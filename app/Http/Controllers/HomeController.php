@@ -7,9 +7,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(Request $request)
+    public function __invoke(Request $request)
     {
-
         if ($search = urlencode($request->input('search'))  && $request->input('category')) {
             if ($request->input('category') == 1) {
                 $bawangPetanis = Product::with(['product_group', 'user'])

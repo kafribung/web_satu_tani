@@ -7,7 +7,10 @@ use App\Http\Controllers\{BawangKoperasiController, BawangPetaniController , Car
 use App\Http\Controllers\Admin\{AdminController, CooperativeController, CooperativeOnionController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPaymentController, RetailOnionController, SendPaymentController};
 use App\Http\Controllers\Dashboard\{CreateMarketController, CreateMarketCooperative2Controller, CreateMarketCooperativeController, CreateMarketFarmer2Controller, CreateMarketFarmer3Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanFinishController, OrderanProcessController, OrderanSendController};
 
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/', function () {
+    return redirect('home');
+});
+Route::get('home', HomeController::class)->name('home.index');
 // ============================================================Admin
 Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
     // Dashboard

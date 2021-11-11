@@ -15,7 +15,6 @@
                 <a class="main-logo" style="padding-bottom: 0px;" href="/">
                     <img src="{{ asset('assets/images/logo/logo st.png') }}" alt="">
                 </a>
-
             </div>
             <!--====== End - Main Logo ======-->
 
