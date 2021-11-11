@@ -43,7 +43,7 @@
                                                 $discount = number_format((($checkout->product($cart->product_id)->price * $checkout->product($cart->product_id)->discount) / 100));
                                                 $harga    = $checkout->product($cart->product_id)->price - $discount;
                                             @endphp
-                                            <button type="button" class="list-group-item">{{ $checkout->product($cart->product_id)->name ?? '' }} - Rp.{{ number_format($harga) }} <span class="badge bg-teal">Jumlah: {{ $cart->stock }}</span></button>
+                                            <button type="button" class="list-group-item">{{ $checkout->product($cart->product_id)->name ?? '' }} - Rp.{{ number_format($harga) }} - {{ $checkout->product($cart->product_id)->product_group_id == 1 ? 'Eceran' : 'Koperasi'}} <span class="badge bg-teal">Jumlah: {{ $cart->stock }}</span></button>
                                             @endforeach
                                         </div>
                                     </td>
