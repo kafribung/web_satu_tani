@@ -13,6 +13,7 @@ class BawangKoperasiController extends Controller
                             $query->where('name', 'Koperasi');
                         })
                         ->where('stock', '!=', 0)
+                        ->where('stock', '>', 20)
                         ->inRandomOrder()
                         ->paginate(24);
         return view('client.bawang-koperasi.index', compact('bawangKoperasis'));
@@ -28,6 +29,7 @@ class BawangKoperasiController extends Controller
                         })
                         ->where('id', '!=', $product->id)
                         ->where('stock', '!=', 0)
+                        ->where('stock', '>', 20)
                         ->inRandomOrder()
                         ->limit(4)
                         ->get();
