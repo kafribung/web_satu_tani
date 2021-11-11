@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FinishPaymentController;
 use App\Http\Controllers\Dashboard\CreateMarketCooperative3Controller;
-use App\Http\Controllers\{BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController};
+use App\Http\Controllers\{BawangKoperasiController, BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController};
 use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPaymentController, RetailOnionController, SendPaymentController};
 use App\Http\Controllers\Dashboard\{CreateMarketController, CreateMarketCooperative2Controller, CreateMarketCooperativeController, CreateMarketFarmer2Controller, CreateMarketFarmer3Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanFinishController, OrderanProcessController, OrderanSendController};
 
@@ -146,6 +146,12 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
     Route::prefix('bawang-eceran')->name('bawang-eceran')->group(function () {
         Route::get('', [BawangPetaniController::class, 'index'])->name('.index');
         Route::get('/{product:slug}', [BawangPetaniController::class, 'show'])->name('.show');
+    });
+
+    // Produk Bawang Koperasi
+    Route::prefix('bawang-koperasi')->name('bawang-koperasi')->group(function () {
+        Route::get('', [BawangKoperasiController::class, 'index'])->name('.index');
+        Route::get('/{product:slug}', [BawangKoperasiController::class, 'show'])->name('.show');
     });
 
 Auth::routes(['verify' => true]);

@@ -75,7 +75,7 @@
                                 <a class="{{ request()->routeIs('bawang-eceran.index') || request()->is('bawang-eceran/*') ? 'active' : '' }}" href="{{ route('bawang-eceran.index') }}">BAWANG ECERAN</a>
                             </li>
                             <li>
-                                <a href="bawang-koperasi.html">BAWANG KOPERASI</a>
+                                <a class="{{ request()->routeIs('bawang-koperasi.index') || request()->is('bawang-koperasi/*') ? 'active' : '' }}" href="{{ route('bawang-koperasi.index') }}">BAWANG KOPERASI</a>
                             </li>
                         </ul>
                         <!--====== End - List ======-->

@@ -226,56 +226,74 @@
         </div>
         <!--====== End - Section Intro ======-->
 
-        <!--====== Section Content ======-->
+        <!--====== Bawang Koperasi ======-->
         <div class="section__content">
             <div class="container">
                 <div class="slider-fouc">
                     <div class="owl-carousel product-slider" data-item="4">
+                        @forelse ($bawangKoperasis as $bawangKoperasi)
                         <div class="u-s-m-b-30">
                             <div class="product-o product-o--hover-on">
+                                <div class="bp-mini__stat">
+                                    <span class="bp-mini__preposition">Oleh</span>
+                                    <span class="bp-mini__author">
+                                        <a href="">{{ $bawangKoperasi->user->name }}</a>
+                                    </span>
+                                </div>
+
                                 <div class="product-o__wrap">
                                     <a class="aspect aspect--bg-grey aspect--square u-d-block"
-                                        href="bawang-koperasi-detail.html">
+                                        href="{{ route('bawang-koperasi.show', $bawangKoperasi->slug) }}">
                                         <img class="aspect__img"
-                                            src="{{ asset('assets/images/product/electronic/product14.jpg') }}" alt="">
+                                            src="{{ $bawangKoperasi->take_img($bawangKoperasi->img_1) }}" alt="">
                                     </a>
                                 </div>
 
                                 <span class="product-o__category">
-                                    <a href="bawang-eceran-detail.html">Stok: 200 Kg</a><br>
-                                    <a href="bawang-eceran-detail.html">Panen: 30 Juli 2021</a>
+                                    <a href="{{ route('bawang-koperasi.show', $bawangKoperasi->slug) }}">Stok: {{
+                                        $bawangKoperasi->stock }} Kg</a><br>
+                                    <a href="{{ route('bawang-koperasi.show', $bawangKoperasi->slug) }}">Panen: {{
+                                        date('d-m-Y', strtotime($bawangKoperasi->harvest_time)) }}</a>
                                 </span>
 
                                 <span class="product-o__name">
-                                    <a href="bawang-eceran-detail.html">Nikon DSLR 2K Camera</a>
+                                    <a href="{{ route('bawang-koperasi.show', $bawangKoperasi->slug) }}"
+                                        style="font-size: 16px;">{{ $bawangKoperasi->name }}</a>
                                 </span>
-
-                                <span class="product-o__price">Rp.125.00
-                                    <span style="color: #999; font-size: 12px;">/ Kg</span>
+                                @php
+                                $discount = number_format((($bawangKoperasi->price * $bawangKoperasi->discount) / 100))
+                                @endphp
+                                <span class="product-o__price">
+                                    <span style="color: #999; font-size: 12px;">Rp.{{ $harga = number_format($bawangKoperasi->price - $discount, 2) }} / Kg</span>
+                                    @if ($bawangKoperasi->discount != 0 || $bawangKoperasi->discount != null)
+                                    <span class="product-o__discount">{{ number_format($bawangKoperasi->price, 2) }}</span>
+                                    @endif
                                 </span>
-
-                                <a data-modal="modal" data-modal-id="#add-to-cart" data-tooltip="tooltip"
-                                    data-placement="top">
-                                    <button class="btn btn--e-brand" type="button"
-                                        style="width: 100%; padding: 8px; margin-top: 10px; border-radius: 4px;">BELI</button>
-                                </a>
                             </div>
                         </div>
+                        @empty
+                        <div class="u-s-m-b-30">
+                            <div class="product-o product-o--hover-on">
+                                <span class="product-o__category">
+                                    <a>KoperasiPetani belum ditambahkan</a>
+                                </span>
+                            </div>
+                        </div>
+                        @endforelse
                     </div>
                 </div>
 
                 <div class="col-lg-12">
                     <div class="load-more">
-                        <a href="bawang-koperasi.html">
-                            <button class="btn btn--e-brand" type="button"
-                                style="padding: 20px 60px;">Selanjutnya</button>
+                        <a href="{{ route('bawang-eceran.index') }}">
+                            <button class="btn btn--e-brand" type="button" style="padding: 20px 60px;">
+                                Selengkapnya
+                            </button>
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
-        <!--====== End - Section Content ======-->
     </div>
     <!--====== End - Bawang Koperasi ======-->
 
