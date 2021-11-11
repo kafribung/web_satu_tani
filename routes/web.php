@@ -123,6 +123,7 @@ Route::middleware('auth', 'user', 'verified')->group(function () {
 
     // Pesanan
     Route::get('pesanan', OrderanController::class)->name('pesanan.index');
+    Route::delete('pesanan/{checkout}', [OrderanController::class, 'destroy'])->name('pesanan.destroy');
 
     // DiProses
     Route::get('diproses', OrderanProcessController::class)->name('diproses.index');

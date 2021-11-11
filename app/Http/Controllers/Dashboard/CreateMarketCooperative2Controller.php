@@ -33,7 +33,7 @@ class CreateMarketCooperative2Controller extends Controller
     public function update(Request $request)
     {
         $data =  $request->validate([
-            'bank'            => 'required|string|min:3|max:7',
+            'bank'            => 'required|string|min:3|max:7|unique:validation_sellers,rekening_number',
             'rekening_number' => 'required|numeric|min:10',
             'rekening_name'   => 'required|string',
         ]);

@@ -90,7 +90,7 @@
                                                             <option {{ old('BCA') == 'BCA' ? 'selected' : '' }} value="BCA">BCA</option>
                                                         </select>
                                                         @error('bank')
-                                                        <p class="alert alert-danger">{{ $message }}</p>
+                                                        <p style="color: #bb2124">{{ $message }}</p>
                                                         @enderror
                                                     </div>
                                                 </div>
@@ -99,7 +99,7 @@
                                                     <input type="text" name="rekening_name" value="{{ old('rekening_name') }}" class="form-control"
                                                         placeholder="Nama Rekening" aria-label="State">
                                                     @error('rekening_name')
-                                                    <p class="alert alert-danger">{{ $message }}</p>
+                                                    <p style="color: #bb2124">{{ $message }}</p>
                                                     @enderror
                                                 </div>
 
@@ -107,7 +107,7 @@
                                                     <input type="number" name="rekening_number" value="{{ old('rekening_number') }}" class="form-control"
                                                         placeholder="Nomor Rekening" aria-label="State">
                                                     @error('rekening_number')
-                                                    <p class="alert alert-danger">{{ $message }}</p>
+                                                    <p style="color: #bb2124">{{ $message }}</p>
                                                     @enderror
                                                 </div>
                                             </div>

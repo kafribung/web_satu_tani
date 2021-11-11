@@ -22,4 +22,10 @@ class OrderanController extends Controller
         ])->get();
         return view('client.dashboard.orderan', compact('checkouts'));
     }
+
+    public function destroy(Checkout $checkout)
+    {
+        $checkout->delete();
+        return back()->with('message', 'Orderan berhasil dibatalkan');
+    }
 }

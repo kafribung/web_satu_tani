@@ -38,6 +38,11 @@
                                                 <p class="dash__h2 u-s-m-b-14">Metode Pembayaran: {{ $checkout->payment_method }}</p>
                                                 <p class="dash__h2 u-s-m-b-14">Ongkir: Rp.{{ number_format($checkout->shipping_cost) }}</p>
                                                 <p style="font-weight: bold" class="dash__h2 u-s-m-b-14">Total: Rp.{{ number_format($checkout->total) }}</p>
+                                                <form action="{{ route('pesanan.destroy', $checkout) }}"  method="POST" class="dash__link">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" onclick="return confirm('Klik ok, untuk membatalkan pesanan')" style="color: #bb2124">Batalkan Pesanan</button>
+                                                </form>
                                                     @foreach (json_decode($checkout->carts) as $cart)
                                                     <div class="m-order__get">
                                                         <div class="manage-o__header u-s-m-b-30">
