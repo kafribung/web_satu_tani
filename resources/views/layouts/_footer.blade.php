@@ -66,7 +66,26 @@
                 <div class="col-lg-2 col-md-12">
                     <div class="outer-footer__content">
                         <span class="outer-footer__content-title">Kontak Kami</span>
-                        <form class="newsletter">
+                        <div class="lower-footer__payment">
+                            <ul>
+                                <li>
+                                    <a href=""><img src="{{ asset('assets/images/icon/fb.svg') }}" alt=""> </a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="{{ asset('assets/images/icon/ig.svg') }}" alt="">
+                                </li>
+                                <li>
+                                    <a href=""><img src="{{ asset('assets/images/icon/twi.svg') }}" alt=""> </a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="{{ asset('assets/images/icon/wa.svg') }}" alt=""> </a>
+                                </li>
+                                <li>
+                                    <a href=""><img src="{{ asset('assets/images/icon/yt.svg') }}" alt=""> </a>
+                                </li>
+                            </ul>
+                        </div>
+                        {{-- <form class="newsletter">
                             <div class="u-s-m-b-15">
                                 <div class="radio-box newsletter__radio">
                                     <div class="row" style="margin-bottom: 10px;">
@@ -92,7 +111,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </form> --}}
                     </div>
                 </div>
             </div>
@@ -105,12 +124,14 @@
                     <div class="lower-footer__content">
                         <div class="lower-footer__copyright">
                             <span>Copyright © {{ date('Y') }}</span>
-                            <a href="index.html">{{ config('app.name') }}</a>
-                            <span>All Right Reserved</span></div>
+                            <a href="/">{{ config('app.name') }}</a>
+                            <span>All Right Reserved</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </footer>
 <!--====== End Footer ======-->

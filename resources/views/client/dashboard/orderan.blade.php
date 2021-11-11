@@ -63,7 +63,7 @@
                                                             <div class="description__info-wrap">
                                                                 <div>
                                                                     <span class="manage-o__text-2 u-c-silver">Jumlah:
-                                                                        <span class="manage-o__text-2 u-c-brand">{{ $cart->stock }}</span>
+                                                                        <span class="manage-o__text-2 u-c-brand">{{ $cart->stock }} Kg</span>
                                                                     </span>
                                                                 </div>
                                                                 <div>
