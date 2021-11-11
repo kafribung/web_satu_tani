@@ -113,6 +113,12 @@
                         <span>Bawang Eceran</span>
                     </a>
                 </li>
+                <li  class="{{ request()->routeIs('admin.bawang-koperasi.index') ? 'active' : '' }} {{ request()->is('admin/bawang-koperasi/*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.bawang-koperasi.index') }}">
+                        <i class="material-icons">assignment</i>
+                        <span>Bawang Koperasi</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- #Menu -->

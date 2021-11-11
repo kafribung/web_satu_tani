@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FinishPaymentController;
 use App\Http\Controllers\Dashboard\CreateMarketCooperative3Controller;
 use App\Http\Controllers\{BawangKoperasiController, BawangPetaniController , CartController, CheckoutController, ConfrirmController, HomeController};
-use App\Http\Controllers\Admin\{AdminController, CooperativeController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPaymentController, RetailOnionController, SendPaymentController};
+use App\Http\Controllers\Admin\{AdminController, CooperativeController, CooperativeOnionController, DashboardController, FarmerController, UserController, ValiadationController, WaitingForPaymentController, ProcessPaymentController, RetailOnionController, SendPaymentController};
 use App\Http\Controllers\Dashboard\{CreateMarketController, CreateMarketCooperative2Controller, CreateMarketCooperativeController, CreateMarketFarmer2Controller, CreateMarketFarmer3Controller, CreateMarketFarmerController, PostingController, ProfileController, ResetPasswordController, OrderanController, OrderanFinishController, OrderanProcessController, OrderanSendController};
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
@@ -53,8 +53,12 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
 
     // Bawang Eceran
     Route::prefix('bawang-eceran')->name('bawang-eceran')->group(function () {
-        Route::get('', [RetailOnionController::class, 'index'])->name('.index');
-        Route::get('/{product:slug}', [RetailOnionController::class, 'show'])->name('.show');
+        Route::get('', RetailOnionController::class)->name('.index');
+    });
+
+    // Bawang Koperai
+    Route::prefix('bawang-koperasi')->name('bawang-koperasi')->group(function () {
+        Route::get('', CooperativeOnionController::class)->name('.index');
     });
 });
 
