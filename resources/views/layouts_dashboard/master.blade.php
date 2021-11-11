@@ -7,8 +7,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
     <!-- Favicon-->
-    <link rel="icon" href="{{ asset('dashboard_assets/favicon.ico') }}" type="image/x-icon">
-
+    <link href="{{ asset('assets/images/logo/logo st.png') }}" rel="shortcut icon">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet"
         type="text/css">

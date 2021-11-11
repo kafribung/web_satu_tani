@@ -39,13 +39,13 @@
                 </li>
                 <li  class="{{ request()->routeIs('admin.admin.index') ? 'active' : '' }} {{ request()->is('admin/admin/*') ? 'active' : '' }}">
                     <a href="{{ route('admin.admin.index') }}">
-                        <i class="material-icons">text_fields</i>
+                        <i class="material-icons">account_box</i>
                         <span>Admin</span>
                     </a>
                 </li>
                 <li class="{{ request()->routeIs('admin.user.index') ? 'active' : '' }} {{ request()->is('admin/user/*') ? 'active' : '' }} {{ request()->routeIs('admin.petani.index') ? 'active' : '' }} {{ request()->is('admin/petani/*') ? 'active' : '' }} {{ request()->routeIs('admin.koperasi.index') ? 'active' : '' }} {{ request()->is('admin/koperasi/*') ? 'active' : '' }}">
                     <a class="menu-toggle">
-                        <i class="material-icons">widgets</i>
+                        <i class="material-icons">contacts</i>
                         <span>Pengguna</span>
                     </a>
                     <ul class="ml-menu">
@@ -71,13 +71,13 @@
                         $validationCount =  App\Models\ValidationSeller::with('user')->whereHas('user', function($query){ $query->where('validation', 0)->where('role_id', 4); })->count()
                     @endphp
                     <a href="{{ route('admin.validasi.index') }}">
-                        <i class="material-icons">layers</i>
+                        <i class="material-icons">done_all</i>
                         <span>Validasi({{ $validationCount }})</span>
                     </a>
                 </li>
                 <li class="{{ request()->routeIs('admin.waiting-for-payment.index') ? 'active' : '' }} {{ request()->routeIs('admin.prosess-payment.index') ? 'active' : '' }} {{ request()->routeIs('admin.send-payment.index') ? 'active' : '' }} {{ request()->routeIs('admin.finish-payment.index') ? 'active' : '' }}">
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">swap_calls</i>
+                        <i class="material-icons">attach_money</i>
                         <span>Pembayaran</span>
                     </a>
                     <ul class="ml-menu">
