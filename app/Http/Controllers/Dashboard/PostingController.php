@@ -14,7 +14,6 @@ class PostingController extends Controller
     {
         $products = Product::with('product_group')
                     ->where('user_id', auth()->id())
-                    ->where('product_group_id', 1)
                     ->latest()
                     ->paginate(20);
         return view('client.dashboard.posting-index', compact('products'));
@@ -31,9 +30,9 @@ class PostingController extends Controller
         $data = $request->validated();
 
         // Jika login sebagai petani atau koperasi ganti type produk
-        if (auth()->user()->role_id == 2) {
+        if (auth()->user()->role_id == 2)
             $data['product_group_id'] = 1;
-        } else $data['product_group_id'] = 2;
+        else $data['product_group_id'] = 2;
 
         $img_1 = $request->file('img_1');
         $data['img_1'] = $img_1->storeAs('product_images', mt_rand(). '.' .$img_1->extension());
