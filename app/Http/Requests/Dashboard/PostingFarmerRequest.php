@@ -34,7 +34,7 @@ class PostingFarmerRequest extends FormRequest
             'description'   => ['required'],
             'harvest_time'  => ['required','date'],
             'price'         => ['required','numeric'],
-            'stock'         => ['required','integer', auth()->user()->role_id == 2 ? 'between:1,20' : 'between:21,200'],
+            'stock'         => ['required','integer', auth()->user()->role_id == 2 ? 'between:1,20' : 'between:21,1000'],
             'discount'      => ['numeric'],
         ];
     }
