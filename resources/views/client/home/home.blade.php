@@ -7,15 +7,13 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="slider-content slider-content--animation">
-                                <span class="content-span-1 u-c-secondary">Latest Update Stock</span>
-                                <span class="content-span-2 u-c-secondary">30% Off On Electronics</span>
-                                <span class="content-span-3 u-c-secondary">Find electronics on best prices, Also
-                                    Discover most selling products of electronics</span>
-                                <span class="content-span-4 u-c-secondary">Starting At
-                                    <span class="u-c-brand">$1050.00</span>
+                                <span class="content-span-1 u-c-white">Tempat Belanja</span>
+                                <span class="content-span-2 u-c-white">Bawang dengan kwalitas terbaik</span>
+                                <span class="content-span-3 u-c-white">Pangkalan bawang eceran dan bawang koperasi</span>
+                                <span class="content-span-4 u-c-white">Marketplace bawang
+                                    <span class="u-c-white">Cek bawang eceran</span>
                                 </span>
-                                <a class="shop-now-link btn--e-brand" href="bawang-eceran-detail.html">SHOP
-                                    NOW</a>
+                                <a class="shop-now-link btn--e-brand" href="#bawang-eceran">Beli disini</a>
                             </div>
                         </div>
                     </div>
@@ -27,15 +25,13 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="slider-content slider-content--animation">
-                                <span class="content-span-1 u-c-white">Find Top Brands</span>
-                                <span class="content-span-2 u-c-white">10% Off On Electronics</span>
-                                <span class="content-span-3 u-c-white">Find electronics on best prices, Also
-                                    Discover most selling products of electronics</span>
-                                <span class="content-span-4 u-c-white">Starting At
-                                    <span class="u-c-brand">$380.00</span>
+                                <span class="content-span-1 u-c-white">Kini telah hadir</span>
+                                <span class="content-span-2 u-c-white">Marketplace bawang terbesar di Indonesia</span>
+                                <span class="content-span-3 u-c-white">Mengoptimalkan bawang lokal Indonesia</span>
+                                <span class="content-span-4 u-c-white">Menerima pesanan dalam jumlah banyak
+                                    <span class="u-c-brand">Cek link bawang koperasi di bawah</span>
                                 </span>
-                                <a class="shop-now-link btn--e-brand" href="bawang-eceran-detail.html">SHOP
-                                    NOW</a>
+                                <a class="shop-now-link btn--e-brand" href="#bawang-koperasi">Beli disini</a>
                             </div>
                         </div>
                     </div>
@@ -47,15 +43,9 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="slider-content slider-content--animation">
-                                <span class="content-span-1 u-c-secondary">Find Top Brands</span>
-                                <span class="content-span-2 u-c-secondary">10% Off On Electronics</span>
-                                <span class="content-span-3 u-c-secondary">Find electronics on best prices, Also
-                                    Discover most selling products of electronics</span>
-                                <span class="content-span-4 u-c-secondary">Starting At
-                                    <span class="u-c-brand">$550.00</span>
-                                </span>
-                                <a class="shop-now-link btn--e-brand" href="bawang-eceran-detail.html">SHOP
-                                    NOW</a>
+                                <span class="content-span-1 u-c-white">Satutani.com</span>
+                                <span class="content-span-2 u-c-white">Tempat belanja bawang dengan kualitas terbaik</span>
+                                <span class="content-span-3 u-c-white">Bergaransi!</span>
                             </div>
                         </div>
                     </div>
@@ -115,7 +105,7 @@
     <!--====== End - Motto======-->
 
     <!--====== Bawang Enceran ======-->
-    <div class="u-s-p-b-60">
+    <div class="u-s-p-b-60" id="bawang-eceran">
         <!--====== Section Intro ======-->
         <div class="bg" style="margin-bottom: -30px; margin-top: 30px;">
             <div class="section__intro u-s-m-b-46">
@@ -207,7 +197,7 @@
     <!--====== End - Bawang Enceran ======-->
 
     <!--====== Bawang Koperasi ======-->
-    <div class="u-s-p-b-60">
+    <div class="u-s-p-b-60"  id="bawang-koperasi">
         <!--====== Section Intro ======-->
         <div class="bg1" style="margin-bottom: -30px; margin-top: 50px;">
             <div class="section__intro u-s-m-b-46">
