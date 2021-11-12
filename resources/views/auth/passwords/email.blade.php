@@ -20,7 +20,7 @@
                             <div class="l-f-o__pad-box">
                                 <div class="col-lg-12">
                                     <div class="section__text-wrap">
-                                        <img style="width: 50%;" src="{{ asset('assets/images/logo/logo st1.png') }}">
+                                        <img style="width: 50%;" src="{{ asset('assets/images/logo/logo st.png') }}">
                                         <h1 class="gl-h1">Setel Ulang Kata Sandi</h1>
                                     </div>
                                 </div>
