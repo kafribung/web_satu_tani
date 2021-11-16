@@ -71,7 +71,7 @@
                                                     <div class="u-s-m-b-30">
                                                         <label class="gl-label" for="no_hp">NOMOR TELPON</label>
                                                         <input name="no_hp" value="{{ old('no_hp') ?? $user->no_hp }}" class="input-text input-text--primary-style" type="number"
-                                                            id="no_hp" placeholder="Nama Lengkap">
+                                                            id="no_hp" placeholder="Nomor Telpon">
                                                         @error('no_hp')
                                                         <p style="color: #bb2124">{{ $message }}</p>
                                                         @enderror
