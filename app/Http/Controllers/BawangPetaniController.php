@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
-
 class BawangPetaniController extends Controller
 {
     public function index()
@@ -19,20 +17,24 @@ class BawangPetaniController extends Controller
         return view('client.bawang-petani.index', compact('bawangPetanis'));
     }
 
-    public function show(Product $product)
+    public function show($slug)
     {
-        $bawangPetani = $product;
+        $bawangPetani = Product::where('slug', $slug)
+                        ->where('stock', '!=', 0)
+                        ->first();
+        // Jika bawang petani stoknya ada
+        if ($bawangPetani) {
+            $bawangPetanis = Product::with(['product_group', 'user'])
+            ->whereHas('product_group', function($query){
+                $query->where('name', 'Eceran');
+            })
+            ->where('id', '!=', $bawangPetani->id)
+            ->where('stock', '!=', 0)
+            ->inRandomOrder()
+            ->limit(32)
+            ->get();
+            return view('client.bawang-petani.show', compact('bawangPetani', 'bawangPetanis'));
 
-        $bawangPetanis = Product::with(['product_group', 'user'])
-        ->whereHas('product_group', function($query){
-            $query->where('name', 'Eceran');
-        })
-        ->where('id', '!=', $product->id)
-        ->where('stock', '!=', 0)
-        ->inRandomOrder()
-        ->limit(4)
-        ->get();
-
-        return view('client.bawang-petani.show', compact('bawangPetani', 'bawangPetanis'));
+        } else return redirect()->route('bawang-eceran.index');
     }
 }

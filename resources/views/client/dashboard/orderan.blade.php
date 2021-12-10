@@ -30,8 +30,8 @@
                                             <h1 class="dash__h1 u-s-m-b-14">Pesanan Saya</h1>
                                             <span class="dash__text u-s-m-b-30">Semua pesanan yang menunggu pembayaran, silahkan transfer ke nomor dengna biaya: Rp.{{ number_format($checkouts->sum('total') ?? '')  }}.</span>
                                             @if ($checkouts->count() != 0)
+                                            <a href="https://api.whatsapp.com/send?phone=6281354987953&text=Halo%20{{ auth()->user()->name }}%0ASilahkan%20kirim%20bukti%20pembayaran%20anda%20disini!%0ANo.Rekening%20Satu%20Tani:%20BRI/Adly 123 3443 5454."><img src="{{ asset('assets/images/button-wa/button-wa.png') }}" alt=""></a>
                                             <p style="font-weight: bold" class="dash__h2 u-s-m-b-14">Transfer ke BRI(Adly 123 3443 5454).</p>
-                                            <p style="font-weight: bold" class="dash__h2 u-s-m-b-14">Setelah ditransefer silahkan kirim bukti ke WA Satu Tani(083 1221 3232 12).</p>
                                             @endif
                                             <div class="m-order__list">
                                                 @forelse ($checkouts as $checkout)
